@@ -2,51 +2,41 @@ package com.xtotalloss.atdweb.model;
 
 public class Klant {
 	
-	private String voornaam, achternaam, postcode, huisnr, plaats, email, telnummer;
+	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
 	protected Auto auto;
 
-	public Klant(String vnm, String anm, String pcode, String hnr, String plts, String mail, String telnr){
-		voornaam = vnm;
-		achternaam = anm;
-		postcode = pcode;
-		huisnr = hnr;
-		plaats = plts;
+	public Klant(String nm, String anm, String pcode, String hnr, String plts, String mail, String telnr){
+		naam = nm;
+		tel = anm;
+		adres = pcode;
+		gebruikersnaam = hnr;
+		wachtwoord = plts;
 		email = mail;
-		telnummer = telnr;	
-	}
-	
-	public Klant(String vnm, String anm) {
-		voornaam = vnm;
-		achternaam = anm;
 	}
 
 	//Getters
-	public String getVoornaam() {
-		return voornaam;
+	public String getNaam() {
+		return naam;
 	}
 
-	public String getAchternaam() {
-		return achternaam;
+	public String getTelefoonnummer() {
+		return tel;
 	}
 
-	public String getPostcode() {
-		return postcode;
-	}
-
-	public String getHuisnr() {
-		return huisnr;
+	public String getAdres() {
+		return adres;
 	}
 	
-	public String getPlaats() {
-		return plaats;
+	public String getGebruikersnaam() {
+		return gebruikersnaam;
 	}
 	
+	public String getWachtwoord() {
+		return wachtwoord;
+	}
+
 	public String getEmail() {
 		return email;
-	}
-
-	public String getTelnummer() {
-		return telnummer;
 	}
 	
 	public Auto getAuto() {
@@ -54,32 +44,29 @@ public class Klant {
 	}	
 	
 	//Setters
-	public void setVoornaam(String voornaam) {
-		this.voornaam = voornaam;
+	public void setNaam(String naam) {
+		this.naam = naam;
 	}
 	
-	public void setAchternaam(String achternaam) {
-		this.achternaam = achternaam;
+	
+	public void setTelefoonnummer(String tel) {
+		this.tel = tel;
 	}
 	
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
-	}
-	
-	public void setHuisnr(String huisnr) {
-		this.huisnr = huisnr;
+	public void setAdres(String adres) {
+		this.adres = adres;
 	}
 
-	public void setPlaats(String plaats) {
-		this.plaats = plaats;
+	public void setGebruikersnaam(String gebruikersnaam) {
+		this.gebruikersnaam = gebruikersnaam;
+	}
+	
+	public void setWachtwoord(String wachtwoord) {
+		this.wachtwoord = wachtwoord;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void setTelnummer(String telnummer) {
-		this.telnummer = telnummer;
 	}
 
 	public void setAuto(Auto auto) {
@@ -88,13 +75,7 @@ public class Klant {
 
 	//ToString
 	public String toString() {
-		String s = voornaam + " " + achternaam;
+		String s = naam + " " + tel + " " + adres + "\n" + gebruikersnaam + " " + wachtwoord + " " + email; 
 		return s;
-		
-	}
-	
-	public String toStringAlleGegevens() {
-		String aG = voornaam + " " + achternaam + ". \n " + postcode + " " + huisnr + " " + plaats + ". \n " + email + ", " + telnummer; 
-		return aG;
 	}
 }

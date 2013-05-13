@@ -26,6 +26,7 @@
     <div id="content-left" class="shadow rounded">
     	<div class="content-title" style="background-color: #0085B2;">Bestaande klant?<img src="images/arrow-tip.fw.png" /></div>
        	<div class="content-container" style="width: 210px;">
+       		<% Object msgLog = request.getAttribute("msgLog"); if (msgLog != null) { out.println(msgLog); } %>
         	<form method="post" action="loginController.do">
                 <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" value="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" value="Wachtwoord..." onblur="onBlur(this)" onfocus="onFocus(this)" />
@@ -36,6 +37,7 @@
 	<div id="content-right" class="shadow rounded">
     	<div class="content-title" style="background-color: #FF8000">Nog geen account?<img src="images/arrow-tip.fw.png" /></div>
         <div class="content-container" style="width: 440px;">
+        	<% Object msgReg = request.getAttribute("msgReg"); if (msgReg != null) { out.println(msgReg); } %>
         	<form method="post" action="registerController.do">
                 <div style="float: left; width: 210px;">   
                     <input class="form_input" type="text" name="naam" id="naam" value="Voor- en achternaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />

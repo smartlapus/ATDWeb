@@ -12,20 +12,21 @@ public class registerController extends HttpServlet {
 	throws ServletException, IOException {
 		
 		RequestDispatcher rd;
-		String realname = req.getParameter("username");
+		String naam = req.getParameter("naam");
 		String tel = req.getParameter("tel");
 		String adres = req.getParameter("adres");
-		String username = req.getParameter("realname");
-		String password	= req.getParameter("password");
+		String gebruikersnaam = req.getParameter("gebruikersnaam");
+		String wachtwoord	= req.getParameter("wachtwoord");
 		String email = req.getParameter("email");
 				
-		if (("".equals(username) || "".equals(realname) || "".equals(password) || "".equals(email) || "".equals(adres) || "".equals(tel))) {
+		if (("".equals(naam) || "".equals(tel) || "".equals(adres) || "".equals(gebruikersnaam) || "".equals(wachtwoord) || "".equals(email))) {
 			rd = req.getRequestDispatcher("index.jsp");
-			req.setAttribute("msgReg", "Please fill in all forms.");
+			req.setAttribute("msgReg", "<div class='nosucces'>U heeft niet alle velden ingevuld.</div>");
 		} else {
+			//Klant k = new Klant(naam, tel, adres, gebruikersnaam, wachtwoord, email);
+			//hetBedrijf.voegKlantToe(k);
 			rd = req.getRequestDispatcher("index.jsp");
-			req.setAttribute("msgReg", "Account is succesfully created.");
-			//GEBRUIKER TOEVOEGEN AAN ARRAYLIST
+			req.setAttribute("msgReg", "<div class='succes'>Account geregisteerd: + k + </div>");
 		}
 
 		rd.forward(req, resp);

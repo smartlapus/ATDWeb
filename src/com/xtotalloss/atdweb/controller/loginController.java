@@ -12,12 +12,12 @@ public class loginController extends HttpServlet {
 	throws ServletException, IOException {
 		
 		RequestDispatcher rd;
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
+		String gebruikersnaam = req.getParameter("gebruikersnaam");
+		String wachtwoord = req.getParameter("wachtwoord");
 				
-		if (("".equals(username) || "".equals(password))) {
+		if (("".equals(gebruikersnaam) || "".equals(wachtwoord))) {
 			rd = req.getRequestDispatcher("index.jsp");
-			req.setAttribute("msgLog", "Please fill in all forms.");
+			req.setAttribute("msgLog", "<div class='nosucces'>U heeft niet alle velden ingevuld.</div>");
 		} else {
 			rd = req.getRequestDispatcher("account.jsp");
 			//SESSION OF COOKIE SETTEN

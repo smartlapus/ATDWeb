@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	load_tooltip();
 	dropDown();
-	setInterval('slideShow()', 4000);
+	setInterval('slideShow()', 5000);
 })
 
 /* INPUT VALUE */
