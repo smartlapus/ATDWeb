@@ -11,6 +11,7 @@ public class registerController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException {
 		
+		RequestDispatcher rd;
 		String realname = req.getParameter("username");
 		String tel = req.getParameter("tel");
 		String adres = req.getParameter("adres");
@@ -19,13 +20,14 @@ public class registerController extends HttpServlet {
 		String email = req.getParameter("email");
 				
 		if (("".equals(username) || "".equals(realname) || "".equals(password) || "".equals(email) || "".equals(adres) || "".equals(tel))) {
+			rd = req.getRequestDispatcher("index.jsp");
 			req.setAttribute("msgReg", "Please fill in all forms.");
 		} else {
+			rd = req.getRequestDispatcher("index.jsp");
 			req.setAttribute("msgReg", "Account is succesfully created.");
 			//GEBRUIKER TOEVOEGEN AAN ARRAYLIST
 		}
 
-		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
 	}
 }
