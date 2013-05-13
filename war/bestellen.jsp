@@ -14,12 +14,12 @@
 
 <div id="top-header">
 	<div id="top-header-container">
-    	<%@include file="includes/header.jsp" %>
+    	<%@include file="includes/menu.jsp" %>
     </div>
 </div>
 
 <div id="header">
-	<a href="logged.html" class="load_tooltip" data-title="Terug naar hoofdscherm"><img src="images/logo.fw.png" /></a>
+	<%@include file="includes/header.jsp" %>
 </div>
       
 <div id="content" class="shadow rounded">
