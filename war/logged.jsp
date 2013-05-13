@@ -24,7 +24,7 @@
       
 <div id="content" class="shadow rounded">
 	<h1>Welkom, Superman</h1>
-    Hier komt de inhoud.
+    Hier komt de inhoud. Hoi.
 </div>   
 </div>
 </body>
