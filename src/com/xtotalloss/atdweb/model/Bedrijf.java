@@ -1,7 +1,11 @@
 package com.xtotalloss.atdweb.model;
 import java.util.ArrayList;
 
+
+
 public class Bedrijf {
+	
+
 	private String naam;
 	private String adres;
 	protected ArrayList<Klant> alleKlanten;
@@ -9,9 +13,10 @@ public class Bedrijf {
 	public ArrayList<Monteur> alleMonteurs;
 	protected ArrayList<Financien> alleFinancien;
 	
-	public Bedrijf(String nm, String adrs){
-		naam = nm;
-		adres = adrs;
+	public Bedrijf(String naam, String adres){
+		
+		naam = "ATDWeb";
+		adres = "U";
 		alleKlanten = new ArrayList<Klant>();
 		alleMonteurs = new ArrayList<Monteur>();
 		alleFinancien = new ArrayList<Financien>();
@@ -52,6 +57,7 @@ public class Bedrijf {
 		this.adres = adres;
 	}
 
+	
 	//Functions
 	public void voegKlantToe(Klant klant) {
 		if(!alleKlanten.contains(klant)) {

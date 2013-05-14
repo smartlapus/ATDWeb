@@ -5,13 +5,13 @@ public class Klant {
 	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
 	protected Auto auto;
 
-	public Klant(String nm, String anm, String pcode, String hnr, String plts, String mail, String telnr){
+	public Klant(String nm, String adr, String user, String passwd, String mail, String telnr){
 		naam = nm;
-		tel = anm;
-		adres = pcode;
-		gebruikersnaam = hnr;
-		wachtwoord = plts;
+		adres = adr;
+		gebruikersnaam = user;
+		wachtwoord = passwd;
 		email = mail;
+		tel = telnr;
 	}
 
 	//Getters
