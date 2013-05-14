@@ -24,12 +24,13 @@
       
 <div id="content" class="shadow rounded">
 		<h1>Klus toevoegen</h1>
-    <form method="post" action="klusinplannen.do">
+    	<form method="post" action="klusInplannen.do">
           <div style="float: left; width: 210px;">   
                <input class="form_input" type="text" name="naam" id="naam" value="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <input class="form_input" type="text" name="kent" id="kent" value="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <select>
+               <input class="form_input" type="text" name="kent" id="kent" value="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
+               <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+               <select name="monteur">
 					 <option value="monteur1">monteurA</option>
 				     <option value="saab">monteurB</option>
 				     <option value="mercedes">monteurC</option>
@@ -37,7 +38,7 @@
 		 	  </select>
               </div> 
                 	<input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
-	  </form>
+	 	 </form>
 
 </div>   
 </body>
