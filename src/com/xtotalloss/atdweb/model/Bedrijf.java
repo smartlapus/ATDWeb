@@ -9,7 +9,7 @@ public class Bedrijf {
 	private String naam;
 	private String adres;
 	protected ArrayList<Klant> alleKlanten;
-	protected ArrayList<Klus> alleKlussen;
+	public ArrayList<Klus> alleKlussen;
 	public ArrayList<Monteur> alleMonteurs;
 	protected ArrayList<Financien> alleFinancien;
 	

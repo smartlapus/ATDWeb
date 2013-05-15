@@ -24,6 +24,7 @@
       
 <div id="content" class="shadow rounded">
 		<h1>Klus toevoegen</h1>
+		<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println(msgToe); } %>
     	<form method="post" action="klusInplannen.do">
           <div style="float: left; width: 210px;">   
                <input class="form_input" type="text" name="naam" id="naam" value="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
@@ -36,10 +37,9 @@
 				     <option value="mercedes">monteurC</option>
 		   			 <option value="audi">monteurD</option>
 		 	  </select>
-              </div> 
-                	<input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
+		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
+              </div>  	
 	 	 </form>
-
-</div>   
+	</div>   
 </body>
 </html>
