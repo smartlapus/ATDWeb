@@ -14,7 +14,7 @@ public class MonteurToevoegen extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd;
-		boolean monsucces = false;
+		boolean monsucces = true;
 		Monteur dummy = new Monteur("dummy","dummy","1","1","1","1","1","1","1","1","1");
 		hetBedrijf.voegMonteurToe(dummy);
 		String first = req.getParameter("voornaam");
@@ -31,7 +31,17 @@ public class MonteurToevoegen extends HttpServlet {
 		System.out.println("DEBUG: VOOR IF");
 		
 		for(Monteur m : hetBedrijf.alleMonteurs){
-			if(m.getGebruikersnaam() != gebruikersnaam){
+			if(m.getGebruikersnaam().equals(gebruikersnaam)){
+				System.out.println("DEBUG: IN ELSE");
+				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
+				req.setAttribute("msgToe", "<div class='succes'>De gebruikersnaam bestaat al.</div>");
+				rd.forward(req, resp);
+				monsucces = false;
+				break;
+			}
+			}
+			
+			if(monsucces == true){
 				Monteur m2 = null;
 				m2 = new Monteur(first,last,pcode,huisnr,plaats,mail,telnr,bsn,reknr,gebruikersnaam,pass);
 				hetBedrijf.voegMonteurToe(m2);
@@ -40,16 +50,7 @@ public class MonteurToevoegen extends HttpServlet {
 				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
 				req.setAttribute("msgToe", "<div class='succes'>Account geregisteerd:" + m2 + "</div>");
 				rd.forward(req, resp);
-				monsucces = true;
-				break;
-			}
-			}
-			
-			if(monsucces == false){
-				System.out.println("DEBUG: IN ELSE");
-				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
-				req.setAttribute("msgToe", "<div class='succes'>De gebruikersnaam bestaat al.</div>");
-				rd.forward(req, resp);
+				
 			}
 			
 		}
