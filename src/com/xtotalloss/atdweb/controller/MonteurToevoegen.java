@@ -34,7 +34,7 @@ public class MonteurToevoegen extends HttpServlet {
 			if(m.getGebruikersnaam().equals(gebruikersnaam)){
 				System.out.println("DEBUG: IN ELSE");
 				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
-				req.setAttribute("msgToe", "<div class='succes'>De gebruikersnaam bestaat al.</div>");
+				req.setAttribute("msgToe", "<div class='nosucces'>De gebruikersnaam bestaat al.</div>");
 				rd.forward(req, resp);
 				monsucces = false;
 				break;
@@ -48,7 +48,7 @@ public class MonteurToevoegen extends HttpServlet {
 				System.out.println("DEBUG: IN IF");
 				System.out.println(hetBedrijf.alleMonteurs);
 				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
-				req.setAttribute("msgToe", "<div class='succes'>Account geregisteerd:" + m2 + "</div>");
+				req.setAttribute("msgToe", "<div class='succes'>Account geregisteerd: " + gebruikersnaam + "</div>");
 				rd.forward(req, resp);
 				
 			}
