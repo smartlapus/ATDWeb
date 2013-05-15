@@ -2,9 +2,9 @@ package com.xtotalloss.atdweb.model;
 
 public class Monteur {
 	
-	private String voornaam, achternaam, postcode, huisnr, plaats, email, telnummer, bsnnr, reknummer;
+	private String voornaam, achternaam, postcode, huisnr, plaats, email, telnummer, bsnnr, reknummer, gebruikersnaam, wachtwoord;
 
-	public Monteur(String vnm, String anm, String pcode, String hnr, String plts, String mail, String telnr, String bsn, String reknr) {
+	public Monteur(String vnm, String anm, String pcode, String hnr, String plts, String mail, String telnr, String bsn, String reknr, String gbnm, String ww) {
 		voornaam = vnm;
 		achternaam = anm;
 		postcode = pcode;
@@ -14,6 +14,9 @@ public class Monteur {
 		telnummer = telnr;
 		bsnnr = bsn;
 		reknummer = reknr;
+		gebruikersnaam = gbnm;
+		wachtwoord = ww;
+		
 	}
 
 	//Getters
@@ -90,6 +93,22 @@ public class Monteur {
 		this.reknummer = reknummer;
 	}
 	
+	public String getGebruikersnaam() {
+		return gebruikersnaam;
+	}
+
+	public void setGebruikersnaam(String gebruikersnaam) {
+		this.gebruikersnaam = gebruikersnaam;
+	}
+
+	public String getWachtwoord() {
+		return wachtwoord;
+	}
+
+	public void setWachtwoord(String wachtwoord) {
+		this.wachtwoord = wachtwoord;
+	}
+
 	//ToString	
 	public String toString(){
 		String s = voornaam + " " + achternaam;
