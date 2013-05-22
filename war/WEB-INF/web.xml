@@ -33,4 +33,7 @@
 		<servlet-name>MonteurToevoegen</servlet-name>
 		<url-pattern>/MonteurToevoegen.do</url-pattern>
 	</servlet-mapping>	
+	<listener> 
+		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>
+	</listener>
 </web-app>
