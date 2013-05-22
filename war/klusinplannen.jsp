@@ -24,7 +24,7 @@
       
 <div id="content" class="shadow rounded">
 		<h1>Klus toevoegen</h1>
-		<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println(msgToe); } %>
+		<% Object msgKlus = request.getAttribute("msgKlus"); if (msgKlus != null) { out.println(msgKlus); } %>
     	<form method="post" action="klusInplannen.do">
           <div style="float: left; width: 210px;">   
                <input class="form_input" type="text" name="naam" id="naam" value="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
