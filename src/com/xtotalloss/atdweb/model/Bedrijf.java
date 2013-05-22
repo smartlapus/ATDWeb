@@ -8,7 +8,7 @@ public class Bedrijf {
 
 	private String naam;
 	private String adres;
-	protected ArrayList<Klant> alleKlanten;
+	public ArrayList<Klant> alleKlanten;
 	public ArrayList<Klus> alleKlussen;
 	public ArrayList<Monteur> alleMonteurs;
 	protected ArrayList<Financien> alleFinancien;

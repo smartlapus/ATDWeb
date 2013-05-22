@@ -28,8 +28,8 @@
        	<div class="content-container" style="width: 210px;">
        		<% Object msgLog = request.getAttribute("msgLog"); if (msgLog != null) { out.println(msgLog); } %>
         	<form method="post" action="loginController.do">
-                <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" value="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" value="Wachtwoord..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" placeholder="Gebruikersnaam..." />
+                <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord..." />
                 <input class="form_submit" type="submit" name="submit" id="submit" value="Inloggen" />
             </form>
         </div>
