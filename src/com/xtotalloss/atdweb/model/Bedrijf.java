@@ -3,9 +3,8 @@ import java.util.ArrayList;
 
 
 
-public class Bedrijf {
-	
-
+public class Bedrijf implements java.io.Serializable{
+	private static final long serialVersionUID = -6462233708802885889L;
 	private String naam;
 	private String adres;
 	public ArrayList<Klant> alleKlanten;

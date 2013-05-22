@@ -1,7 +1,8 @@
 package com.xtotalloss.atdweb.model;
 
-public class Monteur {
+public class Monteur implements java.io.Serializable{
 	
+	private static final long serialVersionUID = -6447637491564898644L;
 	private String voornaam, achternaam, postcode, huisnr, plaats, email, telnummer, bsnnr, reknummer, gebruikersnaam, wachtwoord;
 
 	public Monteur(String vnm, String anm, String pcode, String hnr, String plts, String mail, String telnr, String bsn, String reknr, String gbnm, String ww) {

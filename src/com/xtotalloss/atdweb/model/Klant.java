@@ -1,7 +1,8 @@
 package com.xtotalloss.atdweb.model;
 
-public class Klant {
-	
+public class Klant implements java.io.Serializable{
+
+	private static final long serialVersionUID = 3779322564661073749L;
 	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
 	protected Auto auto;
 
