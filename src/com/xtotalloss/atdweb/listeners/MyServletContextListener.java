@@ -7,13 +7,21 @@ import com.xtotalloss.atdweb.model.*;
 
 
 public class MyServletContextListener implements ServletContextListener {
-	public void contextInitialized(ServletContextEvent sce) {
-		Bedrijf ATD = new Bedrijf("ATDWeb", "Utrecht");
+	private Bedrijf ATD = new Bedrijf("ATD", "Utrecht");
+	public void contextInitialized(ServletContextEvent sce){
+		try{ 
+		FileInputStream fis = new FileInputStream("ATDWeb.obj");    
+		ObjectInputStream ois = new ObjectInputStream(fis);   
+		Bedrijf ATD = (Bedrijf) ois.readObject();
+		ois.close(); }
+		catch(IOException | ClassNotFoundException ioe){
+			ioe.printStackTrace();
+		}
 		Klant k1 = new Klant("Yassir Driuch", "C. Dirkszstraat 92", "Yassir", "w8woord", "yassir.driuch@gmail.com", "0612345678");
 		ATD.voegKlantToe(k1);
 		System.out.println(k1);
 		System.out.println("Success!");
-	sce.getServletContext().setAttribute("ATD_Object", ATD);
+		sce.getServletContext().setAttribute("ATD_Object", ATD);
 	
 	}
 
