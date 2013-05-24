@@ -1,5 +1,6 @@
 package com.xtotalloss.atdweb.controller;
 
+import com.xtotalloss.atdweb.listeners.MyServletContextListener;
 import com.xtotalloss.atdweb.model.*;
 
 import java.io.IOException;
@@ -10,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class klusInplannen extends HttpServlet {
-	private Bedrijf hetBedrijf = new Bedrijf("ATDWeb", "Utrecht");
-
+	private Bedrijf ATD = MyServletContextListener.ATD;
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher rd;
@@ -19,7 +19,7 @@ public class klusInplannen extends HttpServlet {
 
 		Klus testklus = new Klus("APK", "Bandenspanning controleren",
 				"94-KE-02", "03-02-2013");
-		hetBedrijf.voegKlusToe(testklus);
+		ATD.voegKlusToe(testklus);
 
 		String naam = req.getParameter("naam");
 		String werkzaamheden = req.getParameter("werkzaamheden");
@@ -27,7 +27,7 @@ public class klusInplannen extends HttpServlet {
 		String datum = req.getParameter("dat");
 		// String monteur = req.getParameter("monteur");
 
-		for (Klus kl : hetBedrijf.alleKlussen) {
+		for (Klus kl : ATD.alleKlussen) {
 			if (kl.getNaam().equals(naam)) {
 				System.out.println("DEBUG: IN ELSE");
 				klustoegevoegd = false;
@@ -40,9 +40,9 @@ public class klusInplannen extends HttpServlet {
 		}
 		if (klustoegevoegd == true) {
 			Klus kl1 = new Klus(naam, werkzaamheden, kenteken, datum);
-			hetBedrijf.voegKlusToe(kl1);
+			ATD.voegKlusToe(kl1);
 			System.out.println("DEBUG: IN IF");
-			System.out.println(hetBedrijf.alleKlussen);
+			System.out.println(ATD.alleKlussen);
 			rd = req.getRequestDispatcher("klusinplannen.jsp");
 			req.setAttribute("msgKlus", "<div class='succes'>Klus is toegevoegd:" + kl1 + "</div>");
 			rd.forward(req, resp);

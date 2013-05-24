@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xtotalloss.atdweb.listeners.MyServletContextListener;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 
 public class registerController extends HttpServlet {
-	
-	Bedrijf hetBedrijf = new Bedrijf("ATDWeb", "Utrecht");
-	
+	private Bedrijf ATD = MyServletContextListener.ATD;
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException {
 		
@@ -31,7 +30,7 @@ public class registerController extends HttpServlet {
 			req.setAttribute("msgReg", "<div class='nosucces'>U heeft niet alle velden ingevuld.</div>");
 		} else {
 			Klant k = new Klant(naam, adres, gebruikersnaam, wachtwoord, email, tel);
-			hetBedrijf.voegKlantToe(k);
+			ATD.voegKlantToe(k);
 			
 			rd = req.getRequestDispatcher("index.jsp");
 			req.setAttribute("msgReg", "<div class='succes'>Account geregisteerd:" + k.getGebruikersnaam() + "</div>");
