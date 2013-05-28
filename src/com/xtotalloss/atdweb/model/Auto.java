@@ -40,7 +40,5 @@ public class Auto {
 	//ToString
 	public String toString(){
 		return merk + " " + type + ", bouwjaar: " + bouwjaar;
-	}
-	
-	
+	}	
 }

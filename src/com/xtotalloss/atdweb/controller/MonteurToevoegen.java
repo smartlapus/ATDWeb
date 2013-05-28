@@ -30,7 +30,7 @@ public class MonteurToevoegen extends HttpServlet {
 		String pass = req.getParameter("password");
 		System.out.println("DEBUG: VOOR IF");
 		
-		for(Monteur m : ATD.alleMonteurs){
+		for(Monteur m : ATD.alleMonteurs) {
 			if(m.getGebruikersnaam().equals(gebruikersnaam)){
 				System.out.println("DEBUG: IN ELSE");
 				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
@@ -39,21 +39,19 @@ public class MonteurToevoegen extends HttpServlet {
 				monsucces = false;
 				break;
 			}
-			}
-			
-			if(monsucces == true){
-				Monteur m2 = null;
-				m2 = new Monteur(first,last,pcode,huisnr,plaats,mail,telnr,bsn,reknr,gebruikersnaam,pass);
-				ATD.voegMonteurToe(m2);
-				System.out.println("DEBUG: IN IF");
-				System.out.println(ATD.alleMonteurs);
-				rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
-				req.setAttribute("msgToe", "<div class='succes'>Account geregisteerd: " + gebruikersnaam + "</div>");
-				rd.forward(req, resp);
-				
-			}
-			
 		}
+			
+		if(monsucces == true) {
+			Monteur m2 = null;
+			m2 = new Monteur(first,last,pcode,huisnr,plaats,mail,telnr,bsn,reknr,gebruikersnaam,pass);
+			ATD.voegMonteurToe(m2);
+			System.out.println("DEBUG: IN IF");
+			System.out.println(ATD.alleMonteurs);
+			rd = req.getRequestDispatcher("monteurtoevoegen.jsp");
+			req.setAttribute("msgToe", "<div class='succes'>Account geregisteerd: " + gebruikersnaam + "</div>");
+			rd.forward(req, resp);
+		}	
 	}
+}
 	
 

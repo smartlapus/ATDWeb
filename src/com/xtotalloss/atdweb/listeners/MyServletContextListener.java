@@ -24,7 +24,6 @@ public class MyServletContextListener implements ServletContextListener {
 		System.out.println(k1);
 		System.out.println("Success!");
 		sce.getServletContext().setAttribute("ATD_Object", ATD);
-	
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
@@ -36,8 +35,7 @@ public class MyServletContextListener implements ServletContextListener {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(ATD);
 			oos.close();
-		} 
-		
+		}
 		catch (IOException ioe) {
 			ioe.printStackTrace(); 
 		}
