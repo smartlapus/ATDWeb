@@ -1,1 +1,1 @@
-<a href="account.html" class="load_tooltip" data-title="Terug naar hoofdscherm"><img src="images/logo.fw.png" /></a>
+<a href="index.jsp" class="load_tooltip" data-title="Terug naar hoofdscherm"><img src="images/logo.fw.png" /></a>

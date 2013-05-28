@@ -9,6 +9,10 @@
 		<servlet-class>com.xtotalloss.atdweb.controller.registerController</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>logoutController</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.logoutController</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>klusInplannen</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.klusInplannen</servlet-class>
 	</servlet>
@@ -16,7 +20,11 @@
 		<servlet-name>MonteurToevoegen</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.MonteurToevoegen</servlet-class>
 	</servlet>
-	
+	<servlet>
+		<servlet-name>MonteurOverzichtServlet</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.MonteurOverzichtServlet</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>loginController</servlet-name>
 		<url-pattern>/loginController.do</url-pattern>
@@ -26,6 +34,10 @@
 		<url-pattern>/registerController.do</url-pattern>
 	</servlet-mapping>	
 	<servlet-mapping>
+		<servlet-name>logoutController</servlet-name>
+		<url-pattern>/logoutController.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>klusInplannen</servlet-name>
 		<url-pattern>/klusInplannen.do</url-pattern>
 	</servlet-mapping>
@@ -33,6 +45,11 @@
 		<servlet-name>MonteurToevoegen</servlet-name>
 		<url-pattern>/MonteurToevoegen.do</url-pattern>
 	</servlet-mapping>	
+	<servlet-mapping>
+		<servlet-name>MonteurOverzichtServlet</servlet-name>
+		<url-pattern>/MonteurOverzichtServlet.do</url-pattern>
+	</servlet-mapping>
+	
 	<listener> 
 		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>
 	</listener>

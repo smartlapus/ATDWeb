@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class MonteurToevoegen extends HttpServlet {
+	private static final long serialVersionUID = -162531052446206437L;
 	private Bedrijf ATD = MyServletContextListener.ATD;
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd;
 		boolean monsucces = true;
@@ -42,8 +44,7 @@ public class MonteurToevoegen extends HttpServlet {
 		}
 			
 		if(monsucces == true) {
-			Monteur m2 = null;
-			m2 = new Monteur(first,last,pcode,huisnr,plaats,mail,telnr,bsn,reknr,gebruikersnaam,pass);
+			Monteur m2 = new Monteur(first, last, pcode, huisnr, plaats, mail, telnr, bsn, reknr, gebruikersnaam, pass);
 			ATD.voegMonteurToe(m2);
 			System.out.println("DEBUG: IN IF");
 			System.out.println(ATD.alleMonteurs);

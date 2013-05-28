@@ -1,14 +1,19 @@
 package com.xtotalloss.atdweb.listeners;
 
-import java.io.*; 
-import javax.servlet.*;
-import com.xtotalloss.atdweb.model.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
+import com.xtotalloss.atdweb.model.Bedrijf;
+import com.xtotalloss.atdweb.model.Klant;
 
 public class MyServletContextListener implements ServletContextListener {
 	public static Bedrijf ATD;
-	public void contextInitialized(ServletContextEvent sce){
+	
+	public void contextInitialized(ServletContextEvent sce) {
 		ATD = new Bedrijf("ATDWeb", "Utrecht");
 		/*try{ 
 		FileInputStream fis = new FileInputStream("ATDWeb.obj");    

@@ -2,7 +2,7 @@
 	<li><a href="#" class="button" style="background-image: url(images/icons/cog.fw.png);">Algemeen</a>
 		<ul>
 			<li><a href="account.jsp">Mijn account</a></li>
-			<li><a href="uitloggen.jsp">Uitloggen</a></li>
+			<li><a href="logoutController.do">Uitloggen</a></li>
 		</ul>
 	</li>
 	<li><a href="klanten.jsp" class="button" style="background-image: url(images/icons/user.fw.png);">Klanten</a></li>

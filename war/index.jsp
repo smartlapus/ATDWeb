@@ -1,3 +1,10 @@
+<%
+if(null != session.getAttribute("loggedIn")){
+	RequestDispatcher rd = request.getRequestDispatcher("account.jsp");
+	rd.forward(request, response);
+}
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -40,14 +47,14 @@
         	<% Object msgReg = request.getAttribute("msgReg"); if (msgReg != null) { out.println(msgReg); } %>
         	<form method="post" action="registerController.do">
                 <div style="float: left; width: 210px;">   
-                    <input class="form_input" type="text" name="naam" id="naam" value="Voor- en achternaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="tel" id="tel" value="Telefoonnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="adres" id="adres" value="Adres + huisnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="naam" id="naam" placeholder="Voor- en achternaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="tel" id="tel" placeholder="Telefoonnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="adres" id="adres" placeholder="Adres + huisnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                 </div> 
                 <div style="float: right; width: 210px;">   
-                    <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" value="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" value="Wachtwoord..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="email" id="email" value="Email adres..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" placeholder="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="email" id="email" placeholder="Email adres..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                 </div> 
                 <input class="form_submit" type="submit" name="submit" id="submit" value="Registreren" />
             </form>

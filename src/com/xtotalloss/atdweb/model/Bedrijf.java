@@ -110,4 +110,6 @@ public class Bedrijf implements java.io.Serializable{
 			alleFinancien.add(fin);
 		}
 	}
+
+
 }

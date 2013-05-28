@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class klusInplannen extends HttpServlet {
+	private static final long serialVersionUID = 6787392421160231316L;
 	private Bedrijf ATD = MyServletContextListener.ATD;
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd;
 		boolean klustoegevoegd = true;
 
-		Klus testklus = new Klus("APK", "Bandenspanning controleren",
-				"94-KE-02", "03-02-2013");
+		Klus testklus = new Klus("APK", "Bandenspanning controleren", "94-KE-02", "03-02-2013");
 		ATD.voegKlusToe(testklus);
 
 		String naam = req.getParameter("naam");
