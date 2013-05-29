@@ -9,6 +9,7 @@ import javax.servlet.ServletContextListener;
 
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
+import com.xtotalloss.atdweb.model.Monteur;
 
 public class MyServletContextListener implements ServletContextListener {
 	public static Bedrijf ATD;
@@ -26,9 +27,18 @@ public class MyServletContextListener implements ServletContextListener {
 		System.out.println(ATD);
 		Klant k1 = new Klant("Yassir Driuch", "C. Dirkszstraat 92", "admin", "admin", "yassir.driuch@gmail.com", "0612345678");
 		ATD.voegKlantToe(k1);
+		Monteur m1 = new Monteur("Joyce", "Gadellaa", "1234FD", "12", "De Bilt", "dion@d.nl", "0623645712", "1234567890", "1234567", "Joyce01", "mypass");
+		Monteur m2 = new Monteur("Robin", "Altena", "5634AD", "112", "Utrecht", "Martin@d.nl", "0612345678", "1234567890", "1234567", "Robin", "j3Qel45Ds");
+		Monteur m3 = new Monteur("Victor", "Verstappen", "4561MN", "65", "Utrecht", "Jason@bricks.com", "0694769372", "1234567890", "1234567", "Stryder", "$se2!Er3se");
+		ATD.voegMonteurToe(m1);
+		ATD.voegMonteurToe(m3);
+		ATD.voegMonteurToe(m2);
 		System.out.println(k1);
 		System.out.println("Success!");
+		System.out.println(ATD.alleMonteurs);
+		System.out.println(ATD.getAlleMonteurs());
 		sce.getServletContext().setAttribute("ATD_Object", ATD);
+		sce.getServletContext().setAttribute("monteurslijst", ATD.alleMonteurs);
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
