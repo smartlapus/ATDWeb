@@ -24,7 +24,7 @@ public class MyServletContextListener implements ServletContextListener {
 			ioe.printStackTrace();
 		}*/
 		System.out.println(ATD);
-		Klant k1 = new Klant("Yassir Driuch", "C. Dirkszstraat 92", "Yassir", "w8woord", "yassir.driuch@gmail.com", "0612345678");
+		Klant k1 = new Klant("Yassir Driuch", "C. Dirkszstraat 92", "admin", "admin", "yassir.driuch@gmail.com", "0612345678");
 		ATD.voegKlantToe(k1);
 		System.out.println(k1);
 		System.out.println("Success!");

@@ -38,12 +38,6 @@ if(null == session.getAttribute("loggedIn")){
                <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                <input class="form_input" type="text" name="kent" id="kent" value="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
                <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <select name="monteur">
-					 <option value="monteur1">monteurA</option>
-				     <option value="saab">monteurB</option>
-				     <option value="mercedes">monteurC</option>
-		   			 <option value="audi">monteurD</option>
-		 	  </select>
 		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
               </div>  	
 	 	 </form>

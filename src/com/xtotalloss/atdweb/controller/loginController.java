@@ -3,6 +3,7 @@ package com.xtotalloss.atdweb.controller;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ public class loginController extends HttpServlet {
 		if(loginSucces) {
 			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			rd = req.getRequestDispatcher("account.jsp");
+			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
 		} else {
 			rd = req.getRequestDispatcher("index.jsp");
 			req.setAttribute("msgLog", "<div class='nosucces'>Gebruikersnaam en wachtwoord combinatie incorrect.</div>");
