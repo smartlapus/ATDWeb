@@ -2,6 +2,7 @@
 if(null == session.getAttribute("loggedIn")){
 	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 	rd.forward(request, response);
+	return;
 }
 %>
 
@@ -48,7 +49,10 @@ if(null == session.getAttribute("loggedIn")){
     <div class="row">
         <div class="column-first">Email</div><div class="column-second"><%out.print(klant.getEmail());%></div>
     </div>
-    <a class="button-black">Gegevens wijzigen</a>
+    <div class="row">
+        <div class="column-first">Wachtwoord</div><div class="column-second">********</div>
+    </div>
+    <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
 
 </body>
