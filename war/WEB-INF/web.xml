@@ -24,7 +24,10 @@
 		<servlet-name>MonteurOverzichtServlet</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.MonteurOverzichtServlet</servlet-class>
 	</servlet>
-
+	<servlet>
+		<servlet-name>KlusAanpassen</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.KlusAanpassen</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginController</servlet-name>
 		<url-pattern>/loginController.do</url-pattern>
@@ -49,7 +52,10 @@
 		<servlet-name>MonteurOverzichtServlet</servlet-name>
 		<url-pattern>/MonteurOverzichtServlet.do</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>KlusAanpassen</servlet-name>
+		<url-pattern>/KlusAanpassen.do</url-pattern>
+	</servlet-mapping>
 	<listener> 
 		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>
 	</listener>

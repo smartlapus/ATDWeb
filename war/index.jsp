@@ -47,14 +47,14 @@ if(null != session.getAttribute("loggedIn")){
         	<% Object msgReg = request.getAttribute("msgReg"); if (msgReg != null) { out.println(msgReg); } %>
         	<form method="post" action="registerController.do">
                 <div style="float: left; width: 210px;">   
-                    <input class="form_input" type="text" name="naam" id="naam" placeholder="Voor- en achternaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="tel" id="tel" placeholder="Telefoonnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="adres" id="adres" placeholder="Adres + huisnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="naam" id="naam" placeholder="Voor- en achternaam..." onblur="onBlur(this)" onfocus="onFocus(this)" value="${param.naam}" />
+                    <input class="form_input" type="text" name="tel" id="tel" placeholder="Telefoonnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" value="${param.tel}" />
+                    <input class="form_input" type="text" name="adres" id="adres" placeholder="Adres + huisnummer..." onblur="onBlur(this)" onfocus="onFocus(this)" value="${param.adres}" />
                 </div> 
                 <div style="float: right; width: 210px;">   
-                    <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" placeholder="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="gebruikersnaam" id="gebruikersnaam" placeholder="Gebruikersnaam..." onblur="onBlur(this)" onfocus="onFocus(this)" value="${param.gebruikersnaam}" />
                     <input class="form_input" type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-                    <input class="form_input" type="text" name="email" id="email" placeholder="Email adres..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+                    <input class="form_input" type="text" name="email" id="email" placeholder="Email adres..." onblur="onBlur(this)" onfocus="onFocus(this)" value="${param.email}" />
                 </div> 
                 <input class="form_submit" type="submit" name="submit" id="submit" value="Registreren" />
             </form>

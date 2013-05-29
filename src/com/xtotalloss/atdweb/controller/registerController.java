@@ -15,37 +15,44 @@ import com.xtotalloss.atdweb.model.Klant;
 public class registerController extends HttpServlet {
 	private static final long serialVersionUID = 1911902193740282162L;
 	private Bedrijf ATD = MyServletContextListener.ATD;
-	
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)	throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		RequestDispatcher rd;
-		boolean registerSucces;
-		
+
 		String naam = req.getParameter("naam");
 		String tel = req.getParameter("tel");
 		String adres = req.getParameter("adres");
 		String gebruikersnaam = req.getParameter("gebruikersnaam");
-		String wachtwoord	= req.getParameter("wachtwoord");
+		String wachtwoord = req.getParameter("wachtwoord");
 		String email = req.getParameter("email");
-		registerSucces = doRegister(naam, adres, gebruikersnaam, wachtwoord, email, tel); 
-			
-		if(registerSucces) {
-			Klant k = new Klant(naam, adres, gebruikersnaam, wachtwoord, email, tel);
-			ATD.voegKlantToe(k);
-			req.setAttribute("msgReg", "<div class='succes'>Account geregisteerd:" + k.getGebruikersnaam() + "</div>");
-			rd = req.getRequestDispatcher("index.jsp");
-		} else {
-			req.setAttribute("msgReg", "<div class='nosucces'>U heeft niet alle velden ingevuld.</div>");
+
+		if ("".equals(naam) || "".equals(tel) || "".equals(adres) || "".equals(gebruikersnaam) || 
+				"".equals(wachtwoord)|| "".equals(email)) {
+			req.setAttribute("msgReg",
+					"<div class='nosucces'>U heeft niet alle velden ingevuld.</div>");
 			rd = req.getRequestDispatcher("index.jsp");
 		}
-		
+		else if (naam.matches(".*[0-9].*")) {
+			req.setAttribute("msgReg",
+					"<div class='nosucces'>Een naam mag alleen uit letters bestaan.</div>");
+			rd = req.getRequestDispatcher("index.jsp");
+
+		}
+		else if (!tel.matches(".*[0-9].*")) {
+			req.setAttribute("msgReg",
+					"<div class='nosucces'>Telefoonnummer mag alleen uit cijfers bestaan.</div>");
+			rd = req.getRequestDispatcher("index.jsp");
+		}
+		else {
+			Klant k = new Klant(naam, adres, gebruikersnaam, wachtwoord, email,tel);
+			ATD.voegKlantToe(k);
+			req.setAttribute("msgReg","<div class='succes'>Account geregisteerd:"
+						+ k.getGebruikersnaam() + "</div>");
+			rd = req.getRequestDispatcher("index.jsp");
+		}
+
 		rd.forward(req, resp);
 	}
-	
-	private boolean doRegister(String nm, String ad, String gebr, String ww, String em, String tel) {
-		boolean registerSucces = false;
-		if(!nm.equals("") && !ad.equals("") && !gebr.equals("") && !ww.equals("") && !em.equals("") && !tel.equals("")) {
-			registerSucces = true;
-		}
-		return registerSucces;
-	}
+
 }
