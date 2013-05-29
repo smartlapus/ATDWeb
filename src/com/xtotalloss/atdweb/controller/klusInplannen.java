@@ -18,9 +18,6 @@ public class klusInplannen extends HttpServlet {
 		RequestDispatcher rd;
 		boolean klustoegevoegd = true;
 
-		Klus testklus = new Klus("APK", "Bandenspanning controleren", "94-KE-02", "03-02-2013");
-		ATD.voegKlusToe(testklus);
-
 		String naam = req.getParameter("naam");
 		String werkzaamheden = req.getParameter("werkzaamheden");
 		String kenteken = req.getParameter("kent");

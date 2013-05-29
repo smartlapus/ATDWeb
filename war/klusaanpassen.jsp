@@ -33,9 +33,16 @@
 
 	<div id="content" class="shadow rounded">
 		<h1>Klus aanpassen</h1>
+		<h1>Klusnaam	Werkzaamheden	Kenteken	Datum</h1>
+		<%@ page import="java.util.ArrayList"%>
+		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
 		<form method="post" action="KlusAanpassen.do">
-				Hier komt de inhoud van de klus 
-				<input class="form_submit" type="submit" name="submit" id="submit" value="Klus opslaan" />
+			<%
+				ArrayList<Klus> alleKlussen = (ArrayList<Klus>) request.getServletContext().getAttribute("kluslijst");
+				System.out.println(alleKlussen);
+				for (Klus kl : alleKlussen) {
+					out.println(kl.getNaam() + " " + kl.getWerkzaamheden() + " " + kl.getKenteken() + " " + kl.getDatum()); %> <input class="" type="submit" name="submit" id="submit" value="Klus aanpassen" /><br> 
+					<% }%>
 		</form>
 	</div>
 </body>
