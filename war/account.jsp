@@ -1,3 +1,5 @@
+<%@ page import="com.xtotalloss.atdweb.model.Klant"%>
+
 <%
 if(null == session.getAttribute("loggedIn")){
 	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -19,6 +21,10 @@ if(null == session.getAttribute("loggedIn")){
 
 <body>
 
+		<%
+			Klant klant = (Klant) session.getAttribute("klantObject");
+		%>
+
 <div id="top-header">
 	<div id="top-header-container">
     	<%@include file="includes/menu.jsp" %>
@@ -32,22 +38,22 @@ if(null == session.getAttribute("loggedIn")){
 <div id="content" class="shadow rounded">
 	<h1>Mijn Account</h1>
     <div class="row">
-        <div class="column-first">Naam</div><div class="column-second">Superman</div>
+        <div class="column-first">Naam</div><div class="column-second"><%out.print(klant.getNaam());%></div>
     </div>
     <div class="row">
-        <div class="column-first">Adres</div><div class="column-second">Superstraat</div>
+        <div class="column-first">Adres</div><div class="column-second"><%out.print(klant.getAdres());%></div>
     </div>
     <div class="row">
-        <div class="column-first">Telefoonnummer</div><div class="column-second">06 s-u-p-a-h</div>
+        <div class="column-first">Telefoonnummer</div><div class="column-second"><%out.print(klant.getTelefoonnummer());%></div>
     </div>
     <div class="row">
-        <div class="column-first">Gebruikersnaam</div><div class="column-second">SupahMan030</div>
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%out.print(klant.getGebruikersnaam());%></div>
     </div>
     <div class="row">
-        <div class="column-first">Email</div><div class="column-second">super_man@hotmail.com</div>
+        <div class="column-first">Email</div><div class="column-second"><%out.print(klant.getEmail());%></div>
     </div>
     <a class="button-black">Gegevens wijzigen</a>
 </div>   
-</div>
+
 </body>
 </html>

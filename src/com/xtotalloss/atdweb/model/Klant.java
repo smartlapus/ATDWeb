@@ -14,6 +14,12 @@ public class Klant implements java.io.Serializable{
 		email = mail;
 		tel = telnr;
 	}
+	
+	public Klant(String user, String passwd){
+		gebruikersnaam = user;
+		wachtwoord = passwd;
+	}
+	
 
 	//Getters
 	public String getNaam() {
