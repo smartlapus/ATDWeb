@@ -47,8 +47,13 @@ if(null == session.getAttribute("loggedIn")){
 				<input class="form_input" type="text" name="rekeningnr" id="reknr" placeholder="Rekening Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="text" name="gebruikersnaam" id="gebnaam" placeholder="Gebruikersnaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="password" name="password" id="password" placeholder="Wachtwoord" onblur="onBlur(this)" onfocus="onFocus(this)" />	
-    			<input class="form_submit" type="submit" name="submit" id="submit" value="Voeg Toe!" onblur="onBlur(this)" onfocus="onFocus(this)" />
+    			<input class="form_submit" type="submit" name="submit" id="submit" value="Aanpassen" onblur="onBlur(this)" onfocus="onFocus(this)" />
     	</div>
+    	<div style="float: left; width: 220px;">
+    	<h3>Wachtwoord resetten</h3>
+    	  <input class="form_input" type="password" name="password" id="password" placeholder="Wachtwoord" onblur="onBlur(this)" onfocus="onFocus(this)" />
+    	    <input class="form_input" type="password" name="password" id="password" placeholder="Wachtwoord" onblur="onBlur(this)" onfocus="onFocus(this)" />
+   		</div>
     </form>
 </div>   
 
