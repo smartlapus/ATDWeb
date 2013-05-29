@@ -15,14 +15,43 @@ import com.xtotalloss.atdweb.model.Monteur;
 
 public class MonteurOverzichtServlet extends HttpServlet {
 	private static final long serialVersionUID = -6497873098880191026L;
-	//private Bedrijf atd = MyServletContextListener.ATD;
+	private Bedrijf atd = MyServletContextListener.ATD;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute("ATD_Object");
-		System.out.println(atd);
-		ArrayList<Monteur> monteurs =(ArrayList<Monteur>) atd.alleMonteurs;
-		System.out.println("Monteurattr: "+monteurs);
-		req.setAttribute("monteurslijst", monteurs);
+		String first = req.getParameter("voornaam");
+		String last = req.getParameter("achternaam");
+		String pcode = req.getParameter("postcode");
+		String huisnr = req.getParameter("huisnr");
+		String plaats = req.getParameter("plaats");
+		String mail = req.getParameter("email");
+		String telnr = req.getParameter("telnr");
+		String bsn = req.getParameter("bsnnr");
+		String reknr = req.getParameter("rekeningnr");
+		String gebruikersnaam = req.getParameter("gebruikersnaam");
+		String pass = req.getParameter("password");
+		String pass2 = req.getParameter("password2");
+		String action = req.getParameter("submit");
+		
+		if(action.equals("Voeg Toe!")){
+			Monteur m = ;
+			m.setVoornaam(first);
+			m.setAchternaam(last);
+			m.setPostcode(pcode);
+			m.setHuisnr(huisnr);
+			m.setPlaats(plaats);
+			m.setEmail(mail);
+			m.setTelnummer(telnr);
+			m.setBsnnr(bsn);
+			m.setReknummer(reknr);
+			m.setGebruikersnaam(gebruikersnaam);
+		}
+		
+		if(action.equals("Reset")){
+			Monteur m = ;
+			if(pass.equals(pass2)){
+				m.setWachtwoord(pass);
+			}
+		}
 		
 		
 		RequestDispatcher rd = null;

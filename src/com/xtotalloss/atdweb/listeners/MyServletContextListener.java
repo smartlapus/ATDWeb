@@ -10,6 +10,7 @@ import javax.servlet.ServletContextListener;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Monteur;
+import com.xtotalloss.atdweb.model.Klus;
 
 public class MyServletContextListener implements ServletContextListener {
 	public static Bedrijf ATD;
@@ -33,12 +34,17 @@ public class MyServletContextListener implements ServletContextListener {
 		ATD.voegMonteurToe(m1);
 		ATD.voegMonteurToe(m3);
 		ATD.voegMonteurToe(m2);
+		Klus kl1 = new Klus("APK Keuring", "Alles controleren", "07-IA-21", "02-04-12");
+		ATD.voegKlusToe(kl1);
 		System.out.println(k1);
 		System.out.println("Success!");
 		System.out.println(ATD.alleMonteurs);
 		System.out.println(ATD.getAlleMonteurs());
+		System.out.println(ATD.alleKlussen);
+		System.out.println(ATD.getAlleKlussen());
 		sce.getServletContext().setAttribute("ATD_Object", ATD);
 		sce.getServletContext().setAttribute("monteurslijst", ATD.alleMonteurs);
+		sce.getServletContext().setAttribute("kluslijst", ATD.alleKlussen);
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {

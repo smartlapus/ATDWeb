@@ -1,10 +1,10 @@
 
 <%
-	//if (null == session.getAttribute("loggedIn")) {
-		//RequestDispatcher rd = request
-			//	.getRequestDispatcher("index.jsp");
-		//rd.forward(request, response);
-	//}
+	if (null == session.getAttribute("loggedIn")) {
+		RequestDispatcher rd = request
+				.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -36,18 +36,41 @@
 		<%@ page import="java.util.ArrayList" %>
 		<%@ page import="com.xtotalloss.atdweb.model.Monteur" %>
 		<form action="MonteurOverzichtServlet" method="get" >
-			<div style="float: left; width: 220px;">
+			 <div style="float: left; width: 220px;">  
 				<select>
 					<%
 						ArrayList<Monteur> alleMonteurs = (ArrayList<Monteur>)request.getServletContext().getAttribute("monteurslijst");
 						System.out.println(alleMonteurs);
 						for (Monteur m : alleMonteurs) {
-							out.println("<option value=\"" + m.getVoornaam() + "\">" + m.getAchternaam()+ "</option>");
+							out.println("<option value=\"" + m.getVoornaam() + "\">" +m.getVoornaam() + " " + m.getAchternaam()+ "</option>");
 						}
+						
 					%>
 				</select>
-
-			</div>
+				 <br />
+				<input class="form_input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="achternaam" id="achternaam" placeholder="Achternaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="postcode" id="pcode" placeholder="Postcode" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="huisnr" id="huis" placeholder="Huisnr" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="plaats" id="plaats" placeholder="Plaats" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="email" id="mail" placeholder="Email" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				</div>
+				<div style="float: left; width: 220px;">
+				<br />
+                <input class="form_input" type="text" name="telnr" id="telnr" placeholder="Telefoonnummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="bsnnr" id="bsn" placeholder="Burger Service Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="rekeningnr" id="reknr" placeholder="Rekening Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="gebruikersnaam" id="gebnaam" placeholder="Gebruikersnaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_submit" type="submit" name="submit" id="submit" value="Voeg Toe!" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                
+                </div>
+                <div style="float: left; width: 220px;">
+                <h3>Wachtwoord resetten</h3>
+                <input class="form_input" type="password" name="password" id="password" placeholder="Wachtwoord" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="password" name="password2" id="password" placeholder="Wachtwoord herhalen" onblur="onBlur(this)" onfocus="onFocus(this)" />	   			
+    			<input class="form_submit" type="submit" name="submit" id="submit" value="Reset" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				</div>
+			
 		</form>
 	</div>
 </body>
