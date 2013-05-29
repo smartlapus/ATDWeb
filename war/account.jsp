@@ -1,5 +1,3 @@
-<%@ page import="com.xtotalloss.atdweb.model.Klant"%>
-
 <%
 if(null == session.getAttribute("loggedIn")){
 	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -21,9 +19,7 @@ if(null == session.getAttribute("loggedIn")){
 
 <body>
 
-		<%
-			Klant klant = (Klant) session.getAttribute("klantObject");
-		%>
+		
 
 <div id="top-header">
 	<div id="top-header-container">
