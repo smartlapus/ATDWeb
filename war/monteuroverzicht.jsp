@@ -34,33 +34,32 @@
 	<div id="content" class="shadow rounded">
 		<h1>Monteur Overzicht</h1>
 		<%@ page import="java.util.ArrayList" %>
-		<%@ page import="com.xtotalloss.atdweb.model.Monteur" %>
+		<%@ page import="com.xtotalloss.atdweb.model.*" %>
 		<form action="MonteurOverzichtServlet" method="get" >
 			 <div style="float: left; width: 220px;">  
-				<select>
+				<select name="dropdown">
 					<%
-						ArrayList<Monteur> alleMonteurs = (ArrayList<Monteur>)request.getServletContext().getAttribute("monteurslijst");
-						System.out.println(alleMonteurs);
-						for (Monteur m : alleMonteurs) {
-							out.println("<option value=\"" + m.getVoornaam() + "\">" +m.getVoornaam() + " " + m.getAchternaam()+ "</option>");
+						Bedrijf atd = (Bedrijf)request.getServletContext().getAttribute("ATD_Object");
+						System.out.println(atd.alleMonteurs);
+						for (Monteur m : atd.alleMonteurs) {
+							out.println("<option value=\"" + m.toString() + "\">" +m.toString()+ "</option>");
 						}
-						
 					%>
 				</select>
 				 <br />
-				<input class="form_input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
-                <input class="form_input" type="text" name="achternaam" id="achternaam" placeholder="Achternaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
-                <input class="form_input" type="text" name="postcode" id="pcode" placeholder="Postcode" onblur="onBlur(this)" onfocus="onFocus(this)" />
-				<input class="form_input" type="text" name="huisnr" id="huis" placeholder="Huisnr" onblur="onBlur(this)" onfocus="onFocus(this)" />
-				<input class="form_input" type="text" name="plaats" id="plaats" placeholder="Plaats" onblur="onBlur(this)" onfocus="onFocus(this)" />
-                <input class="form_input" type="text" name="email" id="mail" placeholder="Email" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="voornaam" id="voornaam" value="" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="achternaam" id="achternaam" value="Achternaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="postcode" id="pcode" value="Postcode" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="huisnr" id="huis" value="Huisnr" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="plaats" id="plaats" value="Plaats" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="email" id="mail" value="Email" onblur="onBlur(this)" onfocus="onFocus(this)" />
 				</div>
 				<div style="float: left; width: 220px;">
 				<br />
-                <input class="form_input" type="text" name="telnr" id="telnr" placeholder="Telefoonnummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
-				<input class="form_input" type="text" name="bsnnr" id="bsn" placeholder="Burger Service Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
-				<input class="form_input" type="text" name="rekeningnr" id="reknr" placeholder="Rekening Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
-                <input class="form_input" type="text" name="gebruikersnaam" id="gebnaam" placeholder="Gebruikersnaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="telnr" id="telnr" value="Telefoonnummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="bsnnr" id="bsn" value="Burger Service Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="rekeningnr" id="reknr" value="Rekening Nummer" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="gebruikersnaam" id="gebnaam" value="Gebruikersnaam" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_submit" type="submit" name="submit" id="submit" value="Voeg Toe!" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 
                 </div>

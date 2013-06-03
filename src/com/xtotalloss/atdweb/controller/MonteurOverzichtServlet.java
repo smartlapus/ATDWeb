@@ -15,9 +15,11 @@ import com.xtotalloss.atdweb.model.Monteur;
 
 public class MonteurOverzichtServlet extends HttpServlet {
 	private static final long serialVersionUID = -6497873098880191026L;
-	private Bedrijf atd = MyServletContextListener.ATD;
-	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute(
+				"ATD_Object");
 		String first = req.getParameter("voornaam");
 		String last = req.getParameter("achternaam");
 		String pcode = req.getParameter("postcode");
@@ -30,37 +32,40 @@ public class MonteurOverzichtServlet extends HttpServlet {
 		String gebruikersnaam = req.getParameter("gebruikersnaam");
 		String pass = req.getParameter("password");
 		String pass2 = req.getParameter("password2");
+		String monteur = req.getParameter("dropdown");
 		String action = req.getParameter("submit");
-		
-		if(action.equals("Voeg Toe!")){
-			Monteur m = ;
-			m.setVoornaam(first);
-			m.setAchternaam(last);
-			m.setPostcode(pcode);
-			m.setHuisnr(huisnr);
-			m.setPlaats(plaats);
-			m.setEmail(mail);
-			m.setTelnummer(telnr);
-			m.setBsnnr(bsn);
-			m.setReknummer(reknr);
-			m.setGebruikersnaam(gebruikersnaam);
-		}
-		
-		if(action.equals("Reset")){
-			Monteur m = ;
-			if(pass.equals(pass2)){
-				m.setWachtwoord(pass);
+
+		if (action.equals("Voeg Toe!")) {
+			for (Monteur mon : atd.alleMonteurs) {
+				if (mon.toString().equals(monteur)) {
+					Monteur m = mon;
+					m.setVoornaam(first);
+					m.setAchternaam(last);
+					m.setPostcode(pcode);
+					m.setHuisnr(huisnr);
+					m.setPlaats(plaats);
+					m.setEmail(mail);
+					m.setTelnummer(telnr);
+					m.setBsnnr(bsn);
+					m.setReknummer(reknr);
+					m.setGebruikersnaam(gebruikersnaam);
+					System.out.println(m);
+				}
 			}
 		}
-		
-		
-		RequestDispatcher rd = null;
-		
-		//rd = req.getRequestDispatcher("welcomepage.jsp");
-		
-		rd = req.getRequestDispatcher("monteuroverzicht.jsp");
-		
+
+		if (action.equals("Reset")) {
+			for (Monteur mon : atd.alleMonteurs) {
+				if (mon.toString().equals(monteur)) {
+					Monteur m = mon;
+					if (pass.equals(pass2)) {
+						m.setWachtwoord(pass);
+					}
+				}
+			}
+		}
+
+		RequestDispatcher rd = req.getRequestDispatcher("monteuroverzicht.jsp");
 		rd.forward(req, resp);
 	}
 }
-
