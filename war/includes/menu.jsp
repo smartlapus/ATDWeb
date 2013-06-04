@@ -27,7 +27,7 @@
 	<li><a href="#" class="button" style="background-image: url(images/icons/tool.fw.png);">Monteur</a>
 		<ul>
 			<li><a href="monteurtoevoegen.jsp">Toevoegen</a></li>
-			<li><a href="#">Verwijderen</a></li>
+			<li><a href="monteurzoeken.jsp">Aanpassen</a></li>
 		</ul>
 	</li>
 	<li><a href="financieel.jsp" class="button" style="background-image: url(images/icons/balance.fw.png);">Financieel</a></li>

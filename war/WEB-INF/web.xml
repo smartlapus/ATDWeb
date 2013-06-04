@@ -56,6 +56,14 @@
 		<servlet-name>KlusAanpassen</servlet-name>
 		<url-pattern>/KlusAanpassen.do</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>MonteurZoekenServlet</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.MonteurZoekenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MonteurZoekenServlet</servlet-name>
+		<url-pattern>/MonteurZoekenServlet.do</url-pattern>
+	</servlet-mapping>
 	<listener> 
 		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>
 	</listener>
