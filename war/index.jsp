@@ -2,6 +2,7 @@
 if(null != session.getAttribute("loggedIn")){
 	RequestDispatcher rd = request.getRequestDispatcher("account.jsp");
 	rd.forward(request, response);
+	return;
 }
 %>
 

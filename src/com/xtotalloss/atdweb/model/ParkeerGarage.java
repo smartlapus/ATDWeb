@@ -1,18 +1,52 @@
 package com.xtotalloss.atdweb.model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public class ParkeerGarage {
 	private int aantalPlaatsen, aantalPlaatsenBeschikbaar;
+	public ArrayList<ParkeerReservering> alleReserveringen;
 	
-	public ParkeerGarage(int ap){
+	public ParkeerGarage(int ap) {
 		aantalPlaatsen = ap;
+		alleReserveringen = new ArrayList<ParkeerReservering>();
+		aantalPlaatsenBeschikbaar = aantalPlaatsen;
 	}
 	
-	public void autoErbij() {
-		aantalPlaatsenBeschikbaar --;
+	public boolean voegReserveringToe(ParkeerReservering pr) {
+		if(!alleReserveringen.contains(pr)) {
+			alleReserveringen.add(pr);
+			aantalPlaatsenBeschikbaar--;
+			return true;
+		}
+		return false;
 	}
 	
-	public void autoEraf() {
-		aantalPlaatsenBeschikbaar ++;
+	public boolean verwijderReservering(ParkeerReservering pr) {
+		if(alleReserveringen.contains(pr)) {
+			alleReserveringen.remove(pr);
+			aantalPlaatsenBeschikbaar++;
+			return true;
+		}
+		return false;
+	}
+	
+	public int getAlleReserveringen() {
+		return alleReserveringen.size();
+	}
+	
+	public int getAlleReserveringenDezeMaand() {
+		Calendar datum = Calendar.getInstance();
+		int aantalReserveringen = 0;
+		int dezeMaand = datum.get(Calendar.MONTH) + 1;
+		
+		for(ParkeerReservering pr : alleReserveringen) {
+			if(pr.getMaand() == dezeMaand) {
+				aantalReserveringen ++;
+			}
+		}
+		
+		return aantalReserveringen;
 	}
 
 	//Getters

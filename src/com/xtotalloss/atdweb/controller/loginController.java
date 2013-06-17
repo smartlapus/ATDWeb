@@ -26,15 +26,11 @@ public class loginController extends HttpServlet {
 		String adres = req.getParameter("adres");
 		String email = req.getParameter("email");
 		
-		
-		
 		klant = doLogin(gebruikersnaam, wachtwoord); 
 		
 		if(klant != null) {
-			
 			req.getSession().setAttribute("klantObject", klant);
 			System.out.println(klant);
-			
 			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			rd = req.getRequestDispatcher("account.jsp");
 			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
@@ -47,7 +43,6 @@ public class loginController extends HttpServlet {
 	}
 	
 	private Klant doLogin(String gebr, String ww) {
-	
 		for(Klant k : ATD.alleKlanten) {
 			if (k.getGebruikersnaam().equals(gebr) && k.getWachtwoord().equals(ww)) {
 				return k;

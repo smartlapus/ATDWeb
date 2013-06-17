@@ -28,6 +28,10 @@
 		<servlet-name>KlusAanpassen</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.KlusAanpassen</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>reserveringToevoegen</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.reserveringToevoegen</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginController</servlet-name>
 		<url-pattern>/loginController.do</url-pattern>
@@ -71,6 +75,10 @@
 	<servlet-mapping>
 		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
 		<url-pattern>/OnderdeelToevoegenServlet.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>reserveringToevoegen</servlet-name>
+		<url-pattern>/reserveringToevoegen.do</url-pattern>
 	</servlet-mapping>
 	<listener> 
 		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>

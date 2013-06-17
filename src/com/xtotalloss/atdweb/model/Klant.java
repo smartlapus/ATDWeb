@@ -4,12 +4,13 @@ public class Klant implements java.io.Serializable{
 
 	private static final long serialVersionUID = 3779322564661073749L;
 	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
+	private ParkeerGarage pg;
 	protected Auto auto;
-
+	
 	public Klant(String nm, String adr, String user, String passwd, String mail, String telnr){
 		naam = nm;
 		adres = adr;
-		gebruikersnaam = user;
+		gebruikersnaam = user; 
 		wachtwoord = passwd;
 		email = mail;
 		tel = telnr;
@@ -20,7 +21,6 @@ public class Klant implements java.io.Serializable{
 		wachtwoord = passwd;
 	}
 	
-
 	//Getters
 	public String getNaam() {
 		return naam;
@@ -79,6 +79,18 @@ public class Klant implements java.io.Serializable{
 	public void setAuto(Auto auto) {
 		this.auto = auto;
 	}
+	
+	//Equals overriden
+	public boolean equals(Object andere) { 
+		boolean b; 
+		if (andere instanceof Klant) { b = true; } else { b = false; } 
+		b = b && (this.naam == ((Klant)andere).naam); 
+		b = b && (this.adres == ((Klant)andere).adres);
+		b = b && (this.gebruikersnaam == ((Klant)andere).gebruikersnaam); 
+		b = b && (this.email == ((Klant)andere).email);
+		b = b && (this.tel == ((Klant)andere).tel); 
+		return b; 
+	} 	
 
 	//ToString
 	public String toString() {

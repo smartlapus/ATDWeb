@@ -1,9 +1,7 @@
 package com.xtotalloss.atdweb.model;
 import java.util.ArrayList;
 
-
-
-public class Bedrijf implements java.io.Serializable{
+public class Bedrijf implements java.io.Serializable {
 	private static final long serialVersionUID = -6462233708802885889L;
 	private String naam;
 	private String adres;
@@ -11,10 +9,9 @@ public class Bedrijf implements java.io.Serializable{
 	public ArrayList<Onderdeel> alleOnderdelen;
 	public ArrayList<Klus> alleKlussen;
 	public ArrayList<Monteur> alleMonteurs;
-	protected ArrayList<Financien> alleFinancien;
+	public ArrayList<Financien> alleFinancien;
 	
 	public Bedrijf(String naam, String adres){
-		
 		naam = "ATDWeb";
 		adres = "U";
 		alleKlanten = new ArrayList<Klant>();

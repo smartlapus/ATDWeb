@@ -19,9 +19,6 @@ if(null == session.getAttribute("loggedIn")){
 </head>
 
 <body>
-
-		
-
 <div id="top-header">
 	<div id="top-header-container">
     	<%@include file="includes/menu.jsp" %>
@@ -35,19 +32,19 @@ if(null == session.getAttribute("loggedIn")){
 <div id="content" class="shadow rounded">
 	<h1>Mijn Account</h1>
     <div class="row">
-        <div class="column-first">Naam</div><div class="column-second"><%out.print(klant.getNaam());%></div>
+        <div class="column-first">Naam</div><div class="column-second"><%= klant.getNaam()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Adres</div><div class="column-second"><%out.print(klant.getAdres());%></div>
+        <div class="column-first">Adres</div><div class="column-second"><%= klant.getAdres()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Telefoonnummer</div><div class="column-second"><%out.print(klant.getTelefoonnummer());%></div>
+        <div class="column-first">Telefoonnummer</div><div class="column-second"><%= klant.getTelefoonnummer()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%out.print(klant.getGebruikersnaam());%></div>
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= klant.getGebruikersnaam()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Email</div><div class="column-second"><%out.print(klant.getEmail());%></div>
+        <div class="column-first">Email</div><div class="column-second"><%= klant.getEmail()%></div>
     </div>
     <div class="row">
         <div class="column-first">Wachtwoord</div><div class="column-second">********</div>
