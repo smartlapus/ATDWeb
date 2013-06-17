@@ -64,6 +64,14 @@
 		<servlet-name>MonteurZoekenServlet</servlet-name>
 		<url-pattern>/MonteurZoekenServlet.do</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.OnderdeelToevoegenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
+		<url-pattern>/OnderdeelToevoegenServlet.do</url-pattern>
+	</servlet-mapping>
 	<listener> 
 		<listener-class>com.xtotalloss.atdweb.listeners.MyServletContextListener</listener-class>
 	</listener>

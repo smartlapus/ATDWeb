@@ -8,6 +8,7 @@ public class Bedrijf implements java.io.Serializable{
 	private String naam;
 	private String adres;
 	public ArrayList<Klant> alleKlanten;
+	public ArrayList<Onderdeel> alleOnderdelen;
 	public ArrayList<Klus> alleKlussen;
 	public ArrayList<Monteur> alleMonteurs;
 	protected ArrayList<Financien> alleFinancien;
@@ -17,6 +18,7 @@ public class Bedrijf implements java.io.Serializable{
 		naam = "ATDWeb";
 		adres = "U";
 		alleKlanten = new ArrayList<Klant>();
+		alleOnderdelen = new ArrayList<Onderdeel>();
 		alleMonteurs = new ArrayList<Monteur>();
 		alleFinancien = new ArrayList<Financien>();
 		alleKlussen = new ArrayList<Klus>();
@@ -79,6 +81,14 @@ public class Bedrijf implements java.io.Serializable{
 			alleMonteurs.add(medewerker);
 			System.out.println("Monteur is toegevoegd");
 			System.out.println(alleMonteurs);
+		}
+	}
+	
+	public void voegOnderdeelToe(Onderdeel onderdeel) {
+		if(!alleOnderdelen.contains(onderdeel)) {
+			alleOnderdelen.add(onderdeel);
+			System.out.println("onderdeel is toegevoegd");
+			System.out.println(alleOnderdelen);
 		}
 	}
 	public void voegKlusToe(Klus klus) {
