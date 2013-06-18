@@ -44,6 +44,12 @@ public class MyServletContextListener implements ServletContextListener {
 		Klus kl1 = new Klus("APK Keuring", "Alles controleren", "07-IA-21", "02-04-12");
 		ATD.voegKlusToe(kl1);
 		
+		//Klussen toevoegen
+		Onderdeel o1 = new Onderdeel("Band", 30, 50);
+		Onderdeel o2 = new Onderdeel("Wieldop", 15, 50);
+		ATD.voegOnderdeelToe(o1);
+		ATD.voegOnderdeelToe(o2);
+		
 		//Reserveringen toevoegen
 		ParkeerReservering pr1 = new ParkeerReservering(k2);
 		pg.alleReserveringen.add(pr1);

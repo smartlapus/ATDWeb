@@ -76,6 +76,14 @@
 		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
 		<url-pattern>/OnderdeelToevoegenServlet.do</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>FactuurOpmakenServlet</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.FactuurOpmakenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FactuurOpmakenServlet</servlet-name>
+		<url-pattern>/FactuurOpmakenServlet.do</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>reserveringToevoegen</servlet-name>
 		<url-pattern>/reserveringToevoegen.do</url-pattern>

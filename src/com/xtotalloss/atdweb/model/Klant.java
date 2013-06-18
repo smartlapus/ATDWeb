@@ -94,7 +94,7 @@ public class Klant implements java.io.Serializable{
 
 	//ToString
 	public String toString() {
-		String s = naam + " " + tel + " " + adres + "\n" + gebruikersnaam + " " + wachtwoord + " " + email; 
+		String s = naam;
 		return s;
 	}
 }
