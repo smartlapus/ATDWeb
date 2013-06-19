@@ -38,7 +38,7 @@ if(null == session.getAttribute("loggedIn")){
                <input class="form_input" type="text" name="naam" id="naam" value="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
                <input class="form_input" type="text" name="kent" id="kent" value="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
-               <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+               <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" /> (Format: DD/MM/JJJJ)
 		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
               </div>  	
 	 	 </form>

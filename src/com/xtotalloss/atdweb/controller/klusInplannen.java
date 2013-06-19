@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 public class klusInplannen extends HttpServlet {
 	private static final long serialVersionUID = 6787392421160231316L;
 	private Bedrijf ATD = MyServletContextListener.ATD;
-	
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		RequestDispatcher rd;
 		boolean klustoegevoegd = true;
 
@@ -24,25 +25,14 @@ public class klusInplannen extends HttpServlet {
 		String datum = req.getParameter("dat");
 		// String monteur = req.getParameter("monteur");
 
-		for (Klus kl : ATD.alleKlussen) {
-			if (kl.getNaam().equals(naam)) {
-				System.out.println("DEBUG: IN ELSE");
-				klustoegevoegd = false;
-				req.setAttribute("msgKlus", "<div class='nosucces'>De klus bestaat al.</div>");
-				rd = req.getRequestDispatcher("klusinplannen.jsp");
-				rd.forward(req, resp);
-				break;
-			}
-			
-		}
-		if (klustoegevoegd == true) {
-			Klus kl1 = new Klus(naam, werkzaamheden, kenteken, datum);
-			ATD.voegKlusToe(kl1);
-			System.out.println("DEBUG: IN IF");
-			System.out.println(ATD.alleKlussen);
-			rd = req.getRequestDispatcher("klusinplannen.jsp");
-			req.setAttribute("msgKlus", "<div class='succes'>Klus is toegevoegd:" + kl1 + "</div>");
-			rd.forward(req, resp);
-		}
+		Klus kl1 = new Klus(naam, werkzaamheden, kenteken, datum);
+		ATD.voegKlusToe(kl1);
+		System.out.println("DEBUG: IN IF");
+		System.out.println(ATD.alleKlussen);
+		rd = req.getRequestDispatcher("klusinplannen.jsp");
+		req.setAttribute("msgKlus", "<div class='succes'>Klus is toegevoegd:"
+				+ kl1 + "</div>");
+		rd.forward(req, resp);
+
 	}
 }

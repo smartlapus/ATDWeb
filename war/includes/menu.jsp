@@ -19,6 +19,7 @@
 		<ul>
 			<li><a href="weekagenda.jsp">Weekagenda</a></li>
 			<li><a href="klusinplannen.jsp">Klus inplannen</a></li>
+			<li><a href="klusoverzicht.jsp">Klus overzicht</a></li>
 		</ul></li>
 	<li><a href="#" class="button" style="background-image: url(images/icons/tool.fw.png);">Monteur</a>
 		<ul>

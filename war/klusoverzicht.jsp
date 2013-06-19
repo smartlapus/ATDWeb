@@ -31,7 +31,7 @@ if (null == session.getAttribute("loggedIn")) {
 	</div>
 
 	<div id="content" class="shadow rounded">
-		<h1>Klus aanpassen</h1>
+		<h1>Klus overzicht</h1>
 		
 		<%@ page import="java.util.ArrayList"%>
 		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
@@ -49,14 +49,14 @@ if (null == session.getAttribute("loggedIn")) {
 				System.out.println(alleKlussen);
 				for (Klus kl : alleKlussen) {
 				%>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getNaam()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getWerkzaamheden()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getKenteken()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getDatum()); %></div>
+					<div class="table-column" style="width: 20%;"><% out.println(kl.getNaam()); %></div>
+					<div class="table-column" style="width: 20%;"><% out.println(kl.getWerkzaamheden()); %></div>
+					<div class="table-column" style="width: 20%;"><% out.println(kl.getKenteken()); %></div>
+					<div class="table-column" style="width: 20%;"><% out.println(kl.getDatum()); %></div>
+					<input class="table-column" type="submit" style="width: 20%;" name="submit" id="submit" value="Klus aanpassen" />
 				<%}%>
 				</div>
 			</div>
-			<input class="" type="submit" name="submit" id="submit" value="Klus aanpassen" />
 		</form>
 	</div>
 </body>
