@@ -38,10 +38,11 @@ if (null == session.getAttribute("loggedIn")) {
 		<form method="post" action="KlusAanpassen.do">
 			<div id="table">
 			<div class="table-row">
-				<div class="table-column" style="width: 25%;"><b>Naam</b></div>
-				<div class="table-column" style="width: 25%;"><b>Werkzaamheden</b></div>
-				<div class="table-column" style="width: 25%;"><b>Kenteken</b></div>
-				<div class="table-column" style="width: 25%;"><b>Datum</b></div>
+				<div class="table-column"><b>Naam</b></div>
+				<div class="table-column"><b>Werkzaamheden</b></div>
+				<div class="table-column"><b>Kenteken</b></div>
+				<div class="table-column"><b>Datum</b></div>
+				<div class="table-column"></div>
 			</div>
 				<div class="table-row">
 				<%
@@ -49,16 +50,15 @@ if (null == session.getAttribute("loggedIn")) {
 				System.out.println(alleKlussen);
 				for (Klus kl : alleKlussen) {
 				%>
-					<div class="table-column" style="width: 20%;"><% out.println(kl.getNaam()); %></div>
-					<div class="table-column" style="width: 20%;"><% out.println(kl.getWerkzaamheden()); %></div>
-					<div class="table-column" style="width: 20%;"><% out.println(kl.getKenteken()); %></div>
-					<div class="table-column" style="width: 20%;"><% out.println(kl.getDatum()); %></div>
+					<div class="table-column"><% out.println(kl.getNaam()); %></div>
+					<div class="table-column"><% out.println(kl.getWerkzaamheden()); %></div>
+					<div class="table-column"><% out.println(kl.getKenteken()); %></div>
+					<div class="table-column"><% out.println(kl.getDatum()); %></div>
 					<input class="table-column" type="submit" style="width: 20%;" name="submit" id="submit" value="Klus aanpassen" />
 				<%}%>
 				</div>
 			</div>
 		</form>
-		
 	</div>
 </body>
 </html>
