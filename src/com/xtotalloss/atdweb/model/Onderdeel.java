@@ -1,6 +1,8 @@
 package com.xtotalloss.atdweb.model;
 
-public class Onderdeel {
+import java.io.Serializable;
+
+public class Onderdeel implements Serializable {
 	private String naam;
 	private int aantalOpVoorraad;
 	private double prijsPerStuk;

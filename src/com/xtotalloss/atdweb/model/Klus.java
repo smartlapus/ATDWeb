@@ -1,6 +1,8 @@
 package com.xtotalloss.atdweb.model;
 
-public class Klus implements java.io.Serializable{
+import java.io.Serializable;
+
+public class Klus implements Serializable{
 	private static final long serialVersionUID = -4362534758612225109L;
 	private String naam;
 	private String werkzaamheden;

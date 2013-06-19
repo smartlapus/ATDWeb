@@ -58,6 +58,7 @@ if (null == session.getAttribute("loggedIn")) {
 				</div>
 			</div>
 		</form>
+		
 	</div>
 </body>
 </html>

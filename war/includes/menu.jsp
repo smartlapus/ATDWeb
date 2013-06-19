@@ -26,7 +26,11 @@
 			<li><a href="monteurtoevoegen.jsp">Toevoegen</a></li>
 			<li><a href="monteurzoeken.jsp">Aanpassen</a></li>
 		</ul></li>
-	<li><a href="financieel.jsp" class="button" style="background-image: url(images/icons/balance.fw.png);">Financieel</a></li>
+	<li><a href="#" class="button" style="background-image: url(images/icons/balance.fw.png);">Financieel</a>
+		<ul>
+			<li><a href="financieel.jsp">Financieeloverzicht</a></li>
+			<li><a href="factuuropmaken.jsp">Factuuropmaken</a></li>
+		</ul></li>
 	<li><a href="parkeergarage.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
 </ul>
 

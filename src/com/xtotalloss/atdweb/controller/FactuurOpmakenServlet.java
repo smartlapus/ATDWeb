@@ -27,7 +27,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		RequestDispatcher rd;
+		RequestDispatcher rd = null;
 		String name = req.getParameter("dropdown");
 		String nameklant = req.getParameter("dropdownklanten");
 		String aantal = req.getParameter("aantal");
@@ -54,16 +54,14 @@ public class FactuurOpmakenServlet extends HttpServlet {
 					Onderdeel o2 = new Onderdeel(name, voorraad, prijsperstuk);
 					ATD.voegGebruiktOnderdeelToe(o2);
 					System.out.println(ATD.alleGebruikteOnderdelen);
-					rd = req.getRequestDispatcher("Factuuropmaken.jsp");
+					rd = req.getRequestDispatcher("factuuropmaken.jsp");
 					req.setAttribute("msgToe","<div class='succes'>Onderdeel Toegevoegd: " + name+ "</div>");
-					rd.forward(req, resp);
 				} else {
-					rd = req.getRequestDispatcher("Factuuropmaken.jsp");
-					req.setAttribute("msgToe","<div class='nosucces'>Toevoegen is mislukt</div>");
-					rd.forward(req, resp);
+					rd = req.getRequestDispatcher("factuuropmaken.jsp");
+					req.setAttribute("msgToe","<div class='nosucces'>Toevoegen is mislukt</div>");	
 				}
 			}
-			}
+		}
 			if (action.equals("Verstuur Factuur")) {
 				for (Klant k : ATD.alleKlanten) {
 					if (k.getNaam().equals(nameklant)) {
@@ -77,17 +75,16 @@ public class FactuurOpmakenServlet extends HttpServlet {
 							Transport.send(msg, "student.hu.test@gmail.com","1234VIJF");
 							
 							
-							rd = req.getRequestDispatcher("Factuuropmaken.jsp");
+							rd = req.getRequestDispatcher("factuuropmaken.jsp");
 							req.setAttribute("msgToe","<div class='succes'>Factuur is verstuurd</div>");
-							rd.forward(req, resp);
 						} catch (Exception e) {
-							rd = req.getRequestDispatcher("Factuuropmaken.jsp");
+							rd = req.getRequestDispatcher("factuuropmaken.jsp");
 							req.setAttribute("msgToe","<div class='nosucces'>Fout bijversturen factuur</div>");
-							rd.forward(req, resp);
 						}
 						
 					}
 				}
 			}
+			rd.forward(req, resp);
 		}
 	}
