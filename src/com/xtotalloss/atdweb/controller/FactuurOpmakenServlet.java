@@ -73,7 +73,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 							msg.setSentDate(Calendar.getInstance().getTime());
 							msg.setText("Beste "+k.getNaam()+ ", Hierbij uw factuur \n \n" + factuurbon);
 							Transport.send(msg, "student.hu.test@gmail.com","1234VIJF");
-							
+							ATD.alleGebruikteOnderdelen.clear();
 							
 							rd = req.getRequestDispatcher("factuuropmaken.jsp");
 							req.setAttribute("msgToe","<div class='succes'>Factuur is verstuurd</div>");
