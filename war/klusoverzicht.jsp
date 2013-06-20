@@ -1,9 +1,10 @@
+
 <%
-if (null == session.getAttribute("loggedIn")) {
-	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-	rd.forward(request, response);
-	return;
-}
+	if (null == session.getAttribute("loggedIn")) {
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
+		return;
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -32,30 +33,57 @@ if (null == session.getAttribute("loggedIn")) {
 
 	<div id="content" class="shadow rounded">
 		<h1>Klus overzicht</h1>
-		
+
 		<%@ page import="java.util.ArrayList"%>
 		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
 		<form method="post" action="KlusAanpassen.do">
 			<div id="table">
-			<div class="table-row">
-				<div class="table-column"><b>Naam</b></div>
-				<div class="table-column"><b>Werkzaamheden</b></div>
-				<div class="table-column"><b>Kenteken</b></div>
-				<div class="table-column"><b>Datum</b></div>
-				<div class="table-column"></div>
-			</div>
 				<div class="table-row">
-				<%
-				ArrayList<Klus> alleKlussen = (ArrayList<Klus>) request.getServletContext().getAttribute("kluslijst");
-				System.out.println(alleKlussen);
-				for (Klus kl : alleKlussen) {
-				%>
-					<div class="table-column"><% out.println(kl.getNaam()); %></div>
-					<div class="table-column"><% out.println(kl.getWerkzaamheden()); %></div>
-					<div class="table-column"><% out.println(kl.getKenteken()); %></div>
-					<div class="table-column"><% out.println(kl.getDatum()); %></div>
-					<input class="table-column" type="submit" style="width: 20%;" name="submit" id="submit" value="Klus aanpassen" />
-				<%}%>
+					<div class="table-column">
+						<b>Naam</b>
+					</div>
+					<div class="table-column">
+						<b>Werkzaamheden</b>
+					</div>
+					<div class="table-column">
+						<b>Kenteken</b>
+					</div>
+					<div class="table-column">
+						<b>Datum</b>
+					</div>
+					<div class="table-column"></div>
+				</div>
+				<div class="table-row">
+					<%
+						ArrayList<Klus> alleKlussen = (ArrayList<Klus>) request.getServletContext().getAttribute("kluslijst");
+						System.out.println(alleKlussen);
+						for (Klus kl : alleKlussen) {
+					%>
+					<div class="table-column">
+						<%
+							out.println(kl.getNaam());
+						%>
+					</div>
+					<div class="table-column">
+						<%
+							out.println(kl.getWerkzaamheden());
+						%>
+					</div>
+					<div class="table-column">
+						<%
+							out.println(kl.getKenteken());
+						%>
+					</div>
+					<div class="table-column">
+						<%
+							out.println(kl.getDatum());
+						%>
+					</div>
+					<input class="table-column" type="submit" style="width: 20%;"
+						name="submit" id="submit" value="Klus aanpassen" />
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</form>

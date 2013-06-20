@@ -4,30 +4,30 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-import com.xtotalloss.atdweb.listeners.MyServletContextListener;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Onderdeel;
 
 public class FactuurOpmakenServlet extends HttpServlet {
 	private static final long serialVersionUID = -162531052446206437L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
+	
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
+		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
+		
 		String name = req.getParameter("dropdown");
 		String nameklant = req.getParameter("dropdownklanten");
 		String aantal = req.getParameter("aantal");

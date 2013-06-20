@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class OnderdeelToevoegenServlet extends HttpServlet {
 	private static final long serialVersionUID = -162531052446206437L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd;
+		RequestDispatcher rd = null;
+		
+		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
+		
 		boolean monsucces = true;
 		String first = req.getParameter("naam");
 		String last = req.getParameter("prijsperstuk");

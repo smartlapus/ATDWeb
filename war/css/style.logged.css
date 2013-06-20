@@ -317,6 +317,7 @@ a.button-black:hover {
 	height: 36px;
 	float: left;
 	line-height: 36px;
+	width: 20%;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 	font-size: 12px;
 	color: #444;

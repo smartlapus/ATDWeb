@@ -14,11 +14,13 @@ import com.xtotalloss.atdweb.model.Klant;
 
 public class registerController extends HttpServlet {
 	private static final long serialVersionUID = 1911902193740282162L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
+
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		RequestDispatcher rd;
+		RequestDispatcher rd = null;
+		
+		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
 
 		String naam = req.getParameter("naam");
 		String tel = req.getParameter("tel");

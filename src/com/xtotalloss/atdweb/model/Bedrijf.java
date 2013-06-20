@@ -13,8 +13,8 @@ public class Bedrijf implements java.io.Serializable {
 	public ArrayList<Financien> alleFinancien;
 	
 	public Bedrijf(String naam, String adres){
-		naam = "ATDWeb";
-		adres = "U";
+		this.naam = naam;
+		this.adres = adres;
 		alleKlanten = new ArrayList<Klant>();
 		alleOnderdelen = new ArrayList<Onderdeel>();
 		alleGebruikteOnderdelen = new ArrayList<Onderdeel>();
@@ -46,6 +46,10 @@ public class Bedrijf implements java.io.Serializable {
 
 	public String getAdres() {
 		return adres;
+	}
+	
+	public String toString(){
+		return "Bedrijf.toString() -- Bedrijf: " +naam+ " op adres: " + adres;
 	}
 	
 	//Setters

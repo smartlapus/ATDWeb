@@ -1,7 +1,4 @@
 package com.xtotalloss.atdweb.controller;
-import com.xtotalloss.atdweb.listeners.MyServletContextListener;
-import com.xtotalloss.atdweb.model.*;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,12 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xtotalloss.atdweb.model.Bedrijf;
+import com.xtotalloss.atdweb.model.Monteur;
+
 public class MonteurToevoegen extends HttpServlet {
 	private static final long serialVersionUID = -162531052446206437L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
+	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd;
+		RequestDispatcher rd = null;
+		
+		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
+		
 		boolean monsucces = true;
 		Monteur dummy = new Monteur("dummy","dummy","1","1","1","1","1","1","1","1","1");
 		ATD.voegMonteurToe(dummy);

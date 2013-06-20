@@ -7,7 +7,7 @@
 		return;
 	}
 
-	ParkeerGarage pg = (ParkeerGarage) getServletContext().getAttribute("parkeergarage_object");
+	ParkeerGarage pg = (ParkeerGarage) getServletContext().getAttribute("ParkeerGarage_Object");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -36,7 +36,7 @@
 	<div id="content" class="shadow rounded">
 		<h1>Parkeergarage</h1>
 		<% Object msgPg = request.getAttribute("msgPg"); if (msgPg != null) { out.println(msgPg); } %>
-		Welkom bij de parkeergarage van ATD. De garage is 24/7 open en heeft ruimte voor <%=pg.getAantalPlaatsen()%> auto's. Hier kunt u een parkeerplaats gemakkelijk en snel reserveren. De reservering wordt opgeslagen op uw account.
+		Welkom bij de parkeergarage van ATD. De garage is 24/7 open en heeft ruimte voor <%= pg.getAantalPlaatsen()%> auto's. Hier kunt u een parkeerplaats gemakkelijk en snel reserveren. De reservering wordt opgeslagen op uw account.
 		
 	    <br />
 	    <div class="row">

@@ -39,7 +39,7 @@ if(null == session.getAttribute("loggedIn")){
           <div style="float: left; width: 220px;">   
                <select name="dropdown">
 					<%
-						Bedrijf atd = (Bedrijf)request.getServletContext().getAttribute("ATD_Object");
+						Bedrijf atd = (Bedrijf)request.getServletContext().getAttribute("ATDWeb_Object");
 						System.out.println(atd.alleOnderdelen);
 						for (Onderdeel o : atd.alleOnderdelen) {
 							out.println("<option value=\"" + o.toString() + "\">" +o.toString()+ "</option>");

@@ -16,17 +16,20 @@ import com.xtotalloss.atdweb.model.ParkeerReservering;
 
 public class reserveringToevoegen extends HttpServlet {
 	private static final long serialVersionUID = 7076611831652512670L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
-	private ParkeerGarage pg = MyServletContextListener.pg;
+	
+	
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("parkeergarage.jsp");
+		
+		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
+		ParkeerGarage parkeerGarage = (ParkeerGarage) req.getServletContext().getAttribute("ParkeerGarage_Object");
 
 		Klant deReserveerder = (Klant) req.getSession().getAttribute("klantObject");
-		ParkeerReservering pr = new ParkeerReservering(deReserveerder);
+		ParkeerReservering reservering = new ParkeerReservering(deReserveerder);
 		
-		if(pg.voegReserveringToe(pr)) {
-			System.out.print("Reservering toegevoegd: " + pr);
+		if(parkeerGarage.voegReserveringToe(reservering)) {
+			System.out.print("Reservering toegevoegd: " + reservering);
 			req.setAttribute("msgPg", "<div class='succes'>U heeft een plek gereserveerd op naam: + " + deReserveerder.getNaam() + "</div>");
 		} else {
 			req.setAttribute("msgPg", "<div class='nosucces'>U heeft al een reservering geplaatst!</div>");

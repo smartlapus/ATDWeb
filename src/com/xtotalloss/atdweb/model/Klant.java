@@ -8,6 +8,7 @@ public class Klant implements java.io.Serializable{
 	protected Auto auto;
 	
 	public Klant(String nm, String adr, String user, String passwd, String mail, String telnr){
+		
 		naam = nm;
 		adres = adr;
 		gebruikersnaam = user; 

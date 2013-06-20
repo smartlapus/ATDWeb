@@ -1,6 +1,7 @@
 package com.xtotalloss.atdweb.controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -8,15 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xtotalloss.atdweb.listeners.MyServletContextListener;
-import com.xtotalloss.atdweb.model.*;
+import com.xtotalloss.atdweb.model.Bedrijf;
+import com.xtotalloss.atdweb.model.Klant;
 
 public class loginController extends HttpServlet {
 	private static final long serialVersionUID = 5979843064772262161L;
-	private Bedrijf ATD = MyServletContextListener.ATD;
+	
+	private Bedrijf ATD;
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)	throws ServletException, IOException {
-		RequestDispatcher rd;
+		RequestDispatcher rd = null;
+		
+		ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
 		Klant klant; // rename
 		
 		String gebruikersnaam = req.getParameter("gebruikersnaam");
@@ -43,6 +47,7 @@ public class loginController extends HttpServlet {
 	}
 	
 	private Klant doLogin(String gebr, String ww) {
+		
 		for(Klant k : ATD.alleKlanten) {
 			if (k.getGebruikersnaam().equals(gebr) && k.getWachtwoord().equals(ww)) {
 				return k;
