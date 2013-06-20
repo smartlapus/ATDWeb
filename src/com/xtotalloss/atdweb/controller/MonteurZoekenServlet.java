@@ -18,8 +18,7 @@ public class MonteurZoekenServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute(
-				"ATD_Object");
+		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
 		String monteur = req.getParameter("dropdown");
 		
 		for (Monteur mon : atd.alleMonteurs) {

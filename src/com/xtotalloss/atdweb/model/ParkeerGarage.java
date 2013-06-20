@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 public class ParkeerGarage {
 	private int aantalPlaatsen, aantalPlaatsenBeschikbaar;
+	
 	public ArrayList<ParkeerReservering> alleReserveringen;
 	
 	public ParkeerGarage(int ap) {

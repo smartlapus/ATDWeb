@@ -1,4 +1,5 @@
-
+<%@ page import="java.util.ArrayList" %>
+		<%@ page import="com.xtotalloss.atdweb.model.*" %>
 <%
 	if (null == session.getAttribute("loggedIn")) {
 		RequestDispatcher rd = request
@@ -33,13 +34,12 @@
 
 	<div id="content" class="shadow rounded">
 		<h1>Monteur Overzicht</h1>
-		<%@ page import="java.util.ArrayList" %>
-		<%@ page import="com.xtotalloss.atdweb.model.*" %>
+		
 		<form action="MonteurZoekenServlet.do" method="get" >
 			 <div style="float: center; width: 220px;">  
 				<select name="dropdown">
 					<%
-						Bedrijf atd = (Bedrijf)request.getServletContext().getAttribute("ATD_Object");
+						Bedrijf atd = (Bedrijf)request.getServletContext().getAttribute("ATDWeb_Object");
 						System.out.println(atd.alleMonteurs);
 						for (Monteur m : atd.alleMonteurs) {
 							out.println("<option value=\"" + m.toString() + "\">" +m.toString()+ "</option>");

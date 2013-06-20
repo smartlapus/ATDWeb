@@ -31,7 +31,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 		String name = req.getParameter("dropdown");
 		String nameklant = req.getParameter("dropdownklanten");
 		String aantal = req.getParameter("aantal");
-		int voorraad = 0;
+		int voorraad = 30;
 		if(aantal != "" || aantal != null){
 			voorraad = Integer.parseInt(aantal);
 		}
@@ -53,9 +53,13 @@ public class FactuurOpmakenServlet extends HttpServlet {
 					o.setAantalOpVoorraad(nieuwevoorraad);
 					Onderdeel o2 = new Onderdeel(name, voorraad, prijsperstuk);
 					ATD.voegGebruiktOnderdeelToe(o2);
+					
 					System.out.println(ATD.alleGebruikteOnderdelen);
-					rd = req.getRequestDispatcher("factuuropmaken.jsp");
 					req.setAttribute("msgToe","<div class='succes'>Onderdeel Toegevoegd: " + name+ "</div>");
+					rd = req.getRequestDispatcher("factuuropmaken.jsp");
+					System.out.println("### FactuurOpmakenServlet.java -- Onderdeel Toegevoegd");
+					break;
+					
 				} else {
 					rd = req.getRequestDispatcher("factuuropmaken.jsp");
 					req.setAttribute("msgToe","<div class='nosucces'>Toevoegen is mislukt</div>");	

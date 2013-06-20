@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Klus;
@@ -86,10 +87,24 @@ public class MyServletContextListener implements ServletContextListener {
 	public Bedrijf createNewATD() {
 		ATD = new Bedrijf("ATDWeb", "Utrecht");
 		// Klanten toevoegen
-		Klant k1 = new Klant("admin", "adminweg 92", "admin", "admin", "ATDWeb@gmail.com", "0612345678");
-		Klant k2 = new Klant("testklant", "adminweg 92", "test", "test", "test@gmail.com", "0612345678");
-		ATD.voegKlantToe(k1);
-		ATD.voegKlantToe(k2);
+		Klant k1 = null;
+		try {
+			k1 = new Klant("admin", "adminweg 92", "admin", "admin", "ATDWeb@gmail.com", "0612345678");
+			ATD.voegKlantToe(k1);
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Klant k2 = null;
+		try {
+			k2 = new Klant("testklant", "adminweg 92", "test", "test", "test@gmail.com", "0612345678");
+			ATD.voegKlantToe(k2);
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 
 		// Monteurs toevoegen
 		Monteur m1 = new Monteur("Joyce", "Gadellaa", "1234FD", "12", "De Bilt", "dion@d.nl", "0623645712", "1234567890", "1234567", "Joyce01", "mypass");

@@ -56,7 +56,7 @@ public class ParkeerReservering {
 	} 
 	
 	public String toString() {
-		String s = "Parkeerplaats reservering op " + datum;
+		String s = "Dag: " + getDag() + " Maand: " + getMaand() + " Jaar: " + getJaar();
 		return s;
 	}
 }
