@@ -29,7 +29,7 @@ public class reserveringToevoegen extends HttpServlet {
 		ParkeerReservering reservering = new ParkeerReservering(deReserveerder);
 		
 		if(parkeerGarage.voegReserveringToe(reservering)) {
-			System.out.print("Reservering toegevoegd: " + reservering);
+			System.out.print("### reserveringToevoegen.java --Reservering toegevoegd: " + reservering);
 			req.setAttribute("msgPg", "<div class='succes'>U heeft een plek gereserveerd op naam: + " + deReserveerder.getNaam() + "</div>");
 		} else {
 			req.setAttribute("msgPg", "<div class='nosucces'>U heeft al een reservering geplaatst!</div>");

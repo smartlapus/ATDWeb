@@ -54,7 +54,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 					Onderdeel o2 = new Onderdeel(name, voorraad, prijsperstuk);
 					ATD.voegGebruiktOnderdeelToe(o2);
 					
-					System.out.println(ATD.alleGebruikteOnderdelen);
+					System.out.println("### FactuurOpmakenServlet.java -- " + ATD.alleGebruikteOnderdelen);
 					req.setAttribute("msgToe","<div class='succes'>Onderdeel Toegevoegd: " + name+ "</div>");
 					rd = req.getRequestDispatcher("factuuropmaken.jsp");
 					System.out.println("### FactuurOpmakenServlet.java -- Onderdeel Toegevoegd");

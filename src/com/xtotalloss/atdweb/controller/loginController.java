@@ -34,7 +34,7 @@ public class loginController extends HttpServlet {
 		
 		if(klant != null) {
 			req.getSession().setAttribute("klantObject", klant);
-			System.out.println(klant);
+			System.out.println("### loginController.java -- " + klant);
 			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			rd = req.getRequestDispatcher("account.jsp");
 			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));

@@ -22,7 +22,7 @@ public class KlusAanpassen extends HttpServlet {
 		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute("ATD_Object");
 		RequestDispatcher rd;
 		ArrayList<Klus> klussen = (ArrayList<Klus>) atd.alleKlussen;
-		System.out.println("Klusatt: "+ klussen);
+		
 		req.setAttribute("kluslijst", klussen);
 		
 		rd = req.getRequestDispatcher("klusaanpassen.jsp");

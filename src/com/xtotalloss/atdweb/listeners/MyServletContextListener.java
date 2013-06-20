@@ -36,7 +36,7 @@ public class MyServletContextListener implements ServletContextListener {
 
 		parkeerGarage = new ParkeerGarage(50);
 
-		System.out.println("### savePath CONTEXT INIT SYSO: " + savePath_Bedrijf);
+		
 
 		try {
 			FileInputStream fis = new FileInputStream(savePath_Bedrijf);
@@ -45,7 +45,7 @@ public class MyServletContextListener implements ServletContextListener {
 
 			if (ATD == null) {
 				ATD = createNewATD();
-				System.out.println("### IF ATD == NULL: SYSO OBJECT ATD: " + ATD);
+				System.out.println("### MyServletContextListener -- New Bedrijf Added " + ATD);
 			}
 
 			ois.close();
@@ -71,7 +71,7 @@ public class MyServletContextListener implements ServletContextListener {
 		savePath_Bedrijf = new File(context.getRealPath("/../" + "ATD_Bedrijf.obj"));
 
 		Object o = sce.getServletContext().getAttribute("ATDWeb_Object");
-		System.out.println("### ContextDestroyed: SYSO OBJECT O " + o);
+		
 		Bedrijf ATD = (Bedrijf) o;
 
 		try {
@@ -89,19 +89,11 @@ public class MyServletContextListener implements ServletContextListener {
 		// Klanten toevoegen
 		Klant k1 = null;
 		try {
-			k1 = new Klant("admin", "adminweg 92", "admin", "admin", "ATDWeb@gmail.com", "0612345678");
+			k1 = new Klant("admin", "adminweg 92", "admin", "admin", "ATDWeb@gmail.com", "01043025");
 			ATD.voegKlantToe(k1);
 		} catch (InvalidUserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Klant k2 = null;
-		try {
-			k2 = new Klant("testklant", "adminweg 92", "test", "test", "test@gmail.com", "0612345678");
-			ATD.voegKlantToe(k2);
-		} catch (InvalidUserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			String s = e.getMessage();
+			System.out.println("### MyServletContextListener.java -- createNewATD() " + s);
 		}
 		
 		
@@ -125,17 +117,11 @@ public class MyServletContextListener implements ServletContextListener {
 		ATD.voegOnderdeelToe(o2);
 
 		// Reserveringen toevoegen
-		ParkeerReservering pr1 = new ParkeerReservering(k2);
+		ParkeerReservering pr1 = new ParkeerReservering(k1);
 		parkeerGarage.alleReserveringen.add(pr1);
 
 		// Printen
-		System.out.println(ATD);
-		System.out.println(k1);
-		System.out.println("Success!");
-		System.out.println(ATD.alleMonteurs);
-		System.out.println(ATD.getAlleMonteurs());
-		System.out.println(ATD.alleKlussen);
-		System.out.println(ATD.getAlleKlussen());
+		
 
 		return ATD;
 	}

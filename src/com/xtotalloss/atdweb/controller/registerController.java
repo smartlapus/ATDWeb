@@ -30,20 +30,18 @@ public class registerController extends HttpServlet {
 		String wachtwoord = req.getParameter("wachtwoord");
 		String email = req.getParameter("email");
 		Klant k = null;
-
 			
 			try {
 				k = new Klant(naam, adres, gebruikersnaam, wachtwoord, email,tel);
 				ATD.voegKlantToe(k);
-				req.setAttribute("msgReg","<div class='succes'>Account geregisteerd:" + k.getGebruikersnaam() + "</div>");
+				req.setAttribute("msgRegSuccess","<div class='succes'>Account geregisteerd: " + k.getGebruikersnaam() + "</div>");
+				System.out.println("### registerController.java -- User succesfully added");
 			} catch (InvalidUserException e) {
 			req.setAttribute("msgReg", e.getMessage());
 			}
 			
-			
 			rd = req.getRequestDispatcher("index.jsp");
 		
-
 		rd.forward(req, resp);
 	}
 

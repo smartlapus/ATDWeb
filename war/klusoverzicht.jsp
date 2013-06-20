@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	if (null == session.getAttribute("loggedIn")) {
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -54,36 +54,17 @@
 					<div class="table-column"></div>
 				</div>
 				<div class="table-row">
-					<%
-						ArrayList<Klus> alleKlussen = (ArrayList<Klus>) request.getServletContext().getAttribute("kluslijst");
-						System.out.println(alleKlussen);
-						for (Klus kl : alleKlussen) {
-					%>
-					<div class="table-column">
-						<%
-							out.println(kl.getNaam());
-						%>
-					</div>
-					<div class="table-column">
-						<%
-							out.println(kl.getWerkzaamheden());
-						%>
-					</div>
-					<div class="table-column">
-						<%
-							out.println(kl.getKenteken());
-						%>
-					</div>
-					<div class="table-column">
-						<%
-							out.println(kl.getDatum());
-						%>
-					</div>
-					<input class="table-column" type="submit" style="width: 20%;"
-						name="submit" id="submit" value="Klus aanpassen" />
-					<%
-						}
-					%>
+									
+					
+				<c:forEach var="klus" items="${ applicationScope.ATDWeb_Object.alleKlussen }">
+				<div class="table-column">${ klus.naam }</div>
+				<div class="table-column">${ klus.werkzaamheden }</div>
+				<div class="table-column">${ klus.kenteken }</div>
+				<div class="table-column">${ klus.datum }</div>
+				<input class="table-column" type="submit" style="width: 20%;" name="submit" id="submit" value="Klus aanpassen" />
+					</c:forEach>
+					
+					
 				</div>
 			</div>
 		</form>

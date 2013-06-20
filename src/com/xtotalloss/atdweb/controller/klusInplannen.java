@@ -31,8 +31,8 @@ public class klusInplannen extends HttpServlet {
 
 		Klus kl1 = new Klus(naam, werkzaamheden, kenteken, datum);
 		ATD.voegKlusToe(kl1);
-		System.out.println("DEBUG: IN IF");
-		System.out.println(ATD.alleKlussen);
+		System.out.println("### klusInplannen.java -- DEBUG: IN IF");
+		System.out.println("### klusInplannen.java -- " + ATD.alleKlussen);
 		rd = req.getRequestDispatcher("klusinplannen.jsp");
 		req.setAttribute("msgKlus", "<div class='succes'>Klus is toegevoegd:"
 				+ kl1 + "</div>");

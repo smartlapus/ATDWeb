@@ -34,12 +34,28 @@
 	<div id="content" class="shadow rounded">
 		<h1>Klanten</h1>
 		<div class="table">
+			
 			<div class="table-row">
-				
+					<div class="table-column">
+						<b>Naam</b>
+					</div>
+					<div class="table-column">
+						<b>Adres</b>
+					</div>
+					<div class="table-column">
+						<b>Telefoonnummer</b>
+					</div>
+					<div class="table-column">
+						<b>Email</b>
+					</div>
+					<div class="table-column"></div>
+				</div>
+			
+			<div class="table-row">
 				<c:forEach var="klant" items="${ applicationScope.ATDWeb_Object.alleKlanten }">
 				<div class="table-column">${ klant.naam }</div>
 				<div class="table-column">${ klant.adres }</div>
-				<div class="table-column">${ klant.email }</div>
+				<div class="table-column">${ klant.telefoonnummer }</div>
 				<div class="table-column">${ klant.email }</div>
 				<input class="table-column" type="submit" mame="submit" id="submit" value="Klant aanpassen" />
 					</c:forEach>

@@ -26,7 +26,7 @@ public class OnderdeelToevoegenServlet extends HttpServlet {
 		double prijs = Double.parseDouble(last);
 		int voorraad = Integer.parseInt(pcode);
 		
-		System.out.println("DEBUG: VOOR IF");
+		System.out.println("### OnderdeelToevoegenServlet -- DEBUG: VOOR IF");
 		
 		for(Onderdeel o : ATD.alleOnderdelen) {
 			if(o.getNaam().equals(first)){
@@ -41,8 +41,8 @@ public class OnderdeelToevoegenServlet extends HttpServlet {
 		if(monsucces == true) {
 			Onderdeel o2 = new Onderdeel(first, voorraad, prijs);
 			ATD.voegOnderdeelToe(o2);
-			System.out.println("DEBUG: IN IF");
-			System.out.println(ATD.alleMonteurs);
+			System.out.println("### OnderdeelToevoegenServlet -- DEBUG: IN IF");
+			System.out.println("### OnderdeelToevoegenServlet -- " + ATD.alleMonteurs);
 			rd = req.getRequestDispatcher("onderdeeltoevoegen.jsp");
 			req.setAttribute("msgToe", "<div class='succes'>Onderdeel Toegevoegd: " + first + "</div>");
 			rd.forward(req, resp);

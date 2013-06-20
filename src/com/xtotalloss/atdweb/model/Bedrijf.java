@@ -49,7 +49,7 @@ public class Bedrijf implements java.io.Serializable {
 	}
 	
 	public String toString(){
-		return "Bedrijf.toString() -- Bedrijf: " +naam+ " op adres: " + adres;
+		return "Bedrijf: " +naam+ " op adres: " + adres;
 	}
 	
 	//Setters
@@ -66,61 +66,61 @@ public class Bedrijf implements java.io.Serializable {
 	public void voegKlantToe(Klant klant) {
 		if(!alleKlanten.contains(klant)) {
 			alleKlanten.add(klant);
-			System.out.println("Klant is toegevoegd");
-			System.out.println(alleKlanten);
+			System.out.println("### Bedrijf.java -- Klant is toegevoegd " + klant.getGebruikersnaam());
+			
 		}
 	}
 	
 	public void verwijderKlant(Klant klant){
 		if(alleKlanten.contains(klant)){
 			alleKlanten.remove(klant);
-			System.out.println("Klant is verwijderd");
-			System.out.println(alleKlanten);
+			System.out.println("### Bedrijf.java -- Klant is verwijderd " + klant.getGebruikersnaam());
+		
 		}
 	}
 	
 	public void voegMonteurToe(Monteur medewerker) {
 		if(!alleMonteurs.contains(medewerker)) {
 			alleMonteurs.add(medewerker);
-			System.out.println("Monteur is toegevoegd");
-			System.out.println(alleMonteurs);
+			System.out.println("### Bedrijf.java -- Monteur is toegevoegd " + medewerker.getGebruikersnaam());
+			
 		}
 	}
 	
 	public void voegOnderdeelToe(Onderdeel onderdeel) {
 		if(!alleOnderdelen.contains(onderdeel)) {
 			alleOnderdelen.add(onderdeel);
-			System.out.println("onderdeel is toegevoegd");
-			System.out.println(alleOnderdelen);
+			System.out.println("### Bedrijf.java -- Onderdeel is toegevoegd " + onderdeel.getNaam());
+			
 		}
 	}
 	
 	public void voegGebruiktOnderdeelToe(Onderdeel onderdeel) {
 			alleGebruikteOnderdelen.add(onderdeel);
-			System.out.println("gebruikt onderdeel is toegevoegd");
-			System.out.println(alleGebruikteOnderdelen);
+			System.out.println("### Bedrijf.java -- gebruikt onderdeel is toegevoegd" + onderdeel.getNaam());
+			
 	}
 	public void voegKlusToe(Klus klus) {
 		if(!alleKlussen.contains(klus)) {
 			alleKlussen.add(klus);
-			System.out.println("Klus is toegevoegd");
-			System.out.println(alleKlussen);
+			System.out.println("### Bedrijf.java -- Klus is toegevoegd " + klus.getNaam());
+			
 		}
 	}
 	
 	public void verwijderMonteur(Monteur monteur) {
 		if(alleMonteurs.contains(monteur)) {
 			alleMonteurs.remove(monteur);
-			System.out.println("Monteur is verwijderd");
-			System.out.println(alleMonteurs);
+			System.out.println("### Bedrijf.java -- Monteur is verwijderd " + monteur.getGebruikersnaam());
+			
 		}
 	}
 	
 	public void verwijderKlus(Klus klus){
 		if(alleKlussen.contains(klus)) {
 			alleKlussen.remove(klus);
-			System.out.println("Klus is verwijderd");
-			System.out.println(alleKlussen);
+			System.out.println("### Bedrijf.java -- Klus is verwijderd " + klus.getNaam());
+			
 		}
 	}
 	
