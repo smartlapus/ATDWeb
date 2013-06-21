@@ -28,26 +28,50 @@ if(null == session.getAttribute("loggedIn")){
 <div id="header">
 	<%@include file="includes/header.jsp" %>
 </div>
-      
+     <%
+	if(object instanceof Klant){
+		Klant gebruiker = (Klant)object;
+%>
 <div id="content" class="shadow rounded">
 	<h1>Mijn Account</h1>
     <div class="row">
-        <div class="column-first">Naam</div><div class="column-second"><%= klant.getNaam()%></div>
+        <div class="column-first">Naam</div><div class="column-second"><%= gebruiker.getNaam()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Adres</div><div class="column-second"><%= klant.getAdres()%></div>
+        <div class="column-first">Adres</div><div class="column-second"><%= gebruiker.getAdres()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Telefoonnummer</div><div class="column-second"><%= klant.getTelefoonnummer()%></div>
+        <div class="column-first">Telefoonnummer</div><div class="column-second"><%= gebruiker.getTelefoonnummer()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= klant.getGebruikersnaam()%></div>
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= gebruiker.getGebruikersnaam()%></div>
     </div>
     <div class="row">
-        <div class="column-first">Email</div><div class="column-second"><%= klant.getEmail()%></div>
+        <div class="column-first">Email</div><div class="column-second"><%= gebruiker.getEmail()%></div>
     </div>
     <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
+<%} 
+	if(object instanceof Monteur){
+		Monteur gebruiker = (Monteur)object;
+%>
+<div id="content" class="shadow rounded">
+	<h1>Mijn Account</h1>
+    <div class="row">
+        <div class="column-first">Voornaam</div><div class="column-second"><%= gebruiker.getVoornaam()%></div>
+    </div>
+     <div class="row">
+        <div class="column-first">Achternaam</div><div class="column-second"><%= gebruiker.getAchternaam()%></div>
+    </div>
+    <div class="row">
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= gebruiker.getGebruikersnaam()%></div>
+    </div>
+    <div class="row">
+        <div class="column-first">Email</div><div class="column-second"><%= gebruiker.getEmail()%></div>
+    </div>
+    <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
+</div>   
+<%} %>
 
 </body>
 </html>

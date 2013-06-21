@@ -12,6 +12,7 @@ import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 import com.xtotalloss.atdweb.listeners.MyServletContextListener;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
+import com.xtotalloss.atdweb.model.Monteur;
 
 public class registerController extends HttpServlet {
 	private static final long serialVersionUID = 1911902193740282162L;

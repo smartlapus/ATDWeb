@@ -2,6 +2,8 @@ package com.xtotalloss.atdweb.model;
 
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
+
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 
 public class Klant implements java.io.Serializable {
@@ -10,53 +12,71 @@ public class Klant implements java.io.Serializable {
 	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
 	private ParkeerGarage pg;
 	protected Auto auto;
-	
+	//Bedrijf ATD = (Bedrijf) getServletContext().getAttribute("ATDWeb_Object");
+
 	private ArrayList<InvalidUserException> errorMessagesList;
 
-	public Klant(String nm, String adr, String user, String passwd, String mail, String telnr) throws InvalidUserException {
-		
+	public Klant(String nm, String adr, String user, String passwd,
+			String mail, String telnr) throws InvalidUserException {
+
 		errorMessagesList = new ArrayList<InvalidUserException>();
-		
+
 		if (nm == null || "".equals(nm)) {
-			
-			InvalidUserException errorMessage = new InvalidUserException("Gebruikersnaam mag niet leeg zijn.");
-			
+
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Gebruikersnaam mag niet leeg zijn.");
+
 			errorMessagesList.add(errorMessage);
 		}
+//		for (Klant k : ATD.alleKlanten) {
+//			for (Monteur m : ATD.alleMonteurs) {
+//				if (nm.equals(k.getGebruikersnaam()) || nm.equals(m.getGebruikersnaam())) {
+//
+//					InvalidUserException errorMessage = new InvalidUserException("Gebruikersnaam bestaat al.");
+//
+//					errorMessagesList.add(errorMessage);
+//				}
+//			}
+//		}
 		if (adr == null || "".equals(adr)) {
-			InvalidUserException errorMessage = new InvalidUserException("Adres mag niet leeg zijn.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Adres mag niet leeg zijn.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (passwd == null || "".equals(passwd)) {
-			InvalidUserException errorMessage = new InvalidUserException("Wachtwoord mag niet leeg zijn.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Wachtwoord mag niet leeg zijn.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (mail == null || "".equals(mail)) {
-			InvalidUserException errorMessage = new InvalidUserException("Email mag niet leeg zijn.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Email mag niet leeg zijn.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (telnr == null || "".equals(telnr)) {
-			InvalidUserException errorMessage = new InvalidUserException("Telefoonnummer mag niet leeg zijn.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Telefoonnummer mag niet leeg zijn.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (nm.matches(".*[0-9].*")) {
-			InvalidUserException errorMessage = new InvalidUserException("Een naam mag alleen uit letters bestaan.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Een naam mag alleen uit letters bestaan.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (!telnr.matches(".*[0-9].*")) {
-			InvalidUserException errorMessage = new InvalidUserException("Telefoonnummer mag alleen uit cijfers bestaan.");
+			InvalidUserException errorMessage = new InvalidUserException(
+					"Telefoonnummer mag alleen uit cijfers bestaan.");
 			errorMessagesList.add(errorMessage);
 		}
-		
-		if(errorMessagesList.size() > 0){
+
+		if (errorMessagesList.size() > 0) {
 			String errorMessage = "";
-			for(InvalidUserException IUE : errorMessagesList){
+			for (InvalidUserException IUE : errorMessagesList) {
 				errorMessage += IUE.getMessage() + "<br />";
 			}
-				
+
 			throw new InvalidUserException(errorMessage);
 		}
-		
 
 		// errorMessage add to arrayList
 		// arrayList to string
