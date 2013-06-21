@@ -33,32 +33,17 @@
 
 	<div id="content" class="shadow rounded">
 		<h1>Klus aanpassen</h1>
-		
-		<%@ page import="java.util.ArrayList"%>
-		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
-		<form method="post" action="KlusAanpassen.do">
-			<div id="table">
-			<div class="table-row">
-				<div class="table-column" style="width: 25%;"><b>Naam</b></div>
-				<div class="table-column" style="width: 25%;"><b>Werkzaamheden</b></div>
-				<div class="table-column" style="width: 25%;"><b>Kenteken</b></div>
-				<div class="table-column" style="width: 25%;"><b>Datum</b></div>
-			</div>
-				<div class="table-row">
-				<%
-				ArrayList<Klus> alleKlussen = (ArrayList<Klus>) request.getServletContext().getAttribute("kluslijst");
-				System.out.println(alleKlussen);
-				for (Klus kl : alleKlussen) {
-				%>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getNaam()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getWerkzaamheden()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getKenteken()); %></div>
-					<div class="table-column" style="width: 25%;"><% out.println(kl.getDatum()); %></div>
-				<%}%>
+		<%@ page import="java.util.ArrayList" %>
+		<%@ page import="com.xtotalloss.atdweb.model.*" %>
+		<form action="klusInplannen" method="get" >
+		<%Klus kl = (Klus)getServletContext().getAttribute("klusaanpassen"); %>
+				<div style="float: left; width: 220px;">
+				<input class="form_input" type="text" name="naam" id="naam" value="<%out.println(kl.getNaam());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="<%out.println(kl.getWerkzaamheden());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
+                <input class="form_input" type="text" name="kenteken" id="kenteken" value="<%out.println(kl.getKenteken());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_input" type="text" name="datum" id="datum" value="<%out.println(kl.getDatum());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
 				</div>
-			</div>
-			<input class="" type="submit" name="submit" id="submit" value="Klus aanpassen" />
-		</form>
-	</div>
+        </form>
+   </div>
 </body>
 </html>

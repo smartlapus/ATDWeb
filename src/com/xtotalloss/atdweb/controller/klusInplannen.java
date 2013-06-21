@@ -20,8 +20,6 @@ public class klusInplannen extends HttpServlet {
 		RequestDispatcher rd;
 		
 		Bedrijf ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
-		
-		boolean klustoegevoegd = true;
 
 		String naam = req.getParameter("naam");
 		String werkzaamheden = req.getParameter("werkzaamheden");

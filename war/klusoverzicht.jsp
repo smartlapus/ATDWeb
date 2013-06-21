@@ -57,14 +57,12 @@
 									
 					
 				<c:forEach var="klus" items="${ applicationScope.ATDWeb_Object.alleKlussen }">
-				<div class="table-column">${ klus.naam }</div>
-				<div class="table-column">${ klus.werkzaamheden }</div>
-				<div class="table-column">${ klus.kenteken }</div>
-				<div class="table-column">${ klus.datum }</div>
+				<div name="naam" class="table-column">${ klus.naam }</div>
+				<div name="werkzaamheden" class="table-column">${ klus.werkzaamheden }</div>
+				<div name="kenteken" class="table-column">${ klus.kenteken }</div>
+				<div name="datum" class="table-column">${ klus.datum }</div>
 				<input class="table-column" type="submit" style="width: 20%;" name="submit" id="submit" value="Klus aanpassen" />
-					</c:forEach>
-					
-					
+					</c:forEach>		
 				</div>
 			</div>
 		</form>

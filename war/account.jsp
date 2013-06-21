@@ -46,9 +46,6 @@ if(null == session.getAttribute("loggedIn")){
     <div class="row">
         <div class="column-first">Email</div><div class="column-second"><%= klant.getEmail()%></div>
     </div>
-    <div class="row">
-        <div class="column-first">Wachtwoord</div><div class="column-second">********</div>
-    </div>
     <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
 
