@@ -35,13 +35,14 @@
 		<h1>Klus aanpassen</h1>
 		<%@ page import="java.util.ArrayList" %>
 		<%@ page import="com.xtotalloss.atdweb.model.*" %>
-		<form action="klusInplannen" method="get" >
+		<form action="KlusAanpassen.do" method="post" >
 		<%Klus kl = (Klus)getServletContext().getAttribute("klusaanpassen"); %>
 				<div style="float: left; width: 220px;">
 				<input class="form_input" type="text" name="naam" id="naam" value="<%out.println(kl.getNaam());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="<%out.println(kl.getWerkzaamheden());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="text" name="kenteken" id="kenteken" value="<%out.println(kl.getKenteken());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
 				<input class="form_input" type="text" name="datum" id="datum" value="<%out.println(kl.getDatum());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				 <input class="form_submit" type="submit" name="submit" id="submit" value="Pas aan" onblur="onBlur(this)" onfocus="onFocus(this)" />
 				</div>
         </form>
    </div>
