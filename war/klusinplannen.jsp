@@ -32,13 +32,14 @@ if(null == session.getAttribute("loggedIn")){
       
 <div id="content" class="shadow rounded">
 		<h1>Klus toevoegen</h1>
-		<% Object msgKlus = request.getAttribute("msgKlus"); if (msgKlus != null) { out.println(msgKlus); } %>
+		<% Object msgReg = request.getAttribute("msgKlus"); if (msgReg != null) { out.println("<div class=\"nosucces\">" + msgReg+ "</div>"); } %>
+        	<% Object msgRegSuccess = request.getAttribute("msgKlusSucces"); if (msgRegSuccess != null) { out.println(msgRegSuccess); } %>
     	<form method="post" action="klusInplannen.do">
           <div style="float: left; width: 210px;">   
-               <input class="form_input" type="text" name="naam" id="naam" value="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <input class="form_input" type="text" name="kent" id="kent" value="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
-               <input class="form_input" type="text" name="dat" id="dat" value="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" /> (Format: DD/MM/JJJJ)
+               <input class="form_input" type="text" name="naam" id="naam" placeholder="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+               <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" placeholder="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
+               <input class="form_input" type="text" name="kent" id="kent" placeholder="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
+               <input class="form_input" type="text" name="dat" id="dat" placeholder="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" /> (Format: DD/MM/JJJJ)
 		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
               </div>  	
 	 	 </form>

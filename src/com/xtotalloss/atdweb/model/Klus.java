@@ -1,6 +1,10 @@
 package com.xtotalloss.atdweb.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import com.xtotalloss.atdweb.exceptions.InvalidUserException;
+import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;;
 
 public class Klus implements Serializable{
 	private static final long serialVersionUID = -4362534758612225109L;
@@ -10,11 +14,58 @@ public class Klus implements Serializable{
 	private String datum;
 	protected Monteur monteur;
 	
-	public Klus (String nm, String werk, String kent, String dat) {
-		naam = nm;
-		werkzaamheden = werk;
-		kenteken = kent;
-		datum = dat;
+	private ArrayList<OngeldigeKlusException> errorMessagesList;
+	
+	public Klus (String nm, String werk, String kent, String dat) throws OngeldigeKlusException{
+	
+		errorMessagesList = new ArrayList<OngeldigeKlusException>();
+
+		if (nm == null || "".equals(nm)) {
+
+			OngeldigeKlusException errorMessage = new OngeldigeKlusException(
+					"Naam mag niet leeg zijn.");
+
+			errorMessagesList.add(errorMessage);
+		}
+		if (werk == null || "".equals(werk)) {
+
+			OngeldigeKlusException errorMessage = new OngeldigeKlusException(
+					"Werkzaamheden mag niet leeg zijn.");
+
+			errorMessagesList.add(errorMessage);
+		}
+		if (kent == null || "".equals(kent)) {
+
+			OngeldigeKlusException errorMessage = new OngeldigeKlusException(
+					"Kenteken mag niet leeg zijn.");
+
+			errorMessagesList.add(errorMessage);
+		}
+		if (dat == null || "".equals(dat)) {
+
+			OngeldigeKlusException errorMessage = new OngeldigeKlusException(
+					"Datum mag niet leeg zijn.");
+
+			errorMessagesList.add(errorMessage);
+		}
+		if (nm.matches(".*[0-9].*")) {
+			OngeldigeKlusException errorMessage = new OngeldigeKlusException(
+					"Naam mag niet uit cijfers bestaan.");
+			errorMessagesList.add(errorMessage);
+		}
+		if (errorMessagesList.size() > 0) {
+			String errorMessage = "";
+			for (OngeldigeKlusException IUE : errorMessagesList) {
+				errorMessage += IUE.getMessage() + "<br />";
+			}
+
+			throw new OngeldigeKlusException(errorMessage);
+		}
+	
+			naam = nm;
+			werkzaamheden = werk;
+			kenteken = kent;
+			datum = dat;
 	}
 	
 	//Getters

@@ -12,6 +12,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
+import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Klus;
@@ -107,8 +108,13 @@ public class MyServletContextListener implements ServletContextListener {
 		ATD.voegMonteurToe(m2);
 
 		// Klussen toevoegen
-		Klus kl1 = new Klus("APK Keuring", "Alles controleren", "07-IA-21", "02-04-12");
-		ATD.voegKlusToe(kl1);
+		Klus kl1;
+		try {
+			kl1 = new Klus("APK Keuring", "Alles controleren", "07-IA-21", "02-04-12");
+			ATD.voegKlusToe(kl1);
+		} catch (OngeldigeKlusException e) {
+			e.printStackTrace();
+		}
 
 		// Klussen toevoegen
 		Onderdeel o1 = new Onderdeel("Band", 30, 50);
