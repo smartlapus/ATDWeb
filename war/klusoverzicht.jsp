@@ -61,7 +61,7 @@
 				<div class="table-column">${ klus.werkzaamheden }</div>
 				<div class="table-column">${ klus.kenteken }</div>
 				<div class="table-column">${ klus.datum }</div>
-				<input class="table-column" type="submit" style="width: 20%;" name="${klus.naam} id="submit" value="Klus aanpassen" />
+				<input class="table-column" type="submit" style="width: 20%;" name="klusButton" value="${klus.uniqueID}" id="submit"  />
 					</c:forEach>		
 				</div>
 			</div>

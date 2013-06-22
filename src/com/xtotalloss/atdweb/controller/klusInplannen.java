@@ -1,6 +1,7 @@
 package com.xtotalloss.atdweb.controller;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,11 +27,13 @@ public class klusInplannen extends HttpServlet {
 		String werkzaamheden = req.getParameter("werkzaamheden");
 		String kenteken = req.getParameter("kent");
 		String datum = req.getParameter("dat");
+		
+		UUID uniqueID = UUID.randomUUID();
 		// String monteur = req.getParameter("monteur");
 
 		Klus kl = null;
 		try {
-			kl = new Klus(naam, werkzaamheden, kenteken, datum);
+			kl = new Klus(uniqueID, naam, werkzaamheden, kenteken, datum);
 			ATD.voegKlusToe(kl);
 			req.setAttribute("msgKlusSucces", "<div class='succes'>Klus is toegevoegd:" + kl + "</div>");
 			System.out.println("### klusInplannen.java -- Klus succesfully added");

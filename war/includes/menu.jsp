@@ -21,8 +21,11 @@
 	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
 </div>
 <%	}
-	if(object instanceof Monteur){
-		Monteur gebruiker = (Monteur)object;
+	/* if(object instanceof Monteur){
+		Monteur gebruiker = (Monteur)object; */
+		
+		if(object instanceof Klant){
+			Klant gebruiker = (Klant)object;
 		%>
 		<ul id="nav">
 	<li><a href="#" class="button" style="background-image: url(images/icons/cog.fw.png);">Algemeen</a>

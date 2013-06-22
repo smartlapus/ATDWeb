@@ -2,12 +2,13 @@ package com.xtotalloss.atdweb.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.UUID;
 
-import com.xtotalloss.atdweb.exceptions.InvalidUserException;
-import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;;
+import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
 
 public class Klus implements Serializable{
 	private static final long serialVersionUID = -4362534758612225109L;
+	private UUID uniqueID;
 	private String naam;
 	private String werkzaamheden;
 	private String kenteken;
@@ -16,7 +17,7 @@ public class Klus implements Serializable{
 	
 	private ArrayList<OngeldigeKlusException> errorMessagesList;
 	
-	public Klus (String nm, String werk, String kent, String dat) throws OngeldigeKlusException{
+	public Klus (UUID id, String nm, String werk, String kent, String dat) throws OngeldigeKlusException{
 	
 		errorMessagesList = new ArrayList<OngeldigeKlusException>();
 
@@ -61,7 +62,7 @@ public class Klus implements Serializable{
 
 			throw new OngeldigeKlusException(errorMessage);
 		}
-	
+			uniqueID = id;
 			naam = nm;
 			werkzaamheden = werk;
 			kenteken = kent;
@@ -69,6 +70,11 @@ public class Klus implements Serializable{
 	}
 	
 	//Getters
+	public String getUniqueID(){
+		String s = uniqueID.toString();
+		return s;
+	}
+	
 	public String getNaam()	{
 		return naam;
 	}
