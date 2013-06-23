@@ -91,7 +91,7 @@ public class MyServletContextListener implements ServletContextListener {
 		// Klanten toevoegen
 		Klant k1 = null;
 		try {
-			k1 = new Klant("admin", "adminweg 92", "admin", "admin", "ATDWeb@gmail.com", "01043025");
+			k1 = new Klant("admin", "adminweg 92", "admin", "admin123", "ATDWeb@gmail.com", "01043025");
 			ATD.voegKlantToe(k1);
 		} catch (InvalidUserException e) {
 			String s = e.getMessage();
@@ -113,7 +113,7 @@ public class MyServletContextListener implements ServletContextListener {
 		
 		 UUID klusID = UUID.randomUUID();
 		try {
-			kl1 = new Klus(klusID, "APK Keuring", "Alles controleren", "07-IA-21", "02-04-12");
+			kl1 = new Klus(klusID, "APK Keuring", "Alles controleren", "07-IA-21", "02/04/2013");
 			ATD.voegKlusToe(kl1);
 		} catch (OngeldigeKlusException e) {
 			e.printStackTrace();
