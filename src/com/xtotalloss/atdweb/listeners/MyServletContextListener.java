@@ -91,7 +91,7 @@ public class MyServletContextListener implements ServletContextListener {
 		// Klanten toevoegen
 		Klant k1 = null;
 		try {
-			k1 = new Klant("admin", "adminweg 92", "admin", "admin123", "ATDWeb@gmail.com", "01043025");
+			k1 = new Klant("admin", "adminweg 92", "klant", "admin123", "ATDWeb@gmail.com", "01043025");
 			ATD.voegKlantToe(k1);
 		} catch (InvalidUserException e) {
 			String s = e.getMessage();
@@ -101,9 +101,11 @@ public class MyServletContextListener implements ServletContextListener {
 		
 
 		// Monteurs toevoegen
+		Monteur admin = new Monteur("admin", "admin", "1234FD", "12", "De Bilt", "admin@gmail.com", "0623645712", "1234567890", "1234567", "admin", "admin");
 		Monteur m1 = new Monteur("Joyce", "Gadellaa", "1234FD", "12", "De Bilt", "dion@d.nl", "0623645712", "1234567890", "1234567", "Joyce01", "mypass");
 		Monteur m2 = new Monteur("Robin", "Altena", "5634AD", "112", "Utrecht", "Martin@d.nl", "0612345678", "1234567890", "1234567", "Robin", "j3Qel45Ds");
 		Monteur m3 = new Monteur("Victor", "Verstappen", "4561MN", "65", "Utrecht", "Jason@bricks.com", "0694769372", "1234567890", "1234567", "Stryder", "$se2!Er3se");
+		ATD.voegMonteurToe(admin);
 		ATD.voegMonteurToe(m1);
 		ATD.voegMonteurToe(m3);
 		ATD.voegMonteurToe(m2);
@@ -125,11 +127,11 @@ public class MyServletContextListener implements ServletContextListener {
 		ATD.voegOnderdeelToe(o1);
 		ATD.voegOnderdeelToe(o2);
 
-		// Reserveringen toevoegen
-		ParkeerReservering pr1 = new ParkeerReservering(k1);
-		parkeerGarage.alleReserveringen.add(pr1);
+//		// Reserveringen toevoegen
+//		ParkeerReservering pr1 = new ParkeerReservering(k1);
+//		parkeerGarage.alleReserveringen.add(pr1);
 
-		// Printen
+	
 		
 
 		return ATD;
