@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.ParkeerGarage;
 import com.xtotalloss.atdweb.model.ParkeerReservering;
@@ -16,11 +17,10 @@ public class reserveringToevoegen extends HttpServlet {
 	private static final long serialVersionUID = 7076611831652512670L;	
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("parkeergarageGebruiker.jsp");
-		
+		RequestDispatcher rd = req.getRequestDispatcher("parkeergarageGebruiker.jsp");		
 		ParkeerGarage parkeerGarage = (ParkeerGarage) req.getServletContext().getAttribute("ParkeerGarage_Object");
-
-		Klant deReserveerder = (Klant) req.getSession().getAttribute("klantObject");
+			
+		Klant deReserveerder = (Klant) req.getSession().getAttribute("gebruikerObject");
 		ParkeerReservering reservering = new ParkeerReservering(deReserveerder);
 		
 		if(parkeerGarage.voegReserveringToe(reservering)) {

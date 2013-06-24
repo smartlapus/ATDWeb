@@ -14,10 +14,22 @@ public class ParkeerGarage {
 		aantalPlaatsenBeschikbaar = aantalPlaatsen;
 	}
 	
+	public void autoErbij(){
+		if(aantalPlaatsenBeschikbaar > 0){
+			aantalPlaatsenBeschikbaar--;
+		}
+	}
+	
+	public void autoEraf(){
+		if(aantalPlaatsenBeschikbaar < aantalPlaatsen){
+			aantalPlaatsenBeschikbaar++;
+		}
+	}
+	
 	public boolean voegReserveringToe(ParkeerReservering pr) {
 		if(!alleReserveringen.contains(pr)) {
 			alleReserveringen.add(pr);
-			aantalPlaatsenBeschikbaar--;
+			autoErbij();
 			return true;
 		}
 		return false;
@@ -26,7 +38,7 @@ public class ParkeerGarage {
 	public boolean verwijderReservering(ParkeerReservering pr) {
 		if(alleReserveringen.contains(pr)) {
 			alleReserveringen.remove(pr);
-			aantalPlaatsenBeschikbaar++;
+			autoEraf();
 			return true;
 		}
 		return false;
@@ -36,7 +48,7 @@ public class ParkeerGarage {
 		return alleReserveringen.size();
 	}
 	
-	public int getAlleReserveringenDezeMaand() {
+	public int getReserveringenDezeMaand() {
 		Calendar datum = Calendar.getInstance();
 		int aantalReserveringen = 0;
 		int dezeMaand = datum.get(Calendar.MONTH) + 1;
