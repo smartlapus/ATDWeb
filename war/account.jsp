@@ -69,7 +69,6 @@ if(null == session.getAttribute("loggedIn")){
     <div class="row">
         <div class="column-first">Email</div><div class="column-second"><%= gebruiker.getEmail()%></div>
     </div>
-    <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
 <%} 
 	if(object instanceof Admin){
@@ -83,7 +82,6 @@ if(null == session.getAttribute("loggedIn")){
     <div class="row">
         <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= gebruiker.getGebruikersnaam()%></div>
     </div>
-    <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
 <%} %>
 

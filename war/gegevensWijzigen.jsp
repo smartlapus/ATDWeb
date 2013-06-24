@@ -35,32 +35,27 @@ if(null == session.getAttribute("loggedIn")){
 <div id="content" class="shadow rounded">
 	<h1>Account Wijzigen</h1>
 	<form method="post" action="gegevensWijzigen.do">
+	<%
+	if(object instanceof Klant){
+		Klant gebruiker = (Klant)object;
+%>
     <div class="row">
-        <div class="column-first">Naam</div><div class="column-second"> <input class="form_input" type="text" name="naam" id="naam" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(klant.getNaam());%>" /></div>
+        <div class="column-first">Naam</div><div class="column-second"> <input class="form_input" type="text" name="naam" id="naam" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(gebruiker.getNaam());%>" /></div>
     </div>
     <div class="row">
-        <div class="column-first">Adres</div><div class="column-second"><input class="form_input" type="text" name="adres" id="adres" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(klant.getAdres());%>" /></div>
+        <div class="column-first">Adres</div><div class="column-second"><input class="form_input" type="text" name="adres" id="adres" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(gebruiker.getAdres());%>" /></div>
     </div>
     <div class="row">
-        <div class="column-first">Telefoonnummer</div><div class="column-second"><input class="form_input" type="text" name="telefoonnummer" id="telefoonnummer" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(klant.getTelefoonnummer());%>" /></div>
+        <div class="column-first">Telefoonnummer</div><div class="column-second"><input class="form_input" type="text" name="telefoonnummer" id="telefoonnummer" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(gebruiker.getTelefoonnummer());%>" /></div>
     </div>
     <div class="row">
-        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%out.print(klant.getGebruikersnaam());%></div>
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%out.print(gebruiker.getGebruikersnaam());%></div>
     </div>
     <div class="row">
-        <div class="column-first">Email</div><div class="column-second"><input class="form_input" type="text" name="email" id="email" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(klant.getEmail());%>" /></div>
-    </div>
-    <div class="row">
-        <div class="column-first">Wachtwoord oud</div><div class="column-second"><input class="form_input" type="password" id="wachtwoordoud" naam="wachtwoordoud" onblur="onBlur(this)" onfocus="onFocus(this)" /></div>
-    </div>
-    <div class="row">
-        <div class="column-first">Wachtwoord nieuw</div><div class="column-second"><input class="form_input" type="password" id="wachtwoordnieuw1" naam="wachtwoordnieuw1" onblur="onBlur(this)" onfocus="onFocus(this)" /></div>
-    </div>
-    <div class="row">
-        <div class="column-first">Wachtwoord nieuw</div><div class="column-second"><input class="form_input" type="password" id="wachtwoordnieuw2" naam="wachtwoordnieuw2" onblur="onBlur(this)" onfocus="onFocus(this)" /></div>
+        <div class="column-first">Email</div><div class="column-second"><input class="form_input" type="text" name="email" id="email" onblur="onBlur(this)" onfocus="onFocus(this)" value="<%out.print(gebruiker.getEmail());%>" /></div>
     </div>
     <input class="form_submit" type="submit" name="submit" id="submit" value="Gegevens Wijzigen" />
 </div>   
-
+<%} %>
 </body>
 </html>

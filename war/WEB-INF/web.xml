@@ -72,6 +72,14 @@
 		<servlet-name>MonteurZoekenServlet</servlet-name>
 		<url-pattern>/MonteurZoekenServlet.do</url-pattern>
 	</servlet-mapping>
+		<servlet>
+		<servlet-name>gegevensWijzigen</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.gegevensWijzigen</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>gegevensWijzigen</servlet-name>
+		<url-pattern>/gegevensWijzigen.do</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.OnderdeelToevoegenServlet</servlet-class>
