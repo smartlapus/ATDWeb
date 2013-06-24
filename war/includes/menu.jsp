@@ -64,7 +64,7 @@
 	<li><a href="klanten.jsp" class="button" style="background-image: url(images/icons/user.fw.png);">Klanten</a></li>
 	<li><a href="#" class="button" style="background-image: url(images/icons/truck.fw.png);">Voorraad</a>
 		<ul>
-			<li><a href="voorraad.jsp">Overzicht</a></li>
+			<li><a href="onderdeelzoeken.jsp">Overzicht</a></li>
 			<li><a href="onderdeeltoevoegen.jsp">Toevoegen</a></li>
 		</ul></li>
 	<li><a href="#" class="button" style="background-image: url(images/icons/tool.fw.png);">Klussen</a>
