@@ -30,43 +30,26 @@ public class loginController extends HttpServlet {
 
 		String gebruikersnaam = req.getParameter("gebruikersnaam");
 		String wachtwoord = req.getParameter("wachtwoord");
-		String naam = req.getParameter("naam");
-		String tel = req.getParameter("tel");
-		String adres = req.getParameter("adres");
-		String email = req.getParameter("email");
 
 		klant = doLoginKlant(gebruikersnaam, wachtwoord);
 		monteur = doLoginMonteur(gebruikersnaam, wachtwoord);
 		admin = doLoginAdmin(gebruikersnaam, wachtwoord);
 
-		if (klant != null) {
-			req.getSession().setAttribute("gebruikerObject", klant);
-			System.out.println("### loginController.java -- " + klant);
+		if (klant != null || monteur != null || admin != null) {
 			req.getSession().setAttribute("loggedIn", gebruikersnaam);
-			rd = req.getRequestDispatcher("account.jsp");
 			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
-		}// else {
-//			rd = req.getRequestDispatcher("index.jsp");
-//			req.setAttribute("msgLog","<div class='nosucces'>Gebruikersnaam en wachtwoord combinatie incorrect.</div>");
-//		}
-		
-		if (admin != null) {
-			req.getSession().setAttribute("gebruikerObject", admin);
-			System.out.println("### loginController.java -- " + admin);
-			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			rd = req.getRequestDispatcher("account.jsp");
-			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
-		}// else {
-//			rd = req.getRequestDispatcher("index.jsp");
-//			req.setAttribute("msgLog","<div class='nosucces'>Gebruikersnaam en wachtwoord combinatie incorrect.</div>");
-//		}
-		
-		if (monteur != null) {
-			req.getSession().setAttribute("gebruikerObject", monteur);
-			System.out.println("### loginController.java -- " + monteur);
-			req.getSession().setAttribute("loggedIn", gebruikersnaam);
-			rd = req.getRequestDispatcher("account.jsp");
-			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
+			
+			if(klant != null) {
+				req.getSession().setAttribute("gebruikerObject", klant);
+				System.out.println("### loginController.java -- " + klant);
+			} else if (monteur != null) {
+				req.getSession().setAttribute("gebruikerObject", monteur);
+				System.out.println("### loginController.java -- " + monteur);
+			} else {
+				req.getSession().setAttribute("gebruikerObject", admin);
+				System.out.println("### loginController.java -- " + admin);
+			}
 		} else {
 			rd = req.getRequestDispatcher("index.jsp");
 			req.setAttribute("msgLog","<div class='nosucces'>Gebruikersnaam en wachtwoord combinatie incorrect.</div>");
@@ -98,9 +81,9 @@ public class loginController extends HttpServlet {
 	
 	private Admin doLoginAdmin(String gebr, String ww) {
 
-		for (Admin m : ATD.alleAdmins) {
-			if (m.getGebruikersnaam().equals(gebr)&& m.getPassword().equals(ww)) {
-				return m;
+		for (Admin a : ATD.alleAdmins) {
+			if (a.getGebruikersnaam().equals(gebr)&& a.getPassword().equals(ww)) {
+				return a;
 			}
 		}
 		return null;

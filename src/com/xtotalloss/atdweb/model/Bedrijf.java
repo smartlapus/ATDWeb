@@ -44,6 +44,10 @@ public class Bedrijf implements java.io.Serializable {
 	public ArrayList<Financien> getAlleFinancien() {
 		return alleFinancien;
 	}
+	
+	public ArrayList<Admin> getAlleAdmins(){
+		return alleAdmins;
+	}
 
 	public String getNaam() {
 		return naam;
@@ -72,11 +76,11 @@ public class Bedrijf implements java.io.Serializable {
 		for (Klant k : alleKlanten) {
 			for (Monteur m : alleMonteurs) {
 				for (Admin a : alleAdmins){
-				if (klant.getGebruikersnaam().equals(k.getGebruikersnaam()) || klant.getGebruikersnaam().equals(m.getGebruikersnaam()) || klant.getGebruikersnaam().equals(a.getGebruikersnaam())) {
+					if (klant.getGebruikersnaam().equals(k.getGebruikersnaam()) || klant.getGebruikersnaam().equals(m.getGebruikersnaam()) || klant.getGebruikersnaam().equals(a.getGebruikersnaam())) {
 					throw new InvalidUserException("Gebruikersnaam bestaat al.");
+					}
 				}
 			}
-		}
 		}
 
 		if (!alleKlanten.contains(klant)) {
@@ -88,11 +92,12 @@ public class Bedrijf implements java.io.Serializable {
 	
 	public void voegAdminToe(Admin admin) throws InvalidUserException {
 
-		for (Admin a : alleAdmins) {
-			for (Klant k : alleKlanten)
+		for (Klant k : alleKlanten) {
 			for (Monteur m : alleMonteurs) {
-				if (admin.getGebruikersnaam().equals(k.getGebruikersnaam()) || admin.getGebruikersnaam().equals(m.getGebruikersnaam())|| admin.getGebruikersnaam().equals(a.getGebruikersnaam())) {
-					throw new InvalidUserException("Gebruikersnaam bestaat al.");
+				for (Admin a : alleAdmins){
+					if (admin.getGebruikersnaam().equals(k.getGebruikersnaam()) || admin.getGebruikersnaam().equals(m.getGebruikersnaam()) || admin.getGebruikersnaam().equals(a.getGebruikersnaam())) {
+						throw new InvalidUserException("Gebruikersnaam bestaat al.");
+					}
 				}
 			}
 		}
@@ -100,10 +105,9 @@ public class Bedrijf implements java.io.Serializable {
 		if (!alleAdmins.contains(admin)) {
 			alleAdmins.add(admin);
 			System.out.println("### Bedrijf.java -- Admin is toegevoegd " + admin.getGebruikersnaam() + " Pass: " + admin.getPassword());
-
 		}
 	}
-
+	
 	public void verwijderKlant(Klant klant) {
 		if (alleKlanten.contains(klant)) {
 			alleKlanten.remove(klant);

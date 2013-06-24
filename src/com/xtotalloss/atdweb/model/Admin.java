@@ -35,6 +35,16 @@ public class Admin implements Serializable{
 		this.naam = naam;
 	}
 	
-	
-	
+	// Equals overriden
+	public boolean equals(Object andere) {
+		boolean b;
+		if (andere instanceof Admin) {
+			b = true;
+		} else {
+			b = false;
+		}
+		b = b && (this.naam == ((Admin) andere).naam);
+		b = b && (this.gebruikersnaam == ((Admin) andere).gebruikersnaam);
+		return b;
+	}
 }

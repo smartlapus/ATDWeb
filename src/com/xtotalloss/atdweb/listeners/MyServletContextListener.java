@@ -21,7 +21,6 @@ import com.xtotalloss.atdweb.model.Klus;
 import com.xtotalloss.atdweb.model.Monteur;
 import com.xtotalloss.atdweb.model.Onderdeel;
 import com.xtotalloss.atdweb.model.ParkeerGarage;
-import com.xtotalloss.atdweb.model.ParkeerReservering;
 
 public class MyServletContextListener implements ServletContextListener {
 
@@ -45,15 +44,14 @@ public class MyServletContextListener implements ServletContextListener {
 			FileInputStream fis = new FileInputStream(savePath_Bedrijf);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			ATD = (Bedrijf) ois.readObject();
-			
-			if (ATD == null) {
-				ATD = createNewATD();
-				System.out.println("### MyServletContextListener -- New Bedrijf Added " + ATD);
-			}
-
 			ois.close();
 		} catch (IOException | ClassNotFoundException ioe) {
 			ioe.printStackTrace();
+		}
+		
+		if (ATD == null) {
+			ATD = createNewATD();
+			System.out.println("### MyServletContextListener -- New Bedrijf Added " + ATD);
 		}
 		
 		context.setAttribute("ATDWeb_Object", ATD);
@@ -72,13 +70,10 @@ public class MyServletContextListener implements ServletContextListener {
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
-
-		// Get the location to store "ATD_Bedrijf.obj"
 		context = sce.getServletContext();
 		savePath_Bedrijf = new File(context.getRealPath("/../" + "ATD_Bedrijf.obj"));
 
 		Object o = sce.getServletContext().getAttribute("ATDWeb_Object");
-		
 		Bedrijf ATD = (Bedrijf) o;
 
 		try {
@@ -106,9 +101,7 @@ public class MyServletContextListener implements ServletContextListener {
 		} catch (InvalidUserException e) {
 			String s = e.getMessage();
 			System.out.println("### MyServletContextListener.java -- createNewATD() " + s);
-		}
-		
-		
+		}		
 
 		// Monteurs toevoegen
 		Monteur m1 = new Monteur("Joyce", "Gadellaa", "1234FD", "12", "De Bilt", "dion@d.nl", "0623645712", "1234567890", "1234567", "Joyce01", "mypass");
@@ -134,10 +127,6 @@ public class MyServletContextListener implements ServletContextListener {
 		Onderdeel o2 = new Onderdeel("Wieldop", 15, 50);
 		ATD.voegOnderdeelToe(o1);
 		ATD.voegOnderdeelToe(o2);
-
-//		// Reserveringen toevoegen
-//		ParkeerReservering pr1 = new ParkeerReservering(k1);
-//		parkeerGarage.alleReserveringen.add(pr1);
 
 		return ATD;
 	}
