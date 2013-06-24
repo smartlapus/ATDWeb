@@ -55,17 +55,7 @@ public class MyServletContextListener implements ServletContextListener {
 		} catch (IOException | ClassNotFoundException ioe) {
 			ioe.printStackTrace();
 		}
-
 		
-		try {
-			Admin a1 = new Admin("adminhenk", "admin123", "Henk Paladijn");
-			Admin a2 = new Admin("Jopie", "j00p", "Jopie");
-			ATD.voegAdminToe(a1);
-			ATD.voegAdminToe(a2);
-		} catch (InvalidUserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		context.setAttribute("ATDWeb_Object", ATD);
 		context.setAttribute("ParkeerGarage_Object", parkeerGarage);
 		context.setAttribute("monteurslijst", ATD.alleMonteurs);
