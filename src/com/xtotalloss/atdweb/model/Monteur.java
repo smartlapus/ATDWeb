@@ -109,6 +109,27 @@ public class Monteur implements java.io.Serializable{
 	public void setWachtwoord(String wachtwoord) {
 		this.wachtwoord = wachtwoord;
 	}
+	
+	// Equals overriden
+	public boolean equals(Object andere) {
+		boolean b;
+		if (andere instanceof Monteur) {
+			b = true;
+		} else {
+			b = false;
+		}
+		b = b && (this.voornaam == ((Monteur) andere).voornaam);
+		b = b && (this.achternaam == ((Monteur) andere).achternaam);
+		b = b && (this.postcode == ((Monteur) andere).postcode);
+		b = b && (this.huisnr == ((Monteur) andere).huisnr);
+		b = b && (this.plaats == ((Monteur) andere).plaats);
+		b = b && (this.email == ((Monteur) andere).email);
+		b = b && (this.telnummer == ((Monteur) andere).telnummer);
+		b = b && (this.bsnnr == ((Monteur) andere).bsnnr);
+		b = b && (this.reknummer == ((Monteur) andere).reknummer);
+		b = b && (this.gebruikersnaam == ((Monteur) andere).gebruikersnaam);
+		return b;
+	}
 
 	//ToString	
 	public String toString(){

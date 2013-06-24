@@ -15,7 +15,7 @@
 			<li><a href="weekagenda.jsp">Weekagenda</a></li>
 			<li><a href="klusinplannen.jsp">Klus inplannen</a></li>
 		</ul></li>
-		<li><a href="parkeergarage.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
+		<li><a href="parkeergarageGebruiker.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
 </ul>
 <div id="top-header-info">
 	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
@@ -44,7 +44,7 @@
 		<ul>
 			<li><a href="factuuropmaken.jsp">Factuuropmaken</a></li>
 		</ul></li>
-		<li><a href="parkeergarage.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
+		<li><a href="parkeergarageGebruiker.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
 </ul>
 <div id="top-header-info">
 	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
@@ -83,7 +83,7 @@
 			<li><a href="financieel.jsp">Financieeloverzicht</a></li>
 			<li><a href="factuuropmaken.jsp">Factuuropmaken</a></li>
 		</ul></li>
-	<li><a href="parkeergarage.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
+	<li><a href="parkeergarageAdmin.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
 </ul>
 
 <div id="top-header-info">
