@@ -50,8 +50,12 @@
 	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
 </div>
 <%	}
-%>
-<!-- <ul id="nav">
+	if(object instanceof Admin){
+		Admin gebruiker = (Admin)object; 
+		
+		
+		%>
+<ul id="nav">
 	<li><a href="#" class="button" style="background-image: url(images/icons/cog.fw.png);">Algemeen</a>
 		<ul>
 			<li><a href="account.jsp">Mijn account</a></li>
@@ -83,5 +87,6 @@
 </ul>
 
 <div id="top-header-info">
-	Ingelogd als <a href="account.jsp">%=gebruiker.getGebruikersnaam()%></a>
-</div> -->
+	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
+</div>
+<%} %>

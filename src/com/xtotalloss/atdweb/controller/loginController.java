@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xtotalloss.atdweb.model.Admin;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Monteur;
@@ -25,6 +26,7 @@ public class loginController extends HttpServlet {
 		ATD = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
 		Klant klant; // rename
 		Monteur monteur; // rename
+		Admin admin;
 
 		String gebruikersnaam = req.getParameter("gebruikersnaam");
 		String wachtwoord = req.getParameter("wachtwoord");
@@ -35,10 +37,22 @@ public class loginController extends HttpServlet {
 
 		klant = doLoginKlant(gebruikersnaam, wachtwoord);
 		monteur = doLoginMonteur(gebruikersnaam, wachtwoord);
+		admin = doLoginAdmin(gebruikersnaam, wachtwoord);
 
 		if (klant != null) {
 			req.getSession().setAttribute("gebruikerObject", klant);
 			System.out.println("### loginController.java -- " + klant);
+			req.getSession().setAttribute("loggedIn", gebruikersnaam);
+			rd = req.getRequestDispatcher("account.jsp");
+			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
+		}// else {
+//			rd = req.getRequestDispatcher("index.jsp");
+//			req.setAttribute("msgLog","<div class='nosucces'>Gebruikersnaam en wachtwoord combinatie incorrect.</div>");
+//		}
+		
+		if (admin != null) {
+			req.getSession().setAttribute("gebruikerObject", admin);
+			System.out.println("### loginController.java -- " + admin);
 			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			rd = req.getRequestDispatcher("account.jsp");
 			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
@@ -76,6 +90,16 @@ public class loginController extends HttpServlet {
 
 		for (Monteur m : ATD.alleMonteurs) {
 			if (m.getGebruikersnaam().equals(gebr)&& m.getWachtwoord().equals(ww)) {
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	private Admin doLoginAdmin(String gebr, String ww) {
+
+		for (Admin m : ATD.alleAdmins) {
+			if (m.getGebruikersnaam().equals(gebr)&& m.getPassword().equals(ww)) {
 				return m;
 			}
 		}

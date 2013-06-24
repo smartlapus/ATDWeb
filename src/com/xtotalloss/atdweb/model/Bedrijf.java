@@ -14,6 +14,7 @@ public class Bedrijf implements java.io.Serializable {
 	public ArrayList<Klus> alleKlussen;
 	public ArrayList<Monteur> alleMonteurs;
 	public ArrayList<Financien> alleFinancien;
+	public ArrayList<Admin> alleAdmins;
 
 	public Bedrijf(String naam, String adres) {
 		this.naam = naam;
@@ -24,6 +25,7 @@ public class Bedrijf implements java.io.Serializable {
 		alleMonteurs = new ArrayList<Monteur>();
 		alleFinancien = new ArrayList<Financien>();
 		alleKlussen = new ArrayList<Klus>();
+		alleAdmins = new ArrayList<Admin>() ;
 	}
 
 	// Getters
@@ -69,15 +71,35 @@ public class Bedrijf implements java.io.Serializable {
 
 		for (Klant k : alleKlanten) {
 			for (Monteur m : alleMonteurs) {
-				if (klant.getGebruikersnaam().equals(k.getGebruikersnaam()) || klant.getGebruikersnaam().equals(m.getGebruikersnaam())) {
+				for (Admin a : alleAdmins){
+				if (klant.getGebruikersnaam().equals(k.getGebruikersnaam()) || klant.getGebruikersnaam().equals(m.getGebruikersnaam()) || klant.getGebruikersnaam().equals(a.getGebruikersnaam())) {
 					throw new InvalidUserException("Gebruikersnaam bestaat al.");
 				}
 			}
+		}
 		}
 
 		if (!alleKlanten.contains(klant)) {
 			alleKlanten.add(klant);
 			System.out.println("### Bedrijf.java -- Klant is toegevoegd " + klant.getGebruikersnaam() + " Pass: " + klant.getWachtwoord());
+
+		}
+	}
+	
+	public void voegAdminToe(Admin admin) throws InvalidUserException {
+
+		for (Admin a : alleAdmins) {
+			for (Klant k : alleKlanten)
+			for (Monteur m : alleMonteurs) {
+				if (admin.getGebruikersnaam().equals(k.getGebruikersnaam()) || admin.getGebruikersnaam().equals(m.getGebruikersnaam())|| admin.getGebruikersnaam().equals(a.getGebruikersnaam())) {
+					throw new InvalidUserException("Gebruikersnaam bestaat al.");
+				}
+			}
+		}
+
+		if (!alleAdmins.contains(admin)) {
+			alleAdmins.add(admin);
+			System.out.println("### Bedrijf.java -- Admin is toegevoegd " + admin.getGebruikersnaam() + " Pass: " + admin.getPassword());
 
 		}
 	}

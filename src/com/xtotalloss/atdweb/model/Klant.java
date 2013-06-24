@@ -10,7 +10,6 @@ public class Klant implements java.io.Serializable {
 
 	private static final long serialVersionUID = 3779322564661073749L;
 	private String naam, tel, adres, gebruikersnaam, wachtwoord, email;
-	private ParkeerGarage pg;
 	protected Auto auto;
 	// Bedrijf ATD = (Bedrijf)
 	// getServletContext().getAttribute("ATDWeb_Object");

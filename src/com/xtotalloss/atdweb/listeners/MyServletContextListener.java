@@ -14,6 +14,7 @@ import javax.servlet.ServletContextListener;
 
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
+import com.xtotalloss.atdweb.model.Admin;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
 import com.xtotalloss.atdweb.model.Klus;
@@ -44,7 +45,7 @@ public class MyServletContextListener implements ServletContextListener {
 			FileInputStream fis = new FileInputStream(savePath_Bedrijf);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			ATD = (Bedrijf) ois.readObject();
-
+			
 			if (ATD == null) {
 				ATD = createNewATD();
 				System.out.println("### MyServletContextListener -- New Bedrijf Added " + ATD);
@@ -55,6 +56,16 @@ public class MyServletContextListener implements ServletContextListener {
 			ioe.printStackTrace();
 		}
 
+		
+		try {
+			Admin a1 = new Admin("adminhenk", "admin123", "Henk Paladijn");
+			Admin a2 = new Admin("Jopie", "j00p", "Jopie");
+			ATD.voegAdminToe(a1);
+			ATD.voegAdminToe(a2);
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		context.setAttribute("ATDWeb_Object", ATD);
 		context.setAttribute("ParkeerGarage_Object", parkeerGarage);
 		context.setAttribute("monteurslijst", ATD.alleMonteurs);
@@ -64,6 +75,10 @@ public class MyServletContextListener implements ServletContextListener {
 		for (Klant k : ATD.alleKlanten) {
 			System.out.println("Klant: " + k.getGebruikersnaam() + " met wachtwoord: " + k.getWachtwoord());
 		}
+		
+//		for (Admin k : ATD.alleAdmins) {
+//			System.out.println("Admin: " + k.getGebruikersnaam() + " met wachtwoord: " + k.getPassword());
+//		}
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
@@ -81,6 +96,7 @@ public class MyServletContextListener implements ServletContextListener {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(ATD);
 			oos.close();
+			System.out.println("DEBUUUUUUG  " + ATD.alleAdmins);
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
@@ -91,8 +107,12 @@ public class MyServletContextListener implements ServletContextListener {
 		// Klanten toevoegen
 		Klant k1 = null;
 		try {
-			k1 = new Klant("admin", "adminweg 92", "klant", "admin123", "ATDWeb@gmail.com", "01043025");
+			k1 = new Klant("testklant", "adminweg 92", "klant", "admin123", "ATDWeb@gmail.com", "01043025");
 			ATD.voegKlantToe(k1);
+			Admin a1 = new Admin("admin", "admin123", "Henk Paladijn");
+			Admin a2 = new Admin("Jopie", "j00p", "Jopie");
+			ATD.voegAdminToe(a1);
+			ATD.voegAdminToe(a2);
 		} catch (InvalidUserException e) {
 			String s = e.getMessage();
 			System.out.println("### MyServletContextListener.java -- createNewATD() " + s);
@@ -101,11 +121,9 @@ public class MyServletContextListener implements ServletContextListener {
 		
 
 		// Monteurs toevoegen
-		Monteur admin = new Monteur("admin", "admin", "1234FD", "12", "De Bilt", "admin@gmail.com", "0623645712", "1234567890", "1234567", "admin", "admin");
 		Monteur m1 = new Monteur("Joyce", "Gadellaa", "1234FD", "12", "De Bilt", "dion@d.nl", "0623645712", "1234567890", "1234567", "Joyce01", "mypass");
 		Monteur m2 = new Monteur("Robin", "Altena", "5634AD", "112", "Utrecht", "Martin@d.nl", "0612345678", "1234567890", "1234567", "Robin", "j3Qel45Ds");
 		Monteur m3 = new Monteur("Victor", "Verstappen", "4561MN", "65", "Utrecht", "Jason@bricks.com", "0694769372", "1234567890", "1234567", "Stryder", "$se2!Er3se");
-		ATD.voegMonteurToe(admin);
 		ATD.voegMonteurToe(m1);
 		ATD.voegMonteurToe(m3);
 		ATD.voegMonteurToe(m2);
@@ -130,9 +148,6 @@ public class MyServletContextListener implements ServletContextListener {
 //		// Reserveringen toevoegen
 //		ParkeerReservering pr1 = new ParkeerReservering(k1);
 //		parkeerGarage.alleReserveringen.add(pr1);
-
-	
-		
 
 		return ATD;
 	}

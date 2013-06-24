@@ -71,6 +71,20 @@ if(null == session.getAttribute("loggedIn")){
     </div>
     <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
 </div>   
+<%} 
+	if(object instanceof Admin){
+		Admin gebruiker = (Admin)object;
+%>
+<div id="content" class="shadow rounded">
+	<h1>Mijn Account</h1>
+    <div class="row">
+        <div class="column-first">Naam</div><div class="column-second"><%= gebruiker.getNaam()%></div>
+    </div>
+    <div class="row">
+        <div class="column-first">Gebruikersnaam</div><div class="column-second"><%= gebruiker.getGebruikersnaam()%></div>
+    </div>
+    <a href="gegevensWijzigen.jsp" class="button-black">Gegevens wijzigen</a>
+</div>   
 <%} %>
 
 </body>
