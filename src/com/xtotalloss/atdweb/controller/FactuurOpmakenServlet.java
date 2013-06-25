@@ -70,7 +70,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 						try {
 							MimeMessage msg = new MimeMessage(mailSession);
 							msg.setFrom(new InternetAddress("student.hu.test@gmail.com", "ATDWeb.nl"));
-							msg.setRecipients(Message.RecipientType.TO,"dion139@hotmail.com");
+							msg.setRecipients(Message.RecipientType.TO,k.getEmail());
 							msg.setSubject("Uw Factuur");
 							msg.setSentDate(Calendar.getInstance().getTime());
 							msg.setText("Beste "+k.getNaam()+ ", Hierbij uw factuur \n \n" + factuurbon);
