@@ -57,7 +57,6 @@
 				<div class="table-column">${ klant.adres }</div>
 				<div class="table-column">${ klant.telefoonnummer }</div>
 				<div class="table-column">${ klant.email }</div>
-				<input class="table-column" type="submit" mame="submit" id="submit" value="Klant aanpassen" />
 					</c:forEach>
 
 			</div>

@@ -30,11 +30,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 		
 		String name = req.getParameter("dropdown");
 		String nameklant = req.getParameter("dropdownklanten");
-		String aantal = req.getParameter("aantal");
-		int voorraad = 30;
-		if(aantal != "" || aantal != null){
-			voorraad = Integer.parseInt(aantal);
-		}
+		//int voorraad;
 		double prijsperstuk;
 		String action = req.getParameter("submit");
 		String factuurbon = req.getParameter("Factuur");
@@ -46,8 +42,10 @@ public class FactuurOpmakenServlet extends HttpServlet {
 		Session mailSession = Session.getInstance(props);
 
 		if (action.equals("Toevoegen")) {
+			String aantal = req.getParameter("aantal");
+			int	voorraad = Integer.parseInt(aantal);
 			for (Onderdeel o : ATD.alleOnderdelen) {
-				if (o.getNaam().equals(name) && o.getAantalOpVoorraad() >= voorraad) {
+				if (o.getNaam().equals(name) && o.getAantalOpVoorraad() >= voorraad) {					
 					prijsperstuk = o.getPrijsPerStuk();
 					int nieuwevoorraad = o.getAantalOpVoorraad() - voorraad;
 					o.setAantalOpVoorraad(nieuwevoorraad);
@@ -72,7 +70,7 @@ public class FactuurOpmakenServlet extends HttpServlet {
 						try {
 							MimeMessage msg = new MimeMessage(mailSession);
 							msg.setFrom(new InternetAddress("student.hu.test@gmail.com", "ATDWeb.nl"));
-							msg.setRecipients(Message.RecipientType.TO,"dion139@hotmail.com");
+							msg.setRecipients(Message.RecipientType.TO,k.getEmail());
 							msg.setSubject("Uw Factuur");
 							msg.setSentDate(Calendar.getInstance().getTime());
 							msg.setText("Beste "+k.getNaam()+ ", Hierbij uw factuur \n \n" + factuurbon);
