@@ -36,10 +36,12 @@ if(null == session.getAttribute("loggedIn")){
         	<% Object msgRegSuccess = request.getAttribute("msgKlusSucces"); if (msgRegSuccess != null) { out.println(msgRegSuccess); } %>
     	<form method="post" action="klusInplannen.do">
           <div style="float: left; width: 210px;">   
-               <input class="form_input" type="text" name="naam" id="naam" placeholder="Naam klus..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" placeholder="Werkzaamheden..." onblur="onBlur(this)" onfocus="onFocus(this)" />
-               <input class="form_input" type="text" name="kent" id="kent" placeholder="Kenteken van auto..." onblur="onBlur(this)" onfocus="onFocus(this)" />                 
-               <input class="form_input" type="text" name="dat" id="dat" placeholder="Datum..." onblur="onBlur(this)" onfocus="onFocus(this)" /> (Format: DD/MM/JJJJ)
+               <input class="form_input" type="text" name="naam" id="naam" placeholder="Naam klus..."/>
+               <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" placeholder="Werkzaamheden..."/>
+               <input class="form_input" type="text" name="kent" id="kent" placeholder="Kenteken van auto..."/>                 
+               <input class="form_datum" type="text" name="dag" id="dag" placeholder="Dag..."/> 
+               <input class="form_datum" type="text" name="maand" id="maand" placeholder="Maand..."/> 
+               <input class="form_datum" type="text" name="jaar" id="dag" placeholder="Jaar..." /> 
 		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
               </div>  	
 	 	 </form>

@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	if (null == session.getAttribute("loggedIn")) {
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request
+				.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 		return;
 	}
@@ -36,36 +37,47 @@
 
 		<%@ page import="java.util.ArrayList"%>
 		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
-		<form method="post" action="KlusZoeken.do">
-			<div id="table">
-				<div class="table-row">
-					<div class="table-column">
-						<b>Naam</b>
-					</div>
-					<div class="table-column">
-						<b>Werkzaamheden</b>
-					</div>
-					<div class="table-column">
-						<b>Kenteken</b>
-					</div>
-					<div class="table-column">
-						<b>Datum</b>
-					</div>
-					<div class="table-column"></div>
+
+		<div id="table">
+			<div class="table-row">
+				<div class="table-column">
+					<b>Naam</b>
 				</div>
-				<div class="table-row">
-									
-					
-				<c:forEach var="klus" items="${ applicationScope.ATDWeb_Object.alleKlussen }">
-				<div class="table-column">${ klus.naam }</div>
-				<div class="table-column">${ klus.werkzaamheden }</div>
-				<div class="table-column">${ klus.kenteken }</div>
-				<div class="table-column">${ klus.datum }</div>
-				<input class="table-column" type="submit" style="width: 20%;" name="klusButton" value="${klus.uniqueID}" id="submit"  />
-					</c:forEach>		
+				<div class="table-column">
+					<b>Werkzaamheden</b>
 				</div>
+				<div class="table-column">
+					<b>Kenteken</b>
+				</div>
+				<div class="table-column">
+					<b>Datum</b>
+				</div>
+				<div class="table-column"></div>
 			</div>
-		</form>
+
+
+
+			<c:forEach var="klus"
+				items="${ applicationScope.ATDWeb_Object.alleKlussen }">
+				<div class="table-row">
+					<div class="table-column">
+						<c:out value="${ klus.naam }" />
+					</div>
+					<div class="table-column">
+						<c:out value="${ klus.werkzaamheden }" />
+					</div>
+					<div class="table-column">
+						<c:out value="${ klus.kenteken }" />
+					</div>
+					<div class="table-column">
+						<c:out value="${ klus.datum }" />
+					</div>
+					<div class="table-column"><a href="KlusZoeken.do?buttonID=${ klus.uniqueID }">Klus aanpassen</a></div>
+				</div>
+			</c:forEach>
+
+		</div>
+
 	</div>
 </body>
 </html>

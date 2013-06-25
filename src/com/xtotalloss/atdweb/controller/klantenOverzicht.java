@@ -17,7 +17,7 @@ public class klantenOverzicht extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
-		System.out.println("klantenOverzicht.do executed");
+		System.out.println("### klantenOverzicht.java -- klantenOverzicht.do executed");
 		
 	
 		

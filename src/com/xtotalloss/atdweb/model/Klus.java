@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
 import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
+import com.xtotalloss.atdweb.model.Bedrijf;
 
 public class Klus implements Serializable {
 	private static final long serialVersionUID = -4362534758612225109L;
@@ -15,12 +17,12 @@ public class Klus implements Serializable {
 	private String naam;
 	private String werkzaamheden;
 	private String kenteken;
-	private String datum;
+	private Calendar datum = Calendar.getInstance();
 	protected Monteur monteur;
-
+	private Bedrijf ATD;
 	private ArrayList<OngeldigeKlusException> errorMessagesList;
 
-	public Klus(UUID id, String nm, String werk, String kent, String dat) throws OngeldigeKlusException {
+	public Klus(UUID id, String nm, String werk, String kent, Calendar dat) throws OngeldigeKlusException {
 
 		errorMessagesList = new ArrayList<OngeldigeKlusException>();
 
@@ -60,11 +62,14 @@ public class Klus implements Serializable {
 
 			throw new OngeldigeKlusException(errorMessage);
 		}
+		
 		uniqueID = id;
 		naam = nm;
 		werkzaamheden = werk;
 		kenteken = kent;
 		datum = dat;
+		
+		
 	}
 
 	// Getters
@@ -85,13 +90,52 @@ public class Klus implements Serializable {
 		return kenteken;
 	}
 
+	public int getMaand() {
+		int deMaand = datum.get(Calendar.MONTH) + 1;
+		return deMaand;
+	}
+	
+	public int getDag() {
+		int deDag = datum.get(Calendar.DAY_OF_MONTH);
+		return deDag;
+	}
+	
+	public int getWeek() {
+		int deWeek = datum.get(Calendar.WEEK_OF_YEAR);
+		return deWeek;
+	}
+	
+	public int getJaar() {
+		int hetJaar = datum.get(Calendar.YEAR);
+		return hetJaar;
+	}
+	
 	public String getDatum() {
-		return datum;
+		String s = getDag() + " - " + getMaand() + " - " + getJaar();
+		return s;
 	}
 
 	public Monteur getMonteur() {
 		return monteur;
 	}
+	
+//	public ArrayList getKlussenDezeWeek() {
+//		Calendar datum = Calendar.getInstance();
+//		int dezeWeek = datum.get(Calendar.WEEK_OF_YEAR);
+//		ArrayList<Klus> klussenDezeWeek = new ArrayList<Klus>();
+//		
+//		for(Klus kl : ATD.alleKlussen)
+//		{
+//			if(kl.getWeek() == dezeWeek)
+//			{
+//				klussenDezeWeek.add(kl);
+//			}
+//		}
+//		
+//		if(klussenDezeWeek.size() > 0){
+//			return klussenDezeWeek;
+//		}
+//	}
 
 	// Setters
 	public void setNaam(String naam) throws OngeldigeKlusException {
@@ -115,19 +159,11 @@ public class Klus implements Serializable {
 		this.kenteken = kenteken;
 	}
 
-	public void setDatum(String datum) throws OngeldigeKlusException, ParseException {
+	public void setDatum(Calendar datum) throws OngeldigeKlusException, ParseException {
 		if (datum == null || "".equals(datum)) {
 			throw new OngeldigeKlusException("Datum mag niet leeg zijn.");
 		}
-		else if (!datum.matches(".*[0-9].*")) {
-			throw new OngeldigeKlusException("Datum mag geen letters bevatten");
-		}
-		else if (!isThisDateValid(datum, "dd/MM/yyyy")) {
-			throw new ParseException("Ongeldige datum", 0);
 
-		}
-
-		this.datum = datum;
 	}
 
 	public void setMonteur(Monteur monteur) {

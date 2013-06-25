@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Calendar;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -113,10 +114,10 @@ public class MyServletContextListener implements ServletContextListener {
 
 		// Klussen toevoegen
 		Klus kl1;
-		
 		 UUID klusID = UUID.randomUUID();
 		try {
-			kl1 = new Klus(klusID, "APK Keuring", "Alles controleren", "07-IA-21", "02/04/2013");
+			Calendar datum = Calendar.getInstance();
+			kl1 = new Klus(klusID, "APK Keuring", "Alles controleren", "07-IA-21", datum);
 			ATD.voegKlusToe(kl1);
 		} catch (OngeldigeKlusException e) {
 			e.printStackTrace();

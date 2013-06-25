@@ -3,6 +3,7 @@ package com.xtotalloss.atdweb.model;
 import java.util.ArrayList;
 
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
+import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
 
 public class Bedrijf implements java.io.Serializable {
 	private static final long serialVersionUID = -6462233708802885889L;
@@ -29,6 +30,7 @@ public class Bedrijf implements java.io.Serializable {
 	}
 
 	// Getters
+	 
 	public ArrayList<Klant> getAlleKlanten() {
 		return alleKlanten;
 	}
@@ -138,7 +140,7 @@ public class Bedrijf implements java.io.Serializable {
 
 	}
 
-	public void voegKlusToe(Klus klus) {
+	public void voegKlusToe(Klus klus) throws OngeldigeKlusException {
 		if (!alleKlussen.contains(klus)) {
 			alleKlussen.add(klus);
 			System.out.println("### Bedrijf.java -- Klus is toegevoegd " + klus.getNaam());

@@ -14,11 +14,11 @@ import com.xtotalloss.atdweb.model.Klus;
 public class KlusZoeken extends HttpServlet {
 	private static final long serialVersionUID = 6787392421160231316L;
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Bedrijf atd = (Bedrijf) req.getServletContext().getAttribute("ATDWeb_Object");
 		RequestDispatcher rd;
 
-		String gezochteKlus = req.getParameter("klusButton");
+		String gezochteKlus = req.getParameter("buttonID");
 
 		for (Klus klus : atd.alleKlussen) {
 			

@@ -39,17 +39,17 @@ public class KlusAanpassen extends HttpServlet {
 		} catch (OngeldigeKlusException e) {
 			e.printStackTrace();
 		}
-		try {
-			
-				kl.setDatum(datum);
-			
-		} catch (OngeldigeKlusException e) {
-			e.printStackTrace();
-
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+//		try {
+//			
+//				kl.setDatum(datum);
+//			
+//		} catch (OngeldigeKlusException e) {
+//			e.printStackTrace();
+//
+//		} catch (ParseException e) {
+//			
+//			e.printStackTrace();
+//		}
 		System.out.println("### KlusAanpassenServlet -- " + kl);
 
 		RequestDispatcher rd = req.getRequestDispatcher("klusoverzicht.jsp");

@@ -40,6 +40,10 @@
 		<servlet-name>KlusAanpassen</servlet-name>
 		<servlet-class>com.xtotalloss.atdweb.controller.KlusAanpassen</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>WeekAgenda</servlet-name>
+		<servlet-class>com.xtotalloss.atdweb.controller.WeekAgenda</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginController</servlet-name>
 		<url-pattern>/loginController.do</url-pattern>
@@ -95,6 +99,10 @@
 	<servlet-mapping>
 		<servlet-name>gegevensWijzigen</servlet-name>
 		<url-pattern>/gegevensWijzigen.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WeekAgenda</servlet-name>
+		<url-pattern>/WeekAgenda.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>OnderdeelToevoegenServlet</servlet-name>
