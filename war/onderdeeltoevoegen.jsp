@@ -31,7 +31,7 @@ if(null == session.getAttribute("loggedIn")){
 </div>
       
 <div id="content" class="shadow rounded">
-	<h1>Monteur Toevoegen</h1>
+	<h1>Onderdeel Toevoegen</h1>
 	<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println(msgToe); } %>
     <form method="post" action="OnderdeelToevoegenServlet.do">
           <div style="float: left; width: 220px;">   

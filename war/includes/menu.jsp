@@ -44,7 +44,6 @@
 		<ul>
 			<li><a href="factuuropmaken.jsp">Factuuropmaken</a></li>
 		</ul></li>
-		<li><a href="parkeergarageGebruiker.jsp" class="button" style="background-image: url(images/icons/parking.fw.png);">Parkeergarage</a></li>
 </ul>
 <div id="top-header-info">
 	Ingelogd als <a href="account.jsp"><%=gebruiker.getGebruikersnaam()%></a>
