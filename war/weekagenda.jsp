@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	if (null == session.getAttribute("loggedIn")) {
+	if (null == session.getAttribute("gebruikerObject")) {
 		RequestDispatcher rd = request
 				.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
@@ -35,14 +35,18 @@
 	<div id="content" class="shadow rounded">
 		<h1>Weekagenda</h1>
 		<form action="WeekAgenda.do" method="post">
-		<input type="submit" name="submitForm" value="Haal Agenda Op"></input>
+		<input class="form_submit" type="submit" name="submitForm" value="Haal Agenda Op" style="margin-bottom: 10px;"></input>
 		
 		</form>
 		<div class="table-row">
+		<b>Klussen deze week</b>
 			<c:forEach var="klus" items="${ applicationScope.WeekAgenda }">
 				<div class="table-row">
 					<div class="table-column">
 						<c:out value="${ klus.datum }" />
+					</div>
+					<div class="table-column">
+						<c:out value="${ klus.naam }" />
 					</div>
 				</div>
 			</c:forEach>

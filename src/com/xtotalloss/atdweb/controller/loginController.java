@@ -36,7 +36,6 @@ public class loginController extends HttpServlet {
 		admin = doLoginAdmin(gebruikersnaam, wachtwoord);
 
 		if (klant != null || monteur != null || admin != null) {
-			req.getSession().setAttribute("loggedIn", gebruikersnaam);
 			resp.addCookie(new Cookie("gebruikersCookie", gebruikersnaam));
 			rd = req.getRequestDispatcher("account.jsp");
 			

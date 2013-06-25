@@ -2,11 +2,12 @@ package com.xtotalloss.atdweb.tests;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.testng.annotations.BeforeClass;
+import org.junit.BeforeClass;
 
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
@@ -37,7 +38,8 @@ public class tests {
 	@Before
 	public void setup() throws Exception {
 		UUID uniuqeID = UUID.randomUUID();
-		klus = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		klus = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", datum);
 		ATD = new Bedrijf("ATDWeb", "Utrecht");
 		alleKlanten = new ArrayList<Klant>();
 		bestaandeKlant = new Klant("admin", "adminweg 92", "admin", "admin123", "ATDWeb@gmail.com", "1234567");
@@ -52,32 +54,38 @@ public class tests {
 	// Klus toevoegen
 	@Test(expected = OngeldigeKlusException.class)
 	public void testKlusToevoegenGeenNaam() throws OngeldigeKlusException {
-		Klus geenNaam = new Klus(uniqueID, "", "Bandenspanning opmeten", "93-IA-OI", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		Klus geenNaam = new Klus(uniqueID, "", "Bandenspanning opmeten", "93-IA-OI", datum);
 	}
 
 	@Test(expected = OngeldigeKlusException.class)
 	public void testKlusToevoegenGeenWerkzaamheden() throws OngeldigeKlusException {
-		Klus geenWerkzaamheden = new Klus(uniqueID, "APK Keuring", "", "93-IA-OI", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		Klus geenWerkzaamheden = new Klus(uniqueID, "APK Keuring", "", "93-IA-OI", datum);
 	}
 
 	@Test(expected = OngeldigeKlusException.class)
 	public void testKlusToevoegenGeenKenteken() throws OngeldigeKlusException {
-		Klus geenKenteken = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		Klus geenKenteken = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "", datum);
 	}
 
 	@Test(expected = OngeldigeKlusException.class)
 	public void testKlusToevoegenGeenDatum() throws OngeldigeKlusException {
-		Klus geenDatum = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", "");
+		Calendar datum = Calendar.getInstance();
+		Klus geenDatum = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", null);
 	}
 
 	@Test(expected = OngeldigeKlusException.class)
 	public void testKlusToevoegenNaamMetCijfer() throws OngeldigeKlusException {
-		Klus cijferInNaam = new Klus(uniqueID, "APK Keuring2", "Bandenspanning opmeten", "93-IA-OI", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		Klus cijferInNaam = new Klus(uniqueID, "APK Keuring2", "Bandenspanning opmeten", "93-IA-OI", datum);
 	}
 
 	@Test
 	public void testKlusToevoegenGeenException() throws OngeldigeKlusException {
-		Klus allesGoed = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", "01-12-13");
+		Calendar datum = Calendar.getInstance();
+		Klus allesGoed = new Klus(uniqueID, "APK Keuring", "Bandenspanning opmeten", "93-IA-OI", datum);
 	}
 
 	// Klus aanpassen
@@ -104,7 +112,7 @@ public class tests {
 
 	@Test(expected = ParseException.class)
 	public void testKlusAanpassenOngeldigeDatum() throws ParseException, OngeldigeKlusException {
-		klus.setDatum("01-01-2012");
+//		klus.setDatum(datum);
 	}
 
 	@Test
@@ -112,7 +120,7 @@ public class tests {
 		klus.setNaam("Nieuwe APK Keuring");
 		klus.setWerkzaamheden("Bandenspanning opmeten en ruitewisser vervangen");
 		klus.setKenteken("93-IA-OI");
-		klus.setDatum("01/12/2013");
+//		klus.setDatum("01/12/2013");
 	}
 
 	// Registreren

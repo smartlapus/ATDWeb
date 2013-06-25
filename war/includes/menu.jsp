@@ -38,6 +38,7 @@
 		</ul></li>
 		<li><a href="#" class="button" style="background-image: url(images/icons/truck.fw.png);">Voorraad</a>
 		<ul>
+			<li><a href="onderdeelzoeken.jsp">Overzicht</a></li>
 			<li><a href="onderdeeltoevoegen.jsp">Toevoegen</a></li>
 		</ul></li>
 		<li><a href="#" class="button" style="background-image: url(images/icons/balance.fw.png);">Financieel</a>

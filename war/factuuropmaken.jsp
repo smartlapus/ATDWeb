@@ -1,6 +1,6 @@
 
 <%
-if(null == session.getAttribute("loggedIn")){
+if(null == session.getAttribute("gebruikerObject")){
 	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 	rd.forward(request, response);
 	return;

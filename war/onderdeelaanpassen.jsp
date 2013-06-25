@@ -1,10 +1,10 @@
 
 <%
-	//if (null == session.getAttribute("loggedIn")) {
-	//	RequestDispatcher rd = request
-	//			.getRequestDispatcher("index.jsp");
-	//	rd.forward(request, response);
-	//}
+	if (null == session.getAttribute("gebruikerObject")) {
+		RequestDispatcher rd = request
+				.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
