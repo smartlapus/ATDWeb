@@ -48,18 +48,20 @@
 					<div class="table-column">
 						<b>Email</b>
 					</div>
-					<div class="table-column"></div>
+					
 				</div>
 			
-			<div class="table-row">
+			
 				<c:forEach var="klant" items="${ applicationScope.ATDWeb_Object.alleKlanten }">
+				<div class="table-row">
 				<div class="table-column">${ klant.naam }</div>
 				<div class="table-column">${ klant.adres }</div>
 				<div class="table-column">${ klant.telefoonnummer }</div>
 				<div class="table-column">${ klant.email }</div>
-					</c:forEach>
-
-			</div>
+				
+				</div>
+				</c:forEach>
+		
 		</div>
 
 
