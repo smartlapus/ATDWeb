@@ -169,6 +169,20 @@ public class Klus implements Serializable {
 		}
 
 	}
+	
+	public void pasDatumAan(int dag, int maand, int jaar) throws OngeldigeKlusException{
+		if ("".equals(dag)) {
+			throw new OngeldigeKlusException("Datum mag niet leeg zijn.");
+		}
+		if ("".equals(maand)) {
+			throw new OngeldigeKlusException("Datum mag niet leeg zijn.");
+		}
+		if ("".equals(jaar)) {
+			throw new OngeldigeKlusException("Datum mag niet leeg zijn.");
+		}
+		
+		datum.set(jaar, maand - 1, dag);
+	}
 
 	public void setMonteur(Monteur monteur) {
 		this.monteur = monteur;
@@ -176,13 +190,13 @@ public class Klus implements Serializable {
 
 	// ToString
 	public String toString() {
-		String s = naam + ": " + werkzaamheden + " (" + datum + ")";
+		String s = naam + ": " + werkzaamheden ;
 		return s;
 
 	}
 
 	public String toStringAlleGegevens() {
-		String aG = naam + ". \n " + werkzaamheden + ". \n " + kenteken + ". \n " + datum;
+		String aG = naam + ". \n " + werkzaamheden + ". \n " + kenteken + ". \n " ;
 		return aG;
 	}
 

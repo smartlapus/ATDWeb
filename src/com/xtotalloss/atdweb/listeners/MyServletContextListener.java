@@ -94,7 +94,6 @@ public class MyServletContextListener implements ServletContextListener {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(ATD);
 			oos.close();
-			System.out.println("DEBUUUUUUG  " + ATD.alleAdmins);
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}

@@ -58,7 +58,6 @@ public class klusInplannen extends HttpServlet {
 		
 		
 
-		System.out.println("### klusInplannen.java -- DEBUG: IN IF");
 		System.out.println("### klusInplannen.java -- " + ATD.alleKlussen);
 		rd = req.getRequestDispatcher("klusinplannen.jsp");
 		rd.forward(req, resp);

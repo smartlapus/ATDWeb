@@ -1,13 +1,14 @@
 package com.xtotalloss.atdweb.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.ParseException;
 
 import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
 import com.xtotalloss.atdweb.model.Bedrijf;
@@ -21,7 +22,13 @@ public class KlusAanpassen extends HttpServlet {
 		String naam = req.getParameter("naam");
 		String werkzaamheden = req.getParameter("werkzaamheden");
 		String kenteken = req.getParameter("kenteken");
-		String datum = req.getParameter("datum");
+		
+		Calendar datum = Calendar.getInstance();
+		int dag = Integer.parseInt(req.getParameter("dag"));
+		int maand = Integer.parseInt(req.getParameter("maand"));
+		int jaar = Integer.parseInt(req.getParameter("jaar"));
+		
+		datum.set(jaar, maand - 1, dag);
 
 		Klus kl = (Klus) getServletContext().getAttribute("klusaanpassen");
 		RequestDispatcher rd = req.getRequestDispatcher("klusoverzicht.jsp");
@@ -40,6 +47,12 @@ public class KlusAanpassen extends HttpServlet {
 		try {
 			kl.setKenteken(kenteken);
 		} catch (OngeldigeKlusException e) {
+			req.setAttribute("msgKlus", e.getMessage());
+			rd = req.getRequestDispatcher("klusaanpassen.jsp");
+		}
+		try{
+			kl.pasDatumAan(dag, maand, jaar);
+		}catch(OngeldigeKlusException  e){
 			req.setAttribute("msgKlus", e.getMessage());
 			rd = req.getRequestDispatcher("klusaanpassen.jsp");
 		}

@@ -42,10 +42,17 @@
 				<input class="form_input" type="text" name="naam" id="naam" value="<%out.println(kl.getNaam());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="text" name="werkzaamheden" id="werkzaamheden" value="<%out.println(kl.getWerkzaamheden());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
                 <input class="form_input" type="text" name="kenteken" id="kenteken" value="<%out.println(kl.getKenteken());%>" onblur="onBlur(this)" onfocus="onFocus(this)" />
-				<input class="form_input" type="text" name="datum" id="datum" value="<%out.println(kl.getDatum());%>" onblur="onBlur(this)" onfocus="onFocus(this)" readonly />
-				 <input class="form_submit" type="submit" name="submit" id="submit" value="Pas aan" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				<input class="form_datum" type="text" name="dag" id="dag" value="<%out.println(kl.getDag());%>" />
+               <input class="form_datum" type="text" name="maand" id="maand" value="<%out.println(kl.getMaand());%>" />
+               <input class="form_datum" type="text" name="jaar" id="jaar" value="<%out.println(kl.getJaar());%>" />
+			 <input class="form_submit" type="submit" name="submit" id="submit" value="Pas aan" onblur="onBlur(this)" onfocus="onFocus(this)" />
 				</div>
         </form>
-   </div>
+        <form action="KlusVerwijderen.do" method="post" >
+				 <input class="form_submit" type="submit" name="submit" id="submit" value="Verwijder klus" onblur="onBlur(this)" onfocus="onFocus(this)" />
+				
+        </form>
+        </div>
+  
 </body>
 </html>

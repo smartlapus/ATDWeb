@@ -35,6 +35,10 @@ public class Admin implements Serializable{
 		this.naam = naam;
 	}
 	
+	public String toString(){
+		return gebruikersnaam;
+	}
+	
 	// Equals overriden
 	public boolean equals(Object andere) {
 		boolean b;
