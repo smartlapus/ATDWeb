@@ -41,7 +41,7 @@ if(null == session.getAttribute("gebruikerObject")){
                <input class="form_input" type="text" name="kent" id="kent" placeholder="Kenteken van auto..."/>                 
                <input class="form_datum" type="text" name="dag" id="dag" placeholder="Dag..."/> 
                <input class="form_datum" type="text" name="maand" id="maand" placeholder="Maand..."/> 
-               <input class="form_datum" type="text" name="jaar" id="dag" placeholder="Jaar..." /> 
+               <input class="form_datum" type="text" name="jaar" id="jaar" placeholder="Jaar..." /> 
 		 	  <input class="form_submit" type="submit" name="submit" id="submit" value="Klus toevoegen" />
               </div>  	
 	 	 </form>

@@ -15,6 +15,8 @@ import javax.servlet.ServletContextListener;
 
 import com.xtotalloss.atdweb.exceptions.InvalidUserException;
 import com.xtotalloss.atdweb.exceptions.OngeldigeKlusException;
+import com.xtotalloss.atdweb.exceptions.OngeldigeMonteurException;
+import com.xtotalloss.atdweb.exceptions.OngeldigeParkeergarageException;
 import com.xtotalloss.atdweb.model.Admin;
 import com.xtotalloss.atdweb.model.Bedrijf;
 import com.xtotalloss.atdweb.model.Klant;
@@ -37,7 +39,12 @@ public class MyServletContextListener implements ServletContextListener {
 		context = sce.getServletContext();
 		savePath_Bedrijf = new File(context.getRealPath("/../" + "ATD_Bedrijf.obj"));
 
-		parkeerGarage = new ParkeerGarage(50);
+		try {
+			parkeerGarage = new ParkeerGarage(50);
+		} catch (OngeldigeParkeergarageException e1) {
+			
+			e1.printStackTrace();
+		}
 
 		
 
@@ -51,7 +58,12 @@ public class MyServletContextListener implements ServletContextListener {
 		}
 		
 		if (ATD == null) {
-			ATD = createNewATD();
+			try {
+				ATD = createNewATD();
+			} catch (OngeldigeMonteurException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("### MyServletContextListener -- New Bedrijf Added " + ATD);
 		}
 		
@@ -88,7 +100,7 @@ public class MyServletContextListener implements ServletContextListener {
 		}
 	}
 
-	public Bedrijf createNewATD() {
+	public Bedrijf createNewATD() throws OngeldigeMonteurException {
 		ATD = new Bedrijf("ATDWeb", "Utrecht");
 		// Klanten toevoegen
 		Klant k1 = null;

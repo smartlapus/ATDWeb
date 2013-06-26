@@ -1,6 +1,6 @@
 <%@ page import="com.xtotalloss.atdweb.model.ParkeerGarage"%>
 <%
-	if (null == session.getAttribute("gebruikerObject")) {
+	if (null == session.getAttribute("loggedIn")) {
 		RequestDispatcher rd = request
 				.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
@@ -36,11 +36,10 @@
 	<div id="content" class="shadow rounded">
 		<h1>Parkeergarage</h1>
 		<% Object msgPg = request.getAttribute("msgPg"); if (msgPg != null) { out.println(msgPg); } %>
-		<% Object msgPgFail = request.getAttribute("msgPgFail"); if (msgPgFail != null) { out.println("<div class='nosucces'>" + msgPgFail + "</div>"); } %>
-		
+		<% Object msgPgFail = request.getAttribute("msgPgFail"); if (msgPgFail != null) { out.println(msgPgFail); } %>
 		Welkom bij de parkeergarage van ATD. De garage is 24/7 open en heeft ruimte voor <%= pg.getAantalPlaatsen()%> auto's. Hier kunt u een parkeerplaats gemakkelijk en snel reserveren. De reservering wordt opgeslagen op uw account.
 		
-	    <br /><br />
+	    <br />
 	    <div class="row">
 	        <div class="column-first">Plaatsen beschikbaar</div><div class="column-second"><%=pg.getAantalPlaatsenBeschikbaar()%></div>
 	    </div><br />

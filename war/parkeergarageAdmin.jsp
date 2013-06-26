@@ -42,6 +42,7 @@
 	<div id="content" class="shadow rounded">
 		<h1>Parkeergarage</h1>
 		<% Object msgPg = request.getAttribute("msgPg"); if (msgPg != null) { out.println(msgPg); } %>
+		<% Object msgPgFail = request.getAttribute("msgPgFail"); if (msgPgFail != null) { out.println(msgPgFail); } %>
 		Welkom bij de parkeergarage van ATD.
 		
 	    <br /><br />

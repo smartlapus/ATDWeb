@@ -54,6 +54,7 @@ public class Klus implements Serializable {
 			OngeldigeKlusException errorMessage = new OngeldigeKlusException("Naam mag niet uit cijfers bestaan.");
 			errorMessagesList.add(errorMessage);
 		}
+		
 		if (errorMessagesList.size() > 0) {
 			String errorMessage = "";
 			for (OngeldigeKlusException IUE : errorMessagesList) {
@@ -141,6 +142,9 @@ public class Klus implements Serializable {
 	public void setNaam(String naam) throws OngeldigeKlusException {
 		if (naam == null || "".equals(naam)) {
 			throw new OngeldigeKlusException("Naam mag niet leeg zijn.");
+		}
+		if(naam.matches(".*[0-9].*")){
+			throw new OngeldigeKlusException("Naam mag geen cijfers bevatten.");
 		}
 		this.naam = naam;
 	}

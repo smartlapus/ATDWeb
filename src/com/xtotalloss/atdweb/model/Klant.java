@@ -21,7 +21,7 @@ public class Klant implements java.io.Serializable {
 		errorMessagesList = new ArrayList<InvalidUserException>();
 
 		if (nm == null || "".equals(nm)) {
-			InvalidUserException errorMessage = new InvalidUserException("Gebruikersnaam mag niet leeg zijn.");
+			InvalidUserException errorMessage = new InvalidUserException("Naam mag niet leeg zijn.");
 			errorMessagesList.add(errorMessage);
 		}
 		if (adr == null || "".equals(adr)) {

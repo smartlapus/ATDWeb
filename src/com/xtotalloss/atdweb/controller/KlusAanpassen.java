@@ -24,35 +24,28 @@ public class KlusAanpassen extends HttpServlet {
 		String datum = req.getParameter("datum");
 
 		Klus kl = (Klus) getServletContext().getAttribute("klusaanpassen");
+		RequestDispatcher rd = req.getRequestDispatcher("klusoverzicht.jsp");
 		try {
 			kl.setNaam(naam);
 		} catch (OngeldigeKlusException e) {
-			e.printStackTrace();
+			req.setAttribute("msgKlus", e.getMessage());
+			rd = req.getRequestDispatcher("klusaanpassen.jsp");
 		}
 		try {
 			kl.setWerkzaamheden(werkzaamheden);
 		} catch (OngeldigeKlusException e) {
-			e.printStackTrace();
+			req.setAttribute("msgKlus", e.getMessage());
+			rd = req.getRequestDispatcher("klusaanpassen.jsp");
 		}
 		try {
 			kl.setKenteken(kenteken);
 		} catch (OngeldigeKlusException e) {
-			e.printStackTrace();
+			req.setAttribute("msgKlus", e.getMessage());
+			rd = req.getRequestDispatcher("klusaanpassen.jsp");
 		}
-//		try {
-//			
-//				kl.setDatum(datum);
-//			
-//		} catch (OngeldigeKlusException e) {
-//			e.printStackTrace();
-//
-//		} catch (ParseException e) {
-//			
-//			e.printStackTrace();
-//		}
 		System.out.println("### KlusAanpassenServlet -- " + kl);
 
-		RequestDispatcher rd = req.getRequestDispatcher("klusoverzicht.jsp");
+		req.setAttribute("msgKlusSuccess", "Klus succesvol aangepast");
 		rd.forward(req, resp);
 	}
 }

@@ -34,7 +34,9 @@ public class klusInplannen extends HttpServlet {
 		Klus kl = null;
 
 		try {
-			
+			if("".equals(Integer.toString(dag))){
+				OngeldigeKlusException newError = new OngeldigeKlusException("Dag mag niet leeg zijn");
+			}
 			dag = Integer.parseInt(req.getParameter("dag"));
 			maand = Integer.parseInt(req.getParameter("maand"));
 			jaar = Integer.parseInt(req.getParameter("jaar"));
@@ -44,11 +46,17 @@ public class klusInplannen extends HttpServlet {
 			ATD.voegKlusToe(kl);
 			req.setAttribute("msgKlusSucces", "<div class='succes'>Klus " + kl.getNaam() + " met werkzaamheden " + kl.getWerkzaamheden() + " is toegevoegd.</div>");
 			System.out.println("### klusInplannen.java -- Klus succesfully added");
-		} catch (NumberFormatException | OngeldigeKlusException Exception) {
-			req.setAttribute("msgKlus", "Ongeldige datum");
+		} catch (OngeldigeKlusException  Exception) {
+			req.setAttribute("msgKlus", Exception.getMessage());
 			rd = req.getRequestDispatcher("klusinplannen.jsp");
 	
 		}
+		catch(NumberFormatException NFE){
+			req.setAttribute("msgKlus", "Fout in de invoer");
+			rd = req.getRequestDispatcher("klusinplannen.jsp");			
+		}
+		
+		
 
 		System.out.println("### klusInplannen.java -- DEBUG: IN IF");
 		System.out.println("### klusInplannen.java -- " + ATD.alleKlussen);

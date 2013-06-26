@@ -34,7 +34,7 @@
 
 	<div id="content" class="shadow rounded">
 		<h1>Monteur Overzicht</h1>
-		
+		<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println("<div class=\"succes\">" + msgToe + "</div>"); } %>
 		<form action="MonteurZoekenServlet.do" method="get" >
 			 <div style="float: center; width: 220px;">  
 				<select name="dropdown">

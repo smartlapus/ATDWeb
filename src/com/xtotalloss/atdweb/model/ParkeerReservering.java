@@ -2,12 +2,17 @@ package com.xtotalloss.atdweb.model;
 
 import java.util.Calendar;
 
+import com.xtotalloss.atdweb.exceptions.OngeldigeParkeergarageException;
+
 public class ParkeerReservering {
 	private Klant deReserveerder;
 	private Calendar datum = Calendar.getInstance();
 	private String reserveerDatum;
 	
-	public ParkeerReservering(Klant k) {
+	public ParkeerReservering(Klant k) throws OngeldigeParkeergarageException {
+		if(k == null || "".equals(k)){
+			throw new OngeldigeParkeergarageException("Reserveerder van parkeerplekt mag niet null zijn");
+		}
 		deReserveerder = k;
 		reserveerDatum = getDatum();
 	}

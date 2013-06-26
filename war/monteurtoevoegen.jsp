@@ -32,7 +32,7 @@ if(null == session.getAttribute("gebruikerObject")){
       
 <div id="content" class="shadow rounded">
 	<h1>Monteur Toevoegen</h1>
-	<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println(msgToe); } %>
+	<% Object msgToe = request.getAttribute("msgToe"); if (msgToe != null) { out.println("<div class=\"nosucces\">" + msgToe + "</div>"); } %>
     <form method="post" action="MonteurToevoegen.do">
           <div style="float: left; width: 220px;">   
                 <input class="form_input" type="text" name="voornaam" id="voornaam" placeholder="Voornaam" onblur="onBlur(this)" onfocus="onFocus(this)" />

@@ -37,7 +37,7 @@
 
 		<%@ page import="java.util.ArrayList"%>
 		<%@ page import="com.xtotalloss.atdweb.model.Klus"%>
-
+<% Object msgReg = request.getAttribute("msgKlusSuccess"); if (msgReg != null) { out.println("<div class=\"succes\">" + msgReg+ "</div>"); } %>
 		<div id="table">
 			<div class="table-row">
 				<div class="table-column">
@@ -54,6 +54,8 @@
 				</div>
 				<div class="table-column"></div>
 			</div>
+
+
 
 
 
